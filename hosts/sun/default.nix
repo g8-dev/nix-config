@@ -19,7 +19,7 @@
     ./selfhost-services/seafile.nix
     ./selfhost-services/vikunja.nix
     ./selfhost-services/vaultwarden.nix
-    ./selfhost-services/postiz.nix
+    #   ./selfhost-services/postiz.nix
 
     #/server    ./jackett.nix
     #/server    ./sonarr.nix

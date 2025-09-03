@@ -4,7 +4,7 @@
     browser = { enable = true; };
     extraEnvironment = {
       PORT = "9109";
-      DISABLE_SIGNUPS = "false";
+      DISABLE_SIGNUPS = "true";
       DISABLE_NEW_RELEASE_CHECK = "true";
     };
 

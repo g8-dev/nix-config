@@ -3,6 +3,7 @@
     enable = true;
     port = 9112;
     frontendScheme = "http";
-    frontendHostname = "sun.mau-becrux.ts.net";
+    frontendHostname = "vikunja.guifuentes8.com.br";
+    settings = { service.enableregistration = false; };
   };
 }

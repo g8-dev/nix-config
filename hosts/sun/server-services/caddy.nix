@@ -1,119 +1,138 @@
 { config, ... }:
 let
-  domain = "sun.mau-becrux.ts.net";
+  domain = "guifuentes8.com.br";
   localDomain = "127.0.0.1";
   caddyConfig = ''
     encode gzip zstd 
   '';
 in {
-  services.caddy = {
-    enable = true;
-    extraConfig = "";
-    virtualHosts = {
-      "${domain}" = { # homer
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy  ${localDomain}:9000  
-        '';
-      };
+  services = {
+    caddy = {
+      enable = true;
+      extraConfig = "";
+      virtualHosts = {
+        "${domain}" = { # homer
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy  ${localDomain}:9000  
+          '';
+        };
 
-      "${domain}:9001" = { # seafile
-        extraConfig = ''
-          ${caddyConfig}
-          handle /seafhttp* {
-            uri strip_prefix seafhttp
-            reverse_proxy ${localDomain}:9100
-          }
+        "seafile.${domain}" = { # seafile
+          extraConfig = ''
+            ${caddyConfig}
+              reverse_proxy ${localDomain}:9101
+          '';
+        };
 
-          handle {
-            reverse_proxy ${localDomain}:9101
-          }
-        '';
-      };
-      "${domain}:9002" = { # immich
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy ${localDomain}:9102
-        '';
-      };
-      "${domain}:9003" = { # radicale
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy ${localDomain}:9103
-        '';
-      };
-      "${domain}:9004" = { # navidrome
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy ${localDomain}:9104
-        '';
-      };
-      "${domain}:9005" = { # audiobookshelf
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy ${localDomain}:9105
-        '';
-      };
+        "immich.${domain}" = { # immich
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9102
+          '';
+        };
+        "radicale.${domain}" = { # radicale
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9103
+          '';
+        };
+        "navidrome.${domain}" = { # navidrome
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9104
+          '';
+        };
+        "audiobookshelf.${domain}" = { # audiobookshelf
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9105
+          '';
+        };
 
-      "${domain}:9006" = { # flatnotes
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy ${localDomain}:9106
-        '';
-      };
-      "${domain}:9007" = { # convertx
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy ${localDomain}:9107
-        '';
-      };
-      "${domain}:9008" = { # metube
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy ${localDomain}:9108
-        '';
-      };
+        "flatnotes.${domain}" = { # flatnotes
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9106
+          '';
+        };
+        "convertx.${domain}" = { # convertx
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9107
+          '';
+        };
+        "metube.${domain}" = { # metube
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9108
+          '';
+        };
 
-      "${domain}:9009" = { # karakeep
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy ${localDomain}:9109
-        '';
-      };
+        "karakeep.${domain}" = { # karakeep
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9109
+          '';
+        };
 
-      "${domain}:9010" = { # vaultwarden
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy ${localDomain}:9110
-        '';
-      };
-      "${domain}:9011" = { # vscode
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy ${localDomain}:9111
-        '';
-      };
+        "vaultwarden.${domain}" = { # vaultwarden
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9110
+          '';
+        };
+        "vscode.${domain}" = { # vscode
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9111
+          '';
+        };
 
-      "${domain}:9012" = { # vikunja
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy ${localDomain}:9112
-        '';
-      };
+        "vikunja.${domain}" = { # vikunja
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9112
+          '';
+        };
 
-      "${domain}:9013" = { # excalidraw
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy ${localDomain}:9113
-        '';
+        "excalidraw.${domain}" = { # excalidraw
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9113
+          '';
+        };
       };
-      "postiz.larquim.com.br" = { # postiz
-        extraConfig = ''
-          ${caddyConfig}
-          reverse_proxy localhost:5000
-        '';
-      };
+    };
 
+    cloudflared.tunnels = {
+      "207e94f5-b501-430a-837d-1dec128c2139" = {
+        credentialsFile =
+          "${config.users.users.g8.home}/.cloudflared/207e94f5-b501-430a-837d-1dec128c2139.json";
+
+        ingress = {
+          "${domain}" = { service = "http://${localDomain}:9000"; };
+          "seafserver.${domain}" = { service = "http://${localDomain}:9100"; };
+          "seafile.${domain}" = { service = "http://${localDomain}:9101"; };
+          "immich.${domain}" = { service = "http://${localDomain}:9102"; };
+          "radicale.${domain}" = { service = "http://${localDomain}:9103"; };
+          "navidrome.${domain}" = { service = "http://${localDomain}:9104"; };
+          "audiobookshelf.${domain}" = {
+            service = "http://${localDomain}:9105";
+          };
+          "flatnotes.${domain}" = { service = "http://${localDomain}:9106"; };
+          "convertx.${domain}" = { service = "http://${localDomain}:9107"; };
+          "metube.${domain}" = { service = "http://${localDomain}:9108"; };
+          "karakeep.${domain}" = { service = "http://${localDomain}:9109"; };
+          "vaultwarden.${domain}" = { service = "http://${localDomain}:9110"; };
+          "vscode.${domain}" = { service = "http://${localDomain}:9111"; };
+          "vikunja.${domain}" = { service = "http://${localDomain}:9112"; };
+          "excalidraw.${domain}" = { service = "http://${localDomain}:9113"; };
+        };
+
+        default = "http_status:404";
+      };
     };
   };
+
 }
