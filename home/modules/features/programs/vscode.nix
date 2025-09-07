@@ -24,6 +24,9 @@ in {
         enkia.tokyo-night
         pkief.material-icon-theme
 
+        # git
+        donjayamanne.githistory
+        eamodio.gitlens
         # lint
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
