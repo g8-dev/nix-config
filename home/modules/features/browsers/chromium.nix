@@ -13,7 +13,6 @@
       { id = "aapbdbdomjkkjkaonfhkkikfgjllcleb"; } # googleTranslate
       { id = "fnaicdffflnofjppbagibeoednhnbjhg"; } # floccus bookmarks
       { id = "bkdgflcldnnnapblkhphbgpggdiikppg"; } # duckduckgo
-      { id = "dlcadbmcfambdjhecipbnolmjchgnode"; } # everforest theme
       { id = "gighmmpiobklfepjocnamgkkbiglidom"; } # adblock
     ];
   };

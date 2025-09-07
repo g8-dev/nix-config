@@ -30,12 +30,9 @@ in {
     enable = true;
     package = pkgs.neovim-unwrapped;
     colorschemes = {
-      tokyonight = {
+      ayu = {
         enable = true;
-        settings = {
-          style = "moon";
-          transparent = true;
-        };
+        settings = { mirage = true; };
       };
     };
     extraLuaPackages = luaPkgs:
