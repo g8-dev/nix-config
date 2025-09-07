@@ -20,8 +20,7 @@ in {
       enableUpdateCheck = false;
       extensions = with pkgs.unstable.vscode-extensions; [
         # theme
-        tokyonight-moon
-        enkia.tokyo-night
+        teabyii.ayu
         pkief.material-icon-theme
 
         # lint
@@ -32,7 +31,6 @@ in {
         bradlc.vscode-tailwindcss
         naumovs.color-highlight
         jnoortheen.nix-ide
-        # github.copilot
 
       ];
       keybindings = [ ];
@@ -80,7 +78,7 @@ in {
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
 
-        "workbench.colorTheme" = "Tokyo Night Moon NVim";
+        "workbench.colorTheme" = "Ayu Mirage Bordered";
         "workbench.iconTheme" = "material-icon-theme";
         "workbench.startupEditor" = "newUntiledFile";
         "workbench.editor.labelFormat" = "short";

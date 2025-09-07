@@ -11,7 +11,7 @@
       name = "${config.home.username}";
       settings = {
         "extensions.autoDisableScopes" = 0;
-        "browser.startup.homepage" = "https://sun.mau-becrux.ts.net";
+        "browser.startup.homepage" = "https://guifuentes8.com.br";
       };
 
       #  extensions.packages = with pkgs.inputs.firefox-addons; [
