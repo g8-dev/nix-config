@@ -15,6 +15,7 @@
     ./selfhost-services/navidrome.nix
 
     ./selfhost-services/audiobookshelf.nix
+    ./selfhost-services/gitea.nix
     ./selfhost-services/radicale.nix
     ./selfhost-services/seafile.nix
     ./selfhost-services/vikunja.nix

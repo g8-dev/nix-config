@@ -102,6 +102,18 @@ in {
             reverse_proxy ${localDomain}:9113
           '';
         };
+        "gitea.${domain}" = { # gitea
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9114
+          '';
+        };
+        "onlyoffice.${domain}" = { # onlyoffice
+          extraConfig = ''
+            ${caddyConfig}
+            reverse_proxy ${localDomain}:9115
+          '';
+        };
       };
     };
 
