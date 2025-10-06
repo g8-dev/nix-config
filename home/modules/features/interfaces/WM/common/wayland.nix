@@ -16,7 +16,6 @@
     rofi-rbw-wayland
   ];
 
-  programs.rofi.package = pkgs.unstable.rofi-wayland;
   programs.mpv.config.gpu-context = "wayland";
   programs.zsh.sessionVariables = { KITTY_ENABLE_WAYLAND = 1; };
 

@@ -2,7 +2,8 @@
 let
   cursorName = "phinger-cursors-dark";
   cursorPkg = pkgs.unstable.phinger-cursors;
-  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
+  base16SchemeDefault =
+    "${pkgs.unstable.base16-schemes}/share/themes/ayu-dark.yaml";
 in {
 
   stylix = {
@@ -24,7 +25,7 @@ in {
     };
     opacity = {
       applications = 1.0;
-      terminal = 0.85;
+      terminal = 0.95;
       desktop = 1.0;
     };
     targets = {

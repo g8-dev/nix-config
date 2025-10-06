@@ -19,7 +19,6 @@
     flameshot
     fontpreview
     gimp
-    harmony-music
     onlyoffice-bin
     pavucontrol
 

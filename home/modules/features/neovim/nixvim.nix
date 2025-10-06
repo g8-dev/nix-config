@@ -32,7 +32,7 @@ in {
     colorschemes = {
       ayu = {
         enable = true;
-        settings = { mirage = true; };
+        #    settings = { mirage = true; };
       };
     };
     extraLuaPackages = luaPkgs:

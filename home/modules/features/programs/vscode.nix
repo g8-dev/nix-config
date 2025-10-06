@@ -2,12 +2,12 @@
 let
   inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
 
-  tokyonight-moon = buildVscodeMarketplaceExtension {
+  bamboo = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "tokyo-night-moon-nvim-theme";
-      publisher = "matyaszednicek";
-      version = "0.0.4";
-      sha256 = "sha256-A5VIU8HB+9/PFE7+TybiSUqYd6iVmOuejkOHZAIeZmU=";
+      name = "bamboo-nvim";
+      publisher = "RileyBruins";
+      version = "0.0.1";
+      sha256 = "sha256-i2SXWgwR1G9nhqf/CqPBs3Q08RbygIPCyzCzA3uGPNo=";
     };
   };
 
@@ -81,7 +81,7 @@ in {
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
 
-        "workbench.colorTheme" = "Ayu Mirage Bordered";
+        "workbench.colorTheme" = "Ayu Dark Bordered";
         "workbench.iconTheme" = "material-icon-theme";
         "workbench.startupEditor" = "newUntiledFile";
         "workbench.editor.labelFormat" = "short";
