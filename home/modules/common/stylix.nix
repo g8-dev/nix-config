@@ -3,9 +3,8 @@ let
   cursorName = "phinger-cursors-dark";
   cursorPkg = pkgs.unstable.phinger-cursors;
   base16SchemeDefault =
-    "${pkgs.unstable.base16-schemes}/share/themes/ayu-dark.yaml";
+    "${pkgs.unstable.base16-schemes}/share/themes/everforest-dark-hard.yaml";
 in {
-
   stylix = {
     enable = true;
     autoEnable = false;

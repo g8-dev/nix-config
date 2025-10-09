@@ -38,7 +38,7 @@
       "bitwarden"
       "caffeine"
       "discord"
-      "docker"
+      "docker-desktop"
       "dbeaver-community"
       "gimp"
       "microsoft-teams"

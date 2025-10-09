@@ -2,12 +2,12 @@
 let
   inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
 
-  bamboo = buildVscodeMarketplaceExtension {
+  everforest = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "bamboo-nvim";
-      publisher = "RileyBruins";
-      version = "0.0.1";
-      sha256 = "sha256-i2SXWgwR1G9nhqf/CqPBs3Q08RbygIPCyzCzA3uGPNo=";
+      name = "everforest";
+      publisher = "sainnhe";
+      version = "0.3.0";
+      sha256 = "sha256-nZirzVvM160ZTpBLTimL2X35sIGy5j2LQOok7a2Yc7U=";
     };
   };
 
@@ -20,9 +20,8 @@ in {
       enableUpdateCheck = false;
       extensions = with pkgs.unstable.vscode-extensions; [
         # theme
-        teabyii.ayu
+        everforest
         pkief.material-icon-theme
-
         # git
         donjayamanne.githistory
         eamodio.gitlens
@@ -81,7 +80,7 @@ in {
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
 
-        "workbench.colorTheme" = "Ayu Dark Bordered";
+        "workbench.colorTheme" = "Everforest Dark";
         "workbench.iconTheme" = "material-icon-theme";
         "workbench.startupEditor" = "newUntiledFile";
         "workbench.editor.labelFormat" = "short";
