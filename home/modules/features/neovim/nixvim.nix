@@ -30,13 +30,9 @@ in {
     enable = true;
     package = pkgs.neovim-unwrapped;
     colorschemes = {
-      everforest = {
+      tokyonight = {
         enable = true;
-        settings = {
-          background = "hard";
-          dim_inactive_windows = 1;
-          enable_italic = 1;
-        };
+        settings = { style = "moon"; };
       };
     };
     extraLuaPackages = luaPkgs:

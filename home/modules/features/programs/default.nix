@@ -16,6 +16,7 @@
 
     # programs
     discord
+    evolution
     flameshot
     fontpreview
     gimp

@@ -2,12 +2,12 @@
 let
   inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
 
-  everforest = buildVscodeMarketplaceExtension {
+  moon = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "everforest";
-      publisher = "sainnhe";
-      version = "0.3.0";
-      sha256 = "sha256-nZirzVvM160ZTpBLTimL2X35sIGy5j2LQOok7a2Yc7U=";
+      name = "tokyo-night-moon";
+      publisher = "PatrickNasralla";
+      version = "1.1.4";
+      sha256 = "sha256-8rUbsDCk7JHSN4vn+TNTmIrx8ma53hH/1x0trqDwU7Y=";
     };
   };
 
@@ -20,7 +20,7 @@ in {
       enableUpdateCheck = false;
       extensions = with pkgs.unstable.vscode-extensions; [
         # theme
-        everforest
+        moon
         pkief.material-icon-theme
         # git
         donjayamanne.githistory
