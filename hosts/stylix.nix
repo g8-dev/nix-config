@@ -6,7 +6,7 @@ let
 
 in {
 
-  imports = [ ../home/modules/custom/base16/tokyo-night-moon.nix ];
+  imports = [ ../home/modules/common/custom/base16/tokyo-night-moon.nix ];
   stylix = {
     enable = true;
     image = ../home/modules/common/extras/eevee.png;
