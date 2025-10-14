@@ -80,9 +80,9 @@ in {
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
 
-        "workbench.colorTheme" = "Everforest Dark";
+        "workbench.colorTheme" = "Tokyo Night Moon";
         "workbench.iconTheme" = "material-icon-theme";
-        "workbench.startupEditor" = "newUntiledFile";
+        "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
         "workbench.statusBar.visible" = true;
         "workbench.layoutControl.enabled" = true;
@@ -102,11 +102,6 @@ in {
         "[typescriptreact]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
-
-        "everforest.darkContrast" = "hard";
-        "everforest.darkWorkbench" = "flat";
-        "everforest.italicKeywords" = true;
-        "everforest.highContrast" = true;
 
       };
     };
