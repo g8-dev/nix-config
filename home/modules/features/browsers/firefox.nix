@@ -9,10 +9,7 @@
       isDefault = true;
       id = 0;
       name = "${config.home.username}";
-      settings = {
-        "extensions.autoDisableScopes" = 0;
-        "browser.startup.homepage" = "https://guifuentes8.com.br";
-      };
+      settings = { "extensions.autoDisableScopes" = 0; };
 
       #  extensions.packages = with pkgs.inputs.firefox-addons; [
       #    bitwarden

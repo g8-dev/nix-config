@@ -3,7 +3,7 @@
     enable = true;
     backupDir = "/var/lib/storage/vaultwarden";
     config = {
-      DOMAIN = "https://vaultwarden.guifuentes8.com.br";
+      DOMAIN = "https://vaultwarden.g8-space.com.br";
       SIGNUPS_ALLOWED = false;
 
       ROCKET_ADDRESS = "127.0.0.1";

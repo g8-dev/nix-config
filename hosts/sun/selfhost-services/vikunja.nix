@@ -3,7 +3,7 @@
     enable = true;
     port = 9112;
     frontendScheme = "http";
-    frontendHostname = "vikunja.guifuentes8.com.br";
+    frontendHostname = "vikunja.g8-space.com.br";
     settings = { service.enableregistration = false; };
   };
 }

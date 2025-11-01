@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  domain = "seafile.guifuentes8.com.br";
+  domain = "seafile.g8-space.com.br";
   localDomain = "127.0.0.1";
 in {
   services.seafile = {

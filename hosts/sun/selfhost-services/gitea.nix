@@ -1,5 +1,5 @@
 { ... }:
-let domain = "guifuentes8.com.br";
+let domain = "g8-space.com.br";
 in {
   services.gitea = {
     enable = true;

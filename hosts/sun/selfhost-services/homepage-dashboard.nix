@@ -1,5 +1,5 @@
 { ... }:
-let domain = "guifuentes8.com.br";
+let domain = "g8-space.com.br";
 in {
   services.homepage-dashboard = {
     enable = true;
@@ -179,14 +179,14 @@ in {
     ];
 
     settings = {
-      title = "[G8] Sunlab Server";
-      description = "G8 Sun homelab dashboard for my server!";
-      background.image = "https://images8.alphacoders.com/139/1397851.png";
+      title = "[G8] Space";
+      description = "G8 Space dashboard";
+      background.image = ./g8-space-background.png;
       background.brightness = 20;
       background.opacity = 50;
       cardBlur = "xl";
-      favicon =
-        "https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/66/external-sun-summer-party-smashingstocks-flat-smashing-stocks.png";
+      favicon = ./favicon.ico;
+
       statusStyle = "dot";
       theme = "dark";
       headerStyle = "underlined";

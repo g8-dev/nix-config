@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  domain = "guifuentes8.com.br";
+  domain = "g8-space.com.br";
   localDomain = "127.0.0.1";
   caddyConfig = ''
     encode gzip zstd 

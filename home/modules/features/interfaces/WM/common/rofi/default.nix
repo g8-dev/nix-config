@@ -28,7 +28,7 @@
     package = pkgs.unstable.rbw;
     settings = {
       pinentry = pkgs.pinentry-gnome3;
-      base_url = "https://vault.guifuentes8.com.br";
+      base_url = "https://vault.g8-space.com.br";
       email = "guifuentes8@gmail.com";
     };
   };
