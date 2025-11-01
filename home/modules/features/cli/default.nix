@@ -1,6 +1,6 @@
 { pkgs, config, ... }: {
 
-  #imports = [ ./cava.nix ];
+  # imports = [ ./cava.nix ];
   programs = {
     bat = {
       enable = true;
@@ -15,6 +15,7 @@
         };
       };
     };
+    cava.enable = true;
     feh.enable = true;
     jq.enable = true;
     lsd.enable = true;
@@ -46,6 +47,7 @@
     pastel # color cli
     speedtest-rs # Networking test
     clock-rs
+    spotify-player
     tgpt # chatgpt
     tuifeed # feed
   ];

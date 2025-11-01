@@ -20,7 +20,7 @@
     flameshot
     fontpreview
     gimp
-    onlyoffice-bin
+    onlyoffice-desktopeditors
     pavucontrol
 
   ];

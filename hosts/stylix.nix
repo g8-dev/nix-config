@@ -2,11 +2,10 @@
 let
   cursorName = "phinger-cursors-dark";
   cursorPkg = pkgs.unstable.phinger-cursors;
-  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
+  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
 
 in {
 
-  imports = [ ../home/modules/common/custom/base16/tokyo-night-moon.nix ];
   stylix = {
     enable = true;
     image = ../home/modules/common/extras/eevee.png;
@@ -31,7 +30,10 @@ in {
       desktop = 1.0;
     };
     override = { };
-    targets = { chromium.enable = true; };
+    targets = {
+      grub.enable = false;
+      chromium.enable = true;
+    };
   };
 
 }

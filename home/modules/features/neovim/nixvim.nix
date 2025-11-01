@@ -30,7 +30,7 @@ in {
     enable = true;
     package = pkgs.neovim-unwrapped;
     colorschemes = {
-      tokyonight = {
+      kanagawa = {
         enable = true;
         settings = { style = "moon"; };
       };
