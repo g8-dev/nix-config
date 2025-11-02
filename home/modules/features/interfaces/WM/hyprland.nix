@@ -31,25 +31,25 @@ in {
       exec-once = "${startupScript}/bin/start";
       monitor = ",preferred,auto,1";
       general = {
-        gaps_in = 5;
-        gaps_out = 10;
-        border_size = 3;
+        gaps_in = 8;
+        gaps_out = 16;
+        border_size = 4;
         "col.active_border" =
-          lib.mkForce "rgba(${config.lib.stylix.colors.base0C}ff)";
+          lib.mkForce "rgba(${config.lib.stylix.colors.base0A}ff)";
         "col.inactive_border" =
-          lib.mkForce "rgba(${config.lib.stylix.colors.base05}ff)";
+          lib.mkForce "rgba(${config.lib.stylix.colors.base0E}ff)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
       };
       decoration = {
-        rounding = 8;
+        rounding = 10;
         active_opacity = 1.0;
         inactive_opacity = 1.0;
         blur = {
           enabled = true;
-          size = 4;
-          passes = 2;
+          size = 2;
+          passes = 3;
           vibrancy = 0.1696;
         };
       };
