@@ -1,5 +1,6 @@
 { ... }:
 let domain = "g8-space.com.br";
+
 in {
   services.homepage-dashboard = {
     enable = true;
@@ -181,12 +182,9 @@ in {
     settings = {
       title = "[G8] Space";
       description = "G8 Space dashboard";
-      background.image = ./g8-space-background.png;
-      background.brightness = 20;
-      background.opacity = 50;
+      background.image = "https://i.imgur.com/41YAu3a.png";
       cardBlur = "xl";
-      favicon = ./favicon.ico;
-
+      favicon = "https://i.imgur.com/SmfY8lp.png";
       statusStyle = "dot";
       theme = "dark";
       headerStyle = "underlined";
