@@ -18,7 +18,7 @@ in {
           '';
         };
 
-        "seafile.${domain}" = { # seafile
+        "opencloud.${domain}" = { # seafile
           extraConfig = ''
             ${caddyConfig}
               reverse_proxy ${localDomain}:9101
