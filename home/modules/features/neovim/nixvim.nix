@@ -32,7 +32,7 @@ in {
     colorschemes = {
       kanagawa = {
         enable = true;
-        settings = { style = "moon"; };
+        settings = { };
       };
     };
     extraLuaPackages = luaPkgs:
