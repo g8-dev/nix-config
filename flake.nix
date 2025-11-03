@@ -60,7 +60,7 @@
       packages = forEachPkgs (pkgs: import ./pkgs { inherit pkgs; });
       devShells = forEachPkgs (pkgs: import ./shell.nix { inherit pkgs; });
 
-      nixosConfigurations.sun = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.sun = nixpkgs-unstable.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
           inputs.home-manager.nixosModules.home-manager

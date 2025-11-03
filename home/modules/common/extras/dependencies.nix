@@ -2,10 +2,10 @@
   home.packages = with pkgs;
     lib.mkIf (pkgs.stdenv.hostPlatform.isLinux) [
       appimage-run
-      ventoy-bin
+      ventoy
       ffmpeg
       pciutils
-      glxinfo
+      mesa-demos
       pulseaudio
       unrar
       unzip
@@ -13,7 +13,7 @@
       lshw
       imagemagick
       ffmpegthumbnailer
-      poppler_utils
+      poppler-utils
       xdotool
       playerctl
       xorg.xprop
