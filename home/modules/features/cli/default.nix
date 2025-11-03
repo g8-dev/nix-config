@@ -1,6 +1,6 @@
 { pkgs, config, ... }: {
 
-  # imports = [ ./cava.nix ];
+  imports = [ ./ncspot.nix ];
   programs = {
     bat = {
       enable = true;
@@ -22,7 +22,7 @@
     ncmpcpp = {
       package = pkgs.ncmpcpp.override { visualizerSupport = true; };
       enable = false;
-      mpdMusicDir = "${config.home.homeDirectory}/Nextcloud/Music";
+      # mpdMusicDir = "${config.home.homeDirectory}/Nextcloud/Music";
     };
     rtorrent.enable = true;
     translate-shell.enable = true;
@@ -47,8 +47,8 @@
     pastel # color cli
     speedtest-rs # Networking test
     clock-rs
-    spotify-player
     tgpt # chatgpt
+    spotify-player
     tuifeed # feed
   ];
 
