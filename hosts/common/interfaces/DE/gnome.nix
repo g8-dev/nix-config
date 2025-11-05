@@ -1,4 +1,4 @@
-{ pkgs,   ... }:
+{ pkgs, ... }:
 
 {
   services.xserver = {
@@ -6,7 +6,7 @@
     desktopManager.gnome = { enable = true; };
   };
 
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  services.udev.packages = with pkgs; [ gnome-settings-daemon ];
   services.gnome.gnome-browser-connector.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
@@ -33,7 +33,6 @@
       desktop-cube
       docker
       dim-completed-calendar-events
-      expandable-notifications
       force-quit
       gnome-40-ui-improvements
       mpris-label

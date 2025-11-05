@@ -19,10 +19,10 @@
     ../common/boot/grub.nix
 
     # Login Manager
-    ../common/login/greetd
+    ../common/login/gdm.nix
 
     # Choice Interface (WM and/or DE)
-    ../common/interfaces/WM/hyprland.nix
+    ../common/interfaces/DE/gnome.nix
 
     # Active services
     ../common/services/backlight.nix

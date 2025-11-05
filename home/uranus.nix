@@ -3,7 +3,7 @@
 
     # Global config (required)
     ./users/g8.nix
-    ./modules/features/interfaces/WM/hyprland.nix
+    ./modules/features/interfaces/DE/gnome.nix
 
   ];
 
