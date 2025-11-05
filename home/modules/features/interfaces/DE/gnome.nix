@@ -6,6 +6,6 @@
     ../../programs
     ../../services
     ../../terminals/kitty.nix
-../../neovim
+    ../../neovim
   ];
 }
