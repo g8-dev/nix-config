@@ -7,7 +7,7 @@
     url = "https://opencloud.g8-space.com.br";
     user = "opencloud";
     group = "opencloud";
-    port = 9101;
+    port = 9200;
     environmentFile = "/etc/opencloud/env";
   };
 
@@ -17,8 +17,7 @@
     OCIS_BASE_DATA_PATH=/var/lib/opencloud
     OCIS_CONFIG_DIR=/var/lib/opencloud/config
     OC_HTTP_TLS_ENABLED=false
-    OCIS_INSECURE=true
-    WEB_HTTP_ADDR=127.0.0.1:9101
+    OCIS_INSECURE=false
     OCIS_LOG_LEVEL=debug
     OCIS_LOG_COLOR=false
   '';
