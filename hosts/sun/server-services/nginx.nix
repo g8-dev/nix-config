@@ -2,117 +2,80 @@
 let
   domain = "g8-space.com.br";
   localDomain = "127.0.0.1";
-  caddyConfig = ''
-    encode gzip zstd 
-  '';
 in {
   services = {
-    caddy = {
+    nginx = {
       enable = true;
-      extraConfig = "";
+
+      recommendedGzipSettings = true;
+      recommendedProxySettings = true;
+
       virtualHosts = {
         "${domain}" = { # homer
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy  ${localDomain}:9000  
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9000"; };
         };
 
-        "teste.${domain}" = { # seafile
-          extraConfig = ''
-            ${caddyConfig}
-              reverse_proxy ${localDomain}:9400
-          '';
+        "opencloud.${domain}" = { # opencloud
+          locations."/" = {
+            proxyWebsockets = true;
+            proxyPass = "http://${localDomain}:9101";
+          };
         };
 
         "immich.${domain}" = { # immich
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9102
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9102"; };
         };
+
         "radicale.${domain}" = { # radicale
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9103
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9103"; };
         };
+
         "navidrome.${domain}" = { # navidrome
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9104
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9104"; };
         };
+
         "audiobookshelf.${domain}" = { # audiobookshelf
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9105
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9105"; };
         };
 
         "flatnotes.${domain}" = { # flatnotes
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9106
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9106"; };
         };
+
         "convertx.${domain}" = { # convertx
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9107
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9107"; };
         };
+
         "metube.${domain}" = { # metube
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9108
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9108"; };
         };
 
         "karakeep.${domain}" = { # karakeep
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9109
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9109"; };
         };
 
         "vaultwarden.${domain}" = { # vaultwarden
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9110
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9110"; };
         };
+
         "vscode.${domain}" = { # vscode
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9111
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9111"; };
         };
 
         "vikunja.${domain}" = { # vikunja
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9112
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9112"; };
         };
 
         "excalidraw.${domain}" = { # excalidraw
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9113
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9113"; };
         };
+
         "gitea.${domain}" = { # gitea
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9114
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9114"; };
         };
+
         "onlyoffice.${domain}" = { # onlyoffice
-          extraConfig = ''
-            ${caddyConfig}
-            reverse_proxy ${localDomain}:9115
-          '';
+          locations."/" = { proxyPass = "http://${localDomain}:9115"; };
         };
       };
     };
@@ -125,7 +88,7 @@ in {
         ingress = {
           "${domain}" = { service = "http://${localDomain}:9000"; };
           "seafserver.${domain}" = { service = "http://${localDomain}:9100"; };
-          "seafile.${domain}" = { service = "http://${localDomain}:9101"; };
+          "cloud.${domain}" = { service = "http://${localDomain}:9101"; };
           "immich.${domain}" = { service = "http://${localDomain}:9102"; };
           "radicale.${domain}" = { service = "http://${localDomain}:9103"; };
           "navidrome.${domain}" = { service = "http://${localDomain}:9104"; };
@@ -146,5 +109,5 @@ in {
       };
     };
   };
-
 }
+

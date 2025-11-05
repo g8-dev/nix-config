@@ -17,7 +17,7 @@
     ./selfhost-services/audiobookshelf.nix
     ./selfhost-services/gitea.nix
     ./selfhost-services/radicale.nix
-    ./selfhost-services/seafile.nix
+    ./selfhost-services/opencloud.nix
     ./selfhost-services/vikunja.nix
     ./selfhost-services/vaultwarden.nix
     #   ./selfhost-services/postiz.nix
@@ -30,7 +30,7 @@
 
     # Server 
     ./server-services/console.nix
-    ./server-services/caddy.nix
+    ./server-services/nginx.nix
     ./server-services/cloudflare.nix
     ./server-services/networking.nix
     ./server-services/postgres.nix
