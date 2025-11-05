@@ -18,8 +18,15 @@ in {
           locations."/" = { proxyPass = "http://${localDomain}:9000"; };
         };
 
-        "cloud.${domain}" = { # OpenCloud
-          locations."/" = { proxyPass = "http://${localDomain}:9200"; };
+        "opencloud.${domain}" = { # OpenCloud
+          locations."/" = { proxyPass = "https://${localDomain}:9100"; };
+          extraConfig = ''
+            proxy_ssl_verify off;  # se o certificado for autoassinado
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+          '';
         };
 
         "immich.${domain}" = {

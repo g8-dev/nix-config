@@ -3,26 +3,25 @@
 {
   services.opencloud = {
     enable = true;
-    package = pkgs.opencloud;
-    url = "https://opencloud.g8-space.com.br";
-    user = "opencloud";
-    group = "opencloud";
-    port = 9200;
-    environmentFile = "/etc/opencloud/env";
+    port = 9100;
+    # diretório onde o OpenCloud armazenará arquivos e config
+    stateDir = "/var/lib/opencloud";
+    environment = {
+      OC_URL = "https://opencloud.g8-space.com.br";
+      OC_INSECURE = "true";
+      PROXY_HTTP_ADDR = "0.0.0.0:9100";
+      OC_DOMAIN = "opencloud.g8-space.com.br";
+      INITIAL_ADMIN_PASSWORD = "admin123";
+
+      # endereço interno para o Cloudflare Tunnel acessar
+
+      # garante que o runtime saiba onde escrever logs
+      OC_LOG_LEVEL = "debug";
+      OC_LOG_COLOR = "false";
+    };
   };
 
-  # Cria o arquivo .env
-  environment.etc."opencloud/env".text = ''
-    OCIS_URL=https://opencloud.g8-space.com.br
-    OCIS_BASE_DATA_PATH=/var/lib/opencloud
-    OCIS_CONFIG_DIR=/var/lib/opencloud/config
-    OC_HTTP_TLS_ENABLED=false
-    OCIS_INSECURE=false
-    OCIS_LOG_LEVEL=debug
-    OCIS_LOG_COLOR=false
-  '';
-
-  # Garante permissões e diretórios
+  # garante diretório e permissões
   systemd.tmpfiles.rules = [
     "d /var/lib/opencloud 0755 opencloud opencloud -"
     "d /var/lib/opencloud/config 0755 opencloud opencloud -"
