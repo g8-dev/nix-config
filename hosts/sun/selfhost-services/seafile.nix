@@ -1,26 +1,19 @@
 { config, pkgs, lib, ... }:
 let
-  domain = "opencloud.g8-space.com.br";
+  domain = "teste.g8-space.com.br";
   localDomain = "127.0.0.1";
 in {
   services.opencloud = {
     enable = true;
+    port = 9400;
     url = "https://${domain}";
-    port = 9101;
+    stateDir = "/var/lib/storage/opencloud";
     environment = {
-      OC_INSECURE = "false";
-      PROXY_TLS = "false";
-      PROXY_INSECURE_BACKENDS = "true";
+      INSECURE = "false";
+      OC_DOMAIN = "https://${domain}";
+      INITIAL_ADMIN_PASSWORD = "Agorajaera@123";
     };
     settings = {
-      proxy = {
-        auto_provision_accounts = true;
-        oidc = { rewrite_well_known = true; };
-        role_assignment = {
-          driver = "oidc";
-          oidc_role_mapper = { role_claim = "opencloud_roles"; };
-        };
-      };
       web = {
         web = {
           config = {
