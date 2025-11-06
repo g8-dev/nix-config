@@ -2,8 +2,8 @@
   services = {
     cloudflared = {
       enable = true;
-      package = pkgs.unstable.cloudflared;
+      package = pkgs.cloudflared;
     };
   };
-  environment.systemPackages = [ pkgs.unstable.cloudflared ];
+  environment.systemPackages = [ pkgs.cloudflared ];
 }

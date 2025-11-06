@@ -31,9 +31,9 @@
         enable-ipc = true;
         wm-restack = "bspwm";
 
-      #  font-0 =
-    #      "${configOptions.styles.font.main}:size=${configOptions.styles.font.size};2";
-    #    font-1 = "${configOptions.styles.font.main}:size=16;2";
+        #  font-0 =
+        #      "${configOptions.styles.font.main}:size=${configOptions.styles.font.size};2";
+        #    font-1 = "${configOptions.styles.font.main}:size=16;2";
 
         modules-left = [ "spotify-lyrics" ];
         modules-center = [ "xworkspaces" ];

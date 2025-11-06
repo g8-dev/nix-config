@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   services.openvscode-server = {
     enable = true;
-    package = pkgs.unstable.openvscode-server;
+    package = pkgs.openvscode-server;
     port = 9111;
     user = "g8";
     group = "root";

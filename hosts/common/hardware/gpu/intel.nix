@@ -3,7 +3,7 @@
 {
   services.xserver = { enable = true; };
 
-  nixpkgs.config.packageOverrides = pkgs: {
+  nixpkgs.config.packageOverrides = pkgs, {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 

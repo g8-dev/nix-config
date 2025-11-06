@@ -23,17 +23,6 @@
       cmakeFlags = [ ];
     });
   };
-  unstable-packages = final: _prev: {
-    unstable = import inputs.nixpkgs-unstable {
-      system = final.system;
-      config.allowUnfree = true;
-    };
-  };
-  nur-packages = final: _prev: {
-    nur = import inputs.nur {
-      system = final.system;
-      config.allowUnfree = true;
-    };
-  };
+
   neorg = inputs.neorg-overlay.overlays.default;
 }

@@ -13,7 +13,7 @@ in
 appimageTools.wrapType2 {
   inherit pname src version;
 
-  extraPkgs = pkgs: with pkgs; [
+  extraPkgs = pkgs, with pkgs; [
     ffmpeg
   ];
 

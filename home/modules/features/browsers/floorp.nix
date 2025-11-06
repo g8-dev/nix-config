@@ -1,7 +1,7 @@
 { pkgs, config, ... }: {
   programs.floorp = {
     enable = true;
-    package = pkgs.unstable.floorp;
+    package = pkgs.floorp;
     policies = {
       DefaultDownloadDirectory = "${config.home.homeDirectory}/Downloads";
     };

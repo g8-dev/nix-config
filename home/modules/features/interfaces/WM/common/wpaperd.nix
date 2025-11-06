@@ -1,5 +1,4 @@
-{ pkgs, config, ... }:
-{
+{ pkgs, config, ... }: {
   programs.wpaperd = { enable = true; };
 
   xdg.configFile."wpaperd/wallpaper.toml" = {

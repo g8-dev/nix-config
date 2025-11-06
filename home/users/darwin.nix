@@ -20,7 +20,7 @@
   home = {
     username = "administrador";
     homeDirectory = "/Users/administrador";
-    stateVersion = "25.05";
+    stateVersion = "25.11";
   };
 
   nix = {
@@ -50,7 +50,6 @@
   news.display = "silent";
 
   # Only 25.05
-  targets.darwin.linkApps.enable = true;
-  targets.darwin.linkApps.directory = "Applications/";
+  targets.darwin.copyApps.enable = true;
 
 }

@@ -3,17 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-legacy.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nix-darwin.url = "github:LnL7/nix-darwin/nix-darwin-25.05";
+    nix-darwin.url = "github:LnL7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-wsl.url = "github:nix-community/NixOS-WSL";
     nix-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixgl.url = "github:nix-community/nixGL";
-    nix-on-droid = {
-      url = "github:nix-community/nix-on-droid/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,19 +24,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix.url = "github:Mic92/sops-nix";
-    nixvim-legacy.url = "github:nix-community/nixvim/nixos-24.05";
 
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #  firefox-addons = {
+    #    url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    #    inputs.nixpkgs.follows = "nixpkgs";
+    #  };
 
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-legacy, nix-darwin
-    , home-manager, nix-on-droid, nixgl, ... }@inputs:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, nixgl, ... }@inputs:
     let
       inherit (self) outputs;
 
@@ -55,12 +48,12 @@
 
     in {
       nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
+      homeModules = import ./modules/home-manager;
       overlays = import ./overlays { inherit inputs outputs; };
       packages = forEachPkgs (pkgs: import ./pkgs { inherit pkgs; });
       devShells = forEachPkgs (pkgs: import ./shell.nix { inherit pkgs; });
 
-      nixosConfigurations.sun = nixpkgs-unstable.lib.nixosSystem {
+      nixosConfigurations.sun = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
           inputs.home-manager.nixosModules.home-manager
@@ -68,8 +61,8 @@
             home-manager.users.g8 = ./home/sun.nix;
             home-manager.extraSpecialArgs = { inherit inputs outputs; };
             home-manager.sharedModules = [
-              inputs.sops-nix.homeManagerModules.sops
-              inputs.nixvim.homeManagerModules.nixvim
+              inputs.sops-nix.homeModules.sops
+              inputs.nixvim.homeModules.nixvim
               inputs.stylix.homeModules.stylix
             ];
           }
@@ -84,8 +77,8 @@
         extraSpecialArgs = { inherit inputs outputs nixgl; };
         modules = [
           inputs.stylix.homeModules.stylix
-          inputs.sops-nix.homeManagerModules.sops
-          inputs.nixvim.homeManagerModules.nixvim
+          inputs.sops-nix.homeModules.sops
+          inputs.nixvim.homeModules.nixvim
 
           ./home/mars.nix
 
@@ -106,9 +99,9 @@
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            inputs.sops-nix.homeManagerModules.sops
+            inputs.sops-nix.homeModules.sops
             inputs.stylix.homeModules.stylix
-            inputs.nixvim.homeManagerModules.nixvim
+            inputs.nixvim.homeModules.nixvim
             ./home/uranus.nix
           ];
         };
@@ -126,8 +119,8 @@
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            inputs.sops-nix.homeManagerModules.sops
-            inputs.nixvim.homeManagerModules.nixvim
+            inputs.sops-nix.homeModules.sops
+            inputs.nixvim.homeModules.nixvim
             inputs.stylix.homeModules.stylix
             ./home/neptune.nix
           ];
@@ -149,8 +142,8 @@
             home-manager.users.g8 = ./home/jupiter.nix;
             home-manager.extraSpecialArgs = { inherit inputs outputs; };
             home-manager.sharedModules = [
-              inputs.sops-nix.homeManagerModules.sops
-              inputs.nixvim.homeManagerModules.nixvim
+              inputs.sops-nix.homeModules.sops
+              inputs.nixvim.homeModules.nixvim
               inputs.stylix.homeModules.stylix
 
             ];
@@ -163,7 +156,6 @@
       };
 
       darwinConfigurations."saturn" = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
         specialArgs = { inherit inputs outputs; };
         modules = [
           ./hosts/saturn
@@ -174,8 +166,8 @@
               extraSpecialArgs = { inherit inputs outputs; };
               sharedModules = [
                 inputs.stylix.homeModules.stylix
-                inputs.nixvim.homeManagerModules.nixvim
-                inputs.sops-nix.homeManagerModules.sops
+                inputs.nixvim.homeModules.nixvim
+                inputs.sops-nix.homeModules.sops
 
               ];
               useUserPackages = true;
@@ -192,28 +184,5 @@
 
       darwinPackages = self.darwinConfigurations."saturn".pkgs;
 
-      nixOnDroidConfigurations.default =
-        nix-on-droid.lib.nixOnDroidConfiguration {
-          pkgs = import nixpkgs-legacy { system = "aarch64-linux"; };
-          modules = [
-            ./hosts/umbreon
-
-            {
-
-              home-manager = {
-                extraSpecialArgs = { inherit inputs outputs; };
-                sharedModules = [
-                  inputs.nixvim-legacy.homeManagerModules.nixvim
-                  inputs.sops-nix.homeManagerModules.sops
-
-                ];
-                useUserPackages = true;
-                backupFileExtension = "backup";
-                config = ./home/umbreon.nix;
-              };
-            }
-          ];
-
-        };
     };
 }

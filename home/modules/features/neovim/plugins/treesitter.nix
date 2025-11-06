@@ -1,5 +1,4 @@
-{ pkgs, inputs, ... }:
-{
+{ pkgs, inputs, ... }: {
   programs.nixvim.plugins.treesitter = {
     enable = true;
     package = pkgs.vimPlugins.nvim-treesitter;
@@ -24,9 +23,7 @@
           scope_incremental = "grc";
         };
       };
-      indent = {
-        enable = true;
-      };
+      indent = { enable = true; };
       parser_install_dir = {
         __raw = "vim.fs.joinpath(vim.fn.stdpath('data'), 'treesitter')";
       };

@@ -14,8 +14,8 @@ in {
   ];
   targets.genericLinux.enable = true;
   programs = {
-    ghostty.package = wrapGL pkgs.unstable.ghostty;
-    vscode.package = wrapGL pkgs.unstable.vscode;
+    ghostty.package = wrapGL pkgs.ghostty;
+    vscode.package = wrapGL pkgs.vscode;
   };
   home.packages = with pkgs; [ (wrapGL gimp) (wrapGL onlyoffice-bin) ];
 

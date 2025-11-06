@@ -38,7 +38,7 @@
       # Options: ("none","zoom","fly-in","slide-up","slide-down","slide-left","slide-right")
       animation-for-unmap-window = "zoom";
 
-     # corner-radius = configOptions.styles.wm.borderRadius;
+      # corner-radius = configOptions.styles.wm.borderRadius;
       rounded-corners-exclude = [ "class_g = 'Polybar'" "class_g = 'Rofi'" ];
 
       # Explicitly declare the corner-radius of individual windows.

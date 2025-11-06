@@ -5,7 +5,7 @@
     enable = true;
     terminal = "kitty";
     theme = (import ./theme.nix { inherit config lib; });
-    plugins = with pkgs.unstable; [
+    plugins = with pkgs; [
       rofi-bluetooth
       rofi-emoji
       rofi-power-menu
@@ -14,7 +14,7 @@
     ];
   };
 
-  home.packages = with pkgs.unstable; [
+  home.packages = with pkgs; [
     rofi-bluetooth
     rofi-calc
     rofi-emoji
@@ -25,7 +25,7 @@
 
   programs.rbw = {
     enable = true;
-    package = pkgs.unstable.rbw;
+    package = pkgs.rbw;
     settings = {
       pinentry = pkgs.pinentry-gnome3;
       base_url = "https://vault.g8-space.com.br";

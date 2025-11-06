@@ -1,7 +1,7 @@
-{ config, lib,pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   programs.qutebrowser = {
     enable = true;
-    package = pkgs.unstable.qutebrowser;
+    package = pkgs.qutebrowser;
     aliases = { };
     quickmarks = { st = "https://status.guifuentes8.com.br"; };
     searchEngines = {
@@ -11,7 +11,7 @@
       ns =
         "https://search.nixos.org/packages?channel=24.11&from=0&size=50&sort=relevance&type=packages&query={}";
       nsu =
-        "https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={}";
+        "https://search.nixos.org/packages?channel.from=0&size=50&sort=relevance&type=packages&query={}";
       nw = "https://nixos.wiki/index.php?search={}";
       yt = "https://www.youtube.com/results?search_query={}";
     };

@@ -50,11 +50,8 @@ in {
       web-devicons.enable = true; # required
     };
 
-    extraPlugins = with pkgs.unstable.vimPlugins; [
-      zen-mode-nvim
-      material-nvim
-    ];
-    extraPackages = with pkgs.unstable; [
+    extraPlugins = with pkgs.vimPlugins; [ zen-mode-nvim material-nvim ];
+    extraPackages = with pkgs; [
       # Language servers
       nodePackages.typescript-language-server # typescript
       nodePackages.vscode-langservers-extracted # html, css, javascript

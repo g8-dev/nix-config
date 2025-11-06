@@ -1,7 +1,7 @@
 { pkgs, outputs, ... }:
 let
   cursorName = "phinger-cursors-dark";
-  cursorPkg = pkgs.unstable.phinger-cursors;
+  cursorPkg = pkgs.phinger-cursors;
   base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
 
 in {

@@ -1,9 +1,8 @@
 { pkgs, lib, outputs, config, ... }:
 let
   cursorName = "phinger-cursors-dark";
-  cursorPkg = pkgs.unstable.phinger-cursors;
-  base16SchemeDefault =
-    "${pkgs.unstable.base16-schemes}/share/themes/kanagawa.yaml";
+  cursorPkg = pkgs.phinger-cursors;
+  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
 in {
   stylix = {
     enable = true;
@@ -31,7 +30,6 @@ in {
       alacritty.enable = true;
       bat.enable = true;
       btop.enable = true;
-      cava.enable = true;
       dunst.enable = true;
       feh.enable = true;
       firefox.enable = true;
@@ -78,7 +76,7 @@ in {
     enable = true;
     iconTheme = {
       name = lib.mkForce "Papirus-Dark";
-      package = pkgs.unstable.catppuccin-papirus-folders;
+      package = pkgs.catppuccin-papirus-folders;
 
     };
     cursorTheme = {

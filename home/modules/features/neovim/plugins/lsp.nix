@@ -121,15 +121,18 @@ in {
       };
       lspsaga = {
         enable = true;
-        codeAction = {
-          showServerName = true;
-          keys = { };
+        settings = {
+          diagnostic = {
+            show_code_action = true;
+            keys = { };
+          };
+          code_action = {
+            show_server_name = true;
+            keys = { };
+          };
+
         };
         definition = { keys = { }; };
-        diagnostic = {
-          showCodeAction = true;
-          keys = { };
-        };
         finder = { keys = { }; };
         hover = { };
         lightbulb = { };

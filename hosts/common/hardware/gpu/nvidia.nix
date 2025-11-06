@@ -12,7 +12,7 @@
       powerManagement.enable = false;
       powerManagement.finegrained = false;
       package = config.boot.kernelPackages.nvidiaPackages.production;
-          };
+    };
   };
 
- }
+}

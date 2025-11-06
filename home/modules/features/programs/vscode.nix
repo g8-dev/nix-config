@@ -2,12 +2,12 @@
 let
   inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
 
-  moon = buildVscodeMarketplaceExtension {
+  kanagawa = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "tokyo-night-moon";
-      publisher = "PatrickNasralla";
-      version = "1.1.4";
-      sha256 = "sha256-8rUbsDCk7JHSN4vn+TNTmIrx8ma53hH/1x0trqDwU7Y=";
+      name = "kanagawa";
+      publisher = "qufiwefefwoyn";
+      version = "1.5.1";
+      sha256 = "sha256-AGGioXcK/fjPaFaWk2jqLxovUNR59gwpotcSpGNbj1c=";
     };
   };
 
@@ -18,9 +18,9 @@ in {
     profiles.default = {
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
-      extensions = with pkgs.unstable.vscode-extensions; [
+      extensions = with pkgs.vscode-extensions; [
         # theme
-        moon
+        kanagawa
         pkief.material-icon-theme
         # git
         donjayamanne.githistory
@@ -80,7 +80,7 @@ in {
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
 
-        "workbench.colorTheme" = "Tokyo Night Moon";
+        "workbench.colorTheme" = "Kanagawa";
         "workbench.iconTheme" = "material-icon-theme";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";

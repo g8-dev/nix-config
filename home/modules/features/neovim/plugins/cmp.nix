@@ -36,12 +36,15 @@
 
     lspkind = {
       enable = true;
-      mode = "symbol_text";
-      cmp = {
-        maxWidth = 50;
-        ellipsisChar = "...";
+      settings = {
+        mode = "symbol_text";
+        cmp = {
+          maxWidth = 50;
+          ellipsisChar = "...";
 
+        };
       };
+
     };
 
     luasnip = {

@@ -15,7 +15,7 @@
         };
       };
     };
-    cava.enable = true;
+    #cava.enable = true;
     feh.enable = true;
     jq.enable = true;
     lsd.enable = true;
@@ -37,7 +37,7 @@
     };
   };
 
-  home.packages = with pkgs.unstable; [
+  home.packages = with pkgs; [
     nix-search-cli # search cli nix
     cmatrix # matrix
     dipc # palette wallpaper converter
