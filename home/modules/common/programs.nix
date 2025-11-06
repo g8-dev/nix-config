@@ -29,9 +29,11 @@
         pull.rebase = false;
         push.autoSetupRemote = true;
         init.defaultBranch = "main";
-        #userName = "Guilherme Fuentes";
-        #userEmail = "guifuentes8@gmail.com";
-        aliases = {
+        user = {
+          name = "Guilherme Fuentes";
+          email = "guifuentes8@gmail.com";
+        };
+        alias = {
           a = "add .";
           ch = "checkout";
           new = "checkout -b";
