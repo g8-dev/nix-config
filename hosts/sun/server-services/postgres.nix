@@ -2,9 +2,8 @@
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_16;
-    ensureDatabases = [ "nextcloud" "postgres" ];
+    ensureDatabases = [ "postgres" ];
     enableTCPIP = true;
-    ensureUsers = [{ name = "nextcloud"; }];
     settings = {
       shared_buffers = "24GB";
       work_mem = "256MB";
@@ -27,10 +26,6 @@
       # ipv6
       host all       all     ::1/128        trust
     '';
-  };
-  systemd.services."nextcloud-setup" = {
-    requires = [ "postgresql.service" ];
-    after = [ "postgresql.service" ];
   };
 
 }

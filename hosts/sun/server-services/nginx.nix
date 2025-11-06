@@ -10,23 +10,40 @@ in {
     nginx = {
       enable = true;
       recommendedGzipSettings = true;
+      recommendedOptimisation = true;
       recommendedProxySettings = true;
+      recommendedTlsSettings = true;
 
       # Nenhum HTTPS local — tudo via túnel
       virtualHosts = {
-        "${domain}" = { # Homer
-          locations."/" = { proxyPass = "http://${localDomain}:9000"; };
+        "${domain}" = {
+          forceSSL = true;
+          default = true;
+          enableACME = true;
+          locations."/" = { proxyPass = "http://${localDomain}:80"; };
+          locations."/.well-known/acme-challenge" = {
+            root = "/var/lib/acme/acme-challenge";
+          };
         };
-
+        "nextcloud" = {
+          listen = [{
+            addr = "${localDomain}";
+            port = 9101;
+          }];
+        };
         "opencloud.${domain}" = { # OpenCloud
-          locations."/" = { proxyPass = "https://${localDomain}:9100"; };
-          extraConfig = ''
-            proxy_ssl_verify off;  # se o certificado for autoassinado
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
-          '';
+          forceSSL = true; # Forçar HTTPS
+          useACMEHost = "${domain}";
+          locations."/" = {
+            proxyPass = "http://${localDomain}:9101";
+            proxyWebsockets = true;
+            extraConfig = ''
+              proxy_set_header Host $host;
+              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+              proxy_set_header X-Forwarded-Proto $scheme;
+            '';
+          };
         };
 
         "immich.${domain}" = {
@@ -120,5 +137,19 @@ in {
       };
     };
   };
+  security.acme = {
+    acceptTerms = true;
+    defaults.server = "https://acme-staging-v02.api.letsencrypt.org/directory";
+    defaults.email = "guifuentes8@gmail.com";
+    certs = {
+      "${domain}" = {
+        domain = domain;
+        webroot = "/var/lib/acme/acme-challenge";
+        email = "guifuentes8@gmail.com";
+        group = "nginx";
+      };
+    };
+  };
+  users.users.nginx.extraGroups = [ "acme" ];
 }
 
