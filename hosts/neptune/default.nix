@@ -16,9 +16,10 @@
     ../common/boot/systemd-boot.nix
 
     # Login Manager
-    ../common/login/greetd
+    ../common/login/sddm.nix
 
     # Choice Interface (WM and/or DE)
+    ../common/interfaces/DE/kde.nix
     ../common/interfaces/WM/hyprland.nix
 
     # Active services
