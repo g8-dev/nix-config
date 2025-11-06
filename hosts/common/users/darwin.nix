@@ -9,7 +9,7 @@
 
   system.primaryUser = "administrador";
   system.stateVersion = 6;
-  nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.hostPlatform.system = "aarch64-darwin";
 
   nix = {
     linux-builder.enable = false;
@@ -43,6 +43,7 @@
       "nextcloud"
       "onlyoffice"
       "pika"
+      "spotify"
       # "tailscale"
       "obs"
       "zoom"

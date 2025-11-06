@@ -34,10 +34,7 @@
     partition-manager.enable = true;
     nh = {
       enable = true;
-      clean = {
-        enable = true;
-        extraArgs = "--keep-since 4d --keep 3";
-      };
+      clean.enable = true;
       flake = "${config.users.users.g8.home}/nix-config";
     };
   };
