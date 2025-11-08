@@ -14,6 +14,7 @@
       { id = "fnaicdffflnofjppbagibeoednhnbjhg"; } # floccus bookmarks
       { id = "bkdgflcldnnnapblkhphbgpggdiikppg"; } # duckduckgo
       { id = "gighmmpiobklfepjocnamgkkbiglidom"; } # adblock
+      { id = "noimedcjdohhokijigpfcbjcfcaaahej"; } # rose-pine
     ];
   };
 }
