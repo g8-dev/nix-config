@@ -12,7 +12,7 @@
     ../modules/features/dev
     ../modules/features/cli
     ../modules/features/programs/vscode.nix
-    ../modules/features/terminals/wezterm.nix
+    ../modules/features/terminals/ghostty.nix
     ../modules/features/browsers/firefox.nix
 
   ];
@@ -45,11 +45,9 @@
     };
   };
 
-  #fonts.fontconfig.enable = true;
   systemd.user.startServices = "sd-switch";
   news.display = "silent";
 
-  # Only 25.05
   targets.darwin.copyApps.enable = true;
 
 }

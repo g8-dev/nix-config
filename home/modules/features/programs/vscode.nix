@@ -14,6 +14,7 @@ let
 in {
   programs.vscode = {
     enable = true;
+    package = pkgs.vscode;
     mutableExtensionsDir = false;
     profiles.default = {
       enableExtensionUpdateCheck = false;
@@ -25,6 +26,8 @@ in {
         # git
         donjayamanne.githistory
         eamodio.gitlens
+        github.copilot
+        github.copilot-chat
         # lint
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
@@ -69,6 +72,7 @@ in {
           [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
 
         "git.confirmSync" = false;
+        github.copilot.nextEditSuggestions.enabled = true;
 
         "javascript.updateImportsOnFileMove.enabled" = "always";
         "typescript.updateImportsOnFileMove.enabled" = "always";
