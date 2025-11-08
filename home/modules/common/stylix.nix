@@ -1,8 +1,8 @@
 { pkgs, lib, outputs, config, ... }:
 let
-  cursorName = "phinger-cursors-dark";
-  cursorPkg = pkgs.phinger-cursors;
-  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
+  cursorName = "BreezeX-RosePine-Linux";
+  cursorPkg = pkgs.rose-pine-cursor;
+  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 in {
   stylix = {
     enable = true;

@@ -72,7 +72,7 @@
   };
 
   home-manager.useUserPackages = true;
-  home-manager.extraSpecialArgs = { inherit inputs outputs pkgs, };
+  home-manager.extraSpecialArgs = { inherit inputs outputs pkgs; };
 
   # Network
   networking = {
@@ -132,4 +132,6 @@
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
   '';
 
-   }
+  system.stateVersion = "25.11";
+
+}

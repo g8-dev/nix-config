@@ -21,7 +21,7 @@ in {
       enableUpdateCheck = false;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        kanagawa
+        mvllow.rose-pine
         pkief.material-icon-theme
         # git
         donjayamanne.githistory
@@ -84,8 +84,8 @@ in {
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
 
-        "workbench.colorTheme" = "Kanagawa";
-        "workbench.iconTheme" = "material-icon-theme";
+        "workbench.colorTheme" = "Rosé Pine";
+        "workbench.iconTheme" = "rose-pine-icons";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
         "workbench.statusBar.visible" = true;

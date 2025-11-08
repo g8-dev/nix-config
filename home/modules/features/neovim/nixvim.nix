@@ -30,9 +30,9 @@ in {
     enable = true;
     package = pkgs.neovim-unwrapped;
     colorschemes = {
-      kanagawa = {
+      rose-pine = {
         enable = true;
-        settings = { };
+        settings = { dark_variant = "main"; };
       };
     };
     extraLuaPackages = luaPkgs:
