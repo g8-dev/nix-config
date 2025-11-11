@@ -1,6 +1,8 @@
+# HOME STYLIX
+
 { pkgs, lib, config, ... }:
 let
-  cursorName = "BreezeX-RosePine-Linux";
+  cursorName = "Simp1e-Dark";
   cursorPkg = pkgs.simp1e-cursors;
   base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
 in {
