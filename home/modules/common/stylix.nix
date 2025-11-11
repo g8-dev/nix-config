@@ -57,7 +57,7 @@ in {
       qutebrowser.enable = true;
       #  regreet.enable = true;
       rofi.enable = true;
-      # starship.enable = true;
+      starship.enable = true;
       sway.enable = true;
       swaylock.enable = true;
       tmux.enable = true;
