@@ -20,6 +20,7 @@
     };
     gc.automatic = true;
     extraOptions = ''
+      ssl-cert-file = /etc/nix/ca_cert.pem
       extra-platforms = x86_64-linux x86_64-darwin aarch64-darwin
     '';
   };

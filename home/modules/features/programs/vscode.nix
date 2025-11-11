@@ -17,11 +17,11 @@ in {
     package = pkgs.vscode;
     mutableExtensionsDir = false;
     profiles.default = {
-      enableExtensionUpdateCheck = false;
-      enableUpdateCheck = false;
+      enableExtensionUpdateCheck = true;
+      enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        mvllow.rose-pine
+        teabyii.ayu
         pkief.material-icon-theme
         # git
         donjayamanne.githistory
@@ -84,8 +84,8 @@ in {
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
 
-        "workbench.colorTheme" = "Rosé Pine";
-        "workbench.iconTheme" = "rose-pine-icons";
+        "workbench.colorTheme" = "Ayu Mirage Bordered";
+        "workbench.iconTheme" = "ayu";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
         "workbench.statusBar.visible" = true;

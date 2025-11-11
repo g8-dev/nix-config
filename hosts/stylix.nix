@@ -1,8 +1,8 @@
-{ pkgs, outputs, ... }:
+{ pkgs, ... }:
 let
   cursorName = "BreezeX-RosePine-Linux";
-  cursorPkg = pkgs.rose-pine-cursor;
-  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+  cursorPkg = pkgs.simp1e-cursors;
+  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
 
 in {
 
