@@ -11,6 +11,15 @@ let
     };
   };
 
+  jetbrains-icon-theme = buildVscodeMarketplaceExtension {
+    mktplcRef = {
+      name = "vscode-jetbrains-icon-theme";
+      publisher = "chadalen";
+      version = "2.36.0";
+      sha256 = "sha256-p5hqytkF5Hg2d9N+XwZ5DfG2GEfoSPYXX0FCeUUR2Yc=";
+    };
+  };
+
 in {
   programs.vscode = {
     enable = true;
@@ -21,8 +30,8 @@ in {
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        teabyii.ayu
-        pkief.material-icon-theme
+        kanagawa
+        jetbrains-icon-theme
         # git
         donjayamanne.githistory
         eamodio.gitlens
@@ -84,8 +93,8 @@ in {
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
 
-        "workbench.colorTheme" = "Ayu Mirage Bordered";
-        "workbench.iconTheme" = "ayu";
+        "workbench.colorTheme" = "Kanagawa";
+        "workbench.iconTheme" = "vscode-jetbrains-icon-theme-2023-dark";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
         "workbench.statusBar.visible" = true;
