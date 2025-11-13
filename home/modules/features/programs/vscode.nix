@@ -30,7 +30,7 @@ in {
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        everforest # color
+        teabyii.ayu
         symbols # icon
         # git
         donjayamanne.githistory
@@ -93,7 +93,7 @@ in {
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
 
-        "workbench.colorTheme" = "Everforest Dark";
+        "workbench.colorTheme" = "Ayu Mirage";
         "workbench.iconTheme" = "symbols";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
@@ -115,10 +115,6 @@ in {
         "[typescriptreact]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
-        "everforest.italicKeywords" = true;
-        "everforest.italicComments" = true;
-        "everforest.darkContrast" = "hard";
-        "everforest.darkWorkbench" = "high-contrast";
 
       };
     };

@@ -30,9 +30,9 @@ in {
     enable = true;
     package = pkgs.neovim-unwrapped;
     colorschemes = {
-      everforest = {
+      ayu = {
         enable = true;
-        settings = { background = "hard"; };
+        settings = { mirage = true; };
       };
     };
     extraLuaPackages = luaPkgs:
