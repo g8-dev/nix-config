@@ -2,21 +2,21 @@
 let
   inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
 
-  kanagawa = buildVscodeMarketplaceExtension {
+  symbols = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "kanagawa";
-      publisher = "qufiwefefwoyn";
-      version = "1.5.1";
-      sha256 = "sha256-AGGioXcK/fjPaFaWk2jqLxovUNR59gwpotcSpGNbj1c=";
+      name = "symbols";
+      publisher = "miguelsolorio";
+      version = "0.0.24";
+      sha256 = "sha256-yEE6G2e/a2/DcKq1+Vtv0YIAtWZG5LyXfZ6cbheRV1g=";
     };
   };
 
-  jetbrains-icon-theme = buildVscodeMarketplaceExtension {
+  everforest = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "vscode-jetbrains-icon-theme";
-      publisher = "chadalen";
-      version = "2.36.0";
-      sha256 = "sha256-p5hqytkF5Hg2d9N+XwZ5DfG2GEfoSPYXX0FCeUUR2Yc=";
+      name = "everforest";
+      publisher = "sainnhe";
+      version = "0.3.0";
+      sha256 = "sha256-nZirzVvM160ZTpBLTimL2X35sIGy5j2LQOok7a2Yc7U=";
     };
   };
 
@@ -30,8 +30,8 @@ in {
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        kanagawa
-        jetbrains-icon-theme
+        everforest # color
+        symbols # icon
         # git
         donjayamanne.githistory
         eamodio.gitlens
@@ -49,7 +49,7 @@ in {
       ];
       keybindings = [ ];
       userSettings = {
-        "breadcumbs.enabled" = true;
+        "breadcrumbs.enabled" = true;
 
         "editor.fontSize" = 14;
         "editor.lineHeight" = 1.6;
@@ -81,7 +81,7 @@ in {
           [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
 
         "git.confirmSync" = false;
-        github.copilot.nextEditSuggestions.enabled = true;
+        "github.copilot.nextEditSuggestions.enabled" = true;
 
         "javascript.updateImportsOnFileMove.enabled" = "always";
         "typescript.updateImportsOnFileMove.enabled" = "always";
@@ -93,8 +93,8 @@ in {
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
 
-        "workbench.colorTheme" = "Kanagawa";
-        "workbench.iconTheme" = "vscode-jetbrains-icon-theme-2023-dark";
+        "workbench.colorTheme" = "Everforest Dark";
+        "workbench.iconTheme" = "symbols";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
         "workbench.statusBar.visible" = true;
@@ -115,6 +115,10 @@ in {
         "[typescriptreact]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
+        "everforest.italicKeywords" = true;
+        "everforest.italicComments" = true;
+        "everforest.darkContrast" = "hard";
+        "everforest.darkWorkbench" = "high-contrast";
 
       };
     };

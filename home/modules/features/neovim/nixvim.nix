@@ -30,9 +30,9 @@ in {
     enable = true;
     package = pkgs.neovim-unwrapped;
     colorschemes = {
-      kanagawa = {
+      everforest = {
         enable = true;
-        settings = { };
+        settings = { background = "hard"; };
       };
     };
     extraLuaPackages = luaPkgs:
