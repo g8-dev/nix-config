@@ -36,7 +36,7 @@ in {
       feh.enable = true;
       firefox.enable = true;
       firefox.profileNames = [ "${config.home.username}" ];
-      fish.enable = true;
+      fish.enable = false;
       foot.enable = true;
       fzf.enable = true;
       ghostty.enable = true;
