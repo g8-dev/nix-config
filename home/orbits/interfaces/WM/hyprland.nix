@@ -7,21 +7,7 @@ let
     systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
   '';
 in {
-  imports = [
-
-    ../../browsers/qutebrowser.nix
-    ../../browsers/chromium.nix
-    ../../browsers/firefox.nix
-
-    ../../terminals/kitty.nix
-    ../../terminals/ghostty.nix
-    ../../cli
-    ../../dev
-    ../../neovim
-    ../../programs
-    ../../services
-    ./common/wayland.nix
-  ];
+  imports = [ ../../browsers/qutebrowser.nix ./common/wayland.nix ];
   services.gnome-keyring.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;

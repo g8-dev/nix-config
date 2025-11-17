@@ -1,10 +1,21 @@
 { lib, ... }: {
+
   imports = [
 
-    # Global config (required)
-    ./users/g8.nix
-    ./modules/features/interfaces/WM/hyprland.nix
-    ./modules/features/interfaces/DE/kde.nix
+    # ASTRONAUT
+    ../astronauts/g8.nix
+
+    # ORBITS
+    ../orbits/interfaces/WM/hyprland.nix
+
+    ../orbits/cli
+    ../orbits/neovim
+    ../orbits/programs
+    ../orbits/services
+
+    ../orbits/browsers/firefox.nix
+    ../orbits/browsers/chromium.nix
+    ../orbits/terminals/kitty.nix
 
   ];
 
@@ -13,6 +24,6 @@
     kb_variant = "abnt2";
   };
 
-  stylix.image = lib.mkForce ./modules/common/custom/wallpapers/neptune.jpeg;
+  stylix.image = lib.mkForce ../orbits/custom/wallpapers/neptune.jpeg;
 
 }

@@ -6,13 +6,17 @@
     ../astronauts/g8.nix
 
     # ORBITS
-    ../orbits/browsers/firefox.nix
-    ../orbits/browsers/chromium.nix
+
+    ../orbits/interfaces/WM/hyprland.nix
+
     ../orbits/cli
+    ../orbits/neovim
     ../orbits/programs
     ../orbits/services
+
+    ../orbits/browsers/chromium.nix
+    ../orbits/browsers/firefox.nix
     ../orbits/terminals/kitty.nix
-    ../orbits/neovim
   ];
 
   stylix.image = lib.mkForce ../orbits/custom/wallpapers/uranus.jpeg;

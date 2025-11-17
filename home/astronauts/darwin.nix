@@ -1,20 +1,11 @@
-{ lib, pkgs, outputs, ... }:
-
-{
+{ lib, pkgs, outputs, ... }: {
 
   imports = [
-    ../modules/common/programs.nix
-    ../modules/common/services.nix
-    ../modules/common/sops.nix
-    ../modules/common/sops-darwin.nix
-    ../modules/common/stylix.nix
-    ../modules/features/neovim
-    ../modules/features/dev
-    ../modules/features/cli
-    ../modules/features/programs/vscode.nix
-    ../modules/features/terminals/ghostty.nix
-    ../modules/features/browsers/firefox.nix
-
+    ../core/programs.nix
+    ../core/services.nix
+    ../core/sops.nix
+    ../core/sops-darwin.nix
+    ../core/stylix.nix
   ];
 
   home = {
@@ -32,6 +23,10 @@
   };
 
   nixpkgs = {
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [ ];
+    };
     overlays = [
       (self: super: {
         nodejs = super.nodejs_22;
@@ -39,15 +34,10 @@
       })
     ] ++ builtins.attrValues outputs.overlays;
 
-    config = {
-      allowUnfree = true;
-      permittedInsecurePackages = [ ];
-    };
   };
 
-  systemd.user.startServices = "sd-switch";
   news.display = "silent";
-
   targets.darwin.copyApps.enable = true;
+  systemd.user.startServices = "sd-switch";
 
 }

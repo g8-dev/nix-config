@@ -1,1 +1,0 @@
-{ ... }: { imports = [ ./users/droid.nix ]; }

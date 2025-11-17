@@ -1,15 +1,18 @@
 { lib, ... }: {
+
   imports = [
 
-    # Global config (required)
-    ./users/g8.nix
+    # ASTRONAUT
+    ../astronauts/g8.nix
 
-    ./modules/features/dev
-    ./modules/features/neovim
-    ./modules/features/terminals/kitty.nix
+    # ORBITS
+    ../orbits/dev
+    ../orbits/neovim
+    ../orbits/terminals/kitty.nix
 
   ];
-  stylix.image = lib.mkForce ./modules/common/custom/wallpapers/uranus.jpeg;
+
+  stylix.image = lib.mkForce ./modules/common/custom/wallpapers/default.png;
 
 }
 
