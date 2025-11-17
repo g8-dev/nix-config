@@ -2,34 +2,22 @@
   description = "My Awesome | gui8 | Nixos Configuration";
 
   inputs = {
+
+    # Main Flakes
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Others Flakes
     nix-darwin.url = "github:LnL7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nix-wsl.url = "github:nix-community/NixOS-WSL";
-    nix-wsl.inputs.nixpkgs.follows = "nixpkgs";
-    nixgl.url = "github:nix-community/nixGL";
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Others flakes
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    sops-nix.url = "github:Mic92/sops-nix";
-
-    #  firefox-addons = {
-    #    url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    #    inputs.nixpkgs.follows = "nixpkgs";
-    #  };
-
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    nixgl.url = "github:nix-community/nixGL";
+    stylix.url = "github:nix-community/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:Mic92/sops-nix";
 
   };
 
@@ -101,7 +89,7 @@
             inputs.sops-nix.homeModules.sops
             inputs.stylix.homeModules.stylix
             inputs.nixvim.homeModules.nixvim
-            ./home/uranus.nix
+            ./home/astros/uranus.nix
           ];
         };
       nixosConfigurations.uranus = nixpkgs.lib.nixosSystem {

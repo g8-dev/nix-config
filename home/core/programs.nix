@@ -1,9 +1,9 @@
-{ pkgs, config, inputs, lib, ... }:
+{ pkgs, config, lib, ... }:
 
 {
-  imports = [ ./extras/dependencies.nix ];
+
   home.packages = [ pkgs.age ]
-    ++ lib.optional pkgs.stdenv.isLinux pkgs.seafile-client;
+    ++ lib.optional pkgs.stdenv.isLinux pkgs.nextcloud-client;
 
   programs = {
 
