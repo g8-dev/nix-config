@@ -182,9 +182,9 @@ in {
     settings = {
       title = "[G8] Space";
       description = "G8 Space dashboard";
-      background.image = "https://i.imgur.com/41YAu3a.png";
+      background.image = "https://i.imgur.com/iejoeop.png";
       cardBlur = "xl";
-      favicon = "https://i.imgur.com/SmfY8lp.png";
+      favicon = "https://cdn-icons-png.flaticon.com/512/2388/2388180.png";
       statusStyle = "dot";
       theme = "dark";
       headerStyle = "underlined";
