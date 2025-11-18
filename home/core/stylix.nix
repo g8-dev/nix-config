@@ -4,7 +4,8 @@
 let
   cursorName = "Simp1e-Dark";
   cursorPkg = pkgs.simp1e-cursors;
-  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
+  base16SchemeDefault =
+    "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
 in {
   stylix = {
     enable = true;
@@ -65,7 +66,7 @@ in {
       tmux.enable = true;
       vim.enable = true;
       vscode.enable = false;
-      waybar.enable = true;
+      waybar.enable = false;
       wezterm.enable = true;
       wpaperd.enable = true;
       xfce.enable = false;

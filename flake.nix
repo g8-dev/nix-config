@@ -1,5 +1,5 @@
 {
-  description = "My Awesome | gui8 | Nixos Configuration";
+  description = "My Awesome | g8 | Nixos Configuration";
 
   inputs = {
 

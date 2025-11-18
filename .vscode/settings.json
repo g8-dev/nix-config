@@ -1,4 +1,6 @@
 {
-  "everforest.darkContrast": "hard",
-  "everforest.darkWorkbench": "flat"
+  "everforest.darkContrast": "soft",
+  "everforest.darkWorkbench": "high-contrast",
+  "everforest.lightContrast": "soft",
+  "everforest.lightWorkbench": "high-contrast"
 }

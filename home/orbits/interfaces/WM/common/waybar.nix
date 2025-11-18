@@ -238,7 +238,7 @@
       }
 
       #workspaces button {
-        color: #${config.lib.stylix.colors.base0D};
+        color: #${config.lib.stylix.colors.base0B};
         background-color: #${config.lib.stylix.colors.base00};
         padding: 0 4px;
         margin: 0 2px;
@@ -247,7 +247,7 @@
       }
 
       #workspaces button.active {
-        color: #${config.lib.stylix.colors.base09};
+        color: #${config.lib.stylix.colors.base0D};
         background-color: #${config.lib.stylix.colors.base00};
         font-weight: bold;
         box-shadow: none;
@@ -255,7 +255,7 @@
       }
 
       #workspaces button.focused {
-        color: #${config.lib.stylix.colors.base09};
+        color: #${config.lib.stylix.colors.base00};
         background-color: #${config.lib.stylix.colors.base00};
       }
 
@@ -266,19 +266,19 @@
 
       #workspaces button:hover {
         background-color: #${config.lib.stylix.colors.base00};
-        color: #${config.lib.stylix.colors.base0C};
+        color: #${config.lib.stylix.colors.base0D};
       }
 
       #disk {
-        color: #${config.lib.stylix.colors.base07};
+        color: #${config.lib.stylix.colors.base05};
       }
 
       #cpu {
-        color: #${config.lib.stylix.colors.base07};
+        color: #${config.lib.stylix.colors.base05};
       }
 
       #memory {
-        color: #${config.lib.stylix.colors.base07};
+        color: #${config.lib.stylix.colors.base05};
       }
 
       #temperature {

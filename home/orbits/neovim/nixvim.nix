@@ -30,9 +30,9 @@ in {
     enable = true;
     package = pkgs.neovim-unwrapped;
     colorschemes = {
-      ayu = {
+      rose-pine = {
         enable = true;
-        settings = { mirage = true; };
+        settings = { dark_variant = "moon"; };
       };
     };
     extraLuaPackages = luaPkgs:

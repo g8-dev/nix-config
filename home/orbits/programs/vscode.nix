@@ -30,7 +30,7 @@ in {
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        teabyii.ayu
+        mvllow.rose-pine
         symbols # icon
         # git
         donjayamanne.githistory
@@ -93,7 +93,7 @@ in {
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
 
-        "workbench.colorTheme" = "Ayu Mirage";
+        "workbench.colorTheme" = "Rosé Pine Moon";
         "workbench.iconTheme" = "symbols";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";

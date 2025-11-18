@@ -17,19 +17,19 @@ in {
       exec-once = "${startupScript}/bin/start";
       monitor = ",preferred,auto,1";
       general = {
-        gaps_in = 8;
-        gaps_out = 16;
-        border_size = 4;
+        gaps_in = 6;
+        gaps_out = 14;
+        border_size = 2;
         "col.active_border" =
-          lib.mkForce "rgba(${config.lib.stylix.colors.base0A}ff)";
+          lib.mkForce "rgba(${config.lib.stylix.colors.base0D}ff)";
         "col.inactive_border" =
-          lib.mkForce "rgba(${config.lib.stylix.colors.base0E}ff)";
+          lib.mkForce "rgba(${config.lib.stylix.colors.base0B}ff)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
       };
       decoration = {
-        rounding = 10;
+        rounding = 12;
         active_opacity = 1.0;
         inactive_opacity = 1.0;
         blur = {
@@ -62,7 +62,6 @@ in {
         sensitivity = 0;
         touchpad = { natural_scroll = false; };
       };
-      gestures = { workspace_swipe = true; };
       device = {
         name = "epic-mouse-v1";
         sensitivity = -0.5;
