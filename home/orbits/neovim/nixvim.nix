@@ -30,7 +30,7 @@ in {
     enable = true;
     package = pkgs.neovim-unwrapped;
     colorschemes = {
-      rose-pine = {
+      kanagawa = {
         enable = true;
         settings = { dark_variant = "moon"; };
       };

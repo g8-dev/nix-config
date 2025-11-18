@@ -11,12 +11,12 @@ let
     };
   };
 
-  everforest = buildVscodeMarketplaceExtension {
+  kanagawa = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "everforest";
-      publisher = "sainnhe";
-      version = "0.3.0";
-      sha256 = "sha256-nZirzVvM160ZTpBLTimL2X35sIGy5j2LQOok7a2Yc7U=";
+      name = "kanagawa";
+      publisher = "qufiwefefwoyn";
+      version = "1.5.1";
+      sha256 = "sha256-AGGioXcK/fjPaFaWk2jqLxovUNR59gwpotcSpGNbj1c=";
     };
   };
 
@@ -30,7 +30,7 @@ in {
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        mvllow.rose-pine
+        kanagawa
         symbols # icon
         # git
         donjayamanne.githistory
@@ -93,7 +93,7 @@ in {
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
 
-        "workbench.colorTheme" = "Rosé Pine Moon";
+        "workbench.colorTheme" = "Kanagawa";
         "workbench.iconTheme" = "symbols";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
