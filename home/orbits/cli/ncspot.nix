@@ -1,6 +1,6 @@
 { ... }: {
   programs.ncspot = {
-    enable = false;
+    enable = true;
     settings = {
       use_nerdfont = true;
       notifications = true;
