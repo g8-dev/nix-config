@@ -159,7 +159,7 @@
               ];
               useUserPackages = true;
               users.administrador.imports = [
-                ./home/saturn.nix
+                ./home/astros/saturn.nix
 
               ];
               backupFileExtension = "backup";
