@@ -45,7 +45,7 @@
         modules = [
           inputs.home-manager.nixosModules.home-manager
           {
-            home-manager.users.g8 = ./home/sun.nix;
+            home-manager.users.g8 = ./home/astros/sun.nix;
             home-manager.extraSpecialArgs = { inherit inputs outputs; };
             home-manager.sharedModules = [
               inputs.sops-nix.homeModules.sops

@@ -12,7 +12,7 @@
 
   ];
 
-  stylix.image = lib.mkForce ./modules/common/custom/wallpapers/default.png;
+  stylix.image = lib.mkForce ../orbits/custom/wallpapers/default.png;
 
 }
 
