@@ -19,11 +19,11 @@ in {
       general = {
         gaps_in = 6;
         gaps_out = 14;
-        border_size = 2;
+        border_size = 3;
         "col.active_border" =
-          lib.mkForce "rgba(${config.lib.stylix.colors.base0D}ff)";
+          lib.mkForce "rgba(${config.lib.stylix.colors.base05}ff)";
         "col.inactive_border" =
-          lib.mkForce "rgba(${config.lib.stylix.colors.base0B}ff)";
+          lib.mkForce "rgba(${config.lib.stylix.colors.base0D}ff)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";

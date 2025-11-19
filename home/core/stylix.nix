@@ -77,8 +77,8 @@ in {
   gtk = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     enable = true;
     iconTheme = {
-      name = lib.mkForce "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders;
+      name = lib.mkForce "Kora";
+      package = pkgs.kora-icon-theme;
 
     };
     cursorTheme = {
