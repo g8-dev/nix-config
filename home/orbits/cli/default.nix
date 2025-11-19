@@ -24,6 +24,7 @@
       enable = false;
       # mpdMusicDir = "${config.home.homeDirectory}/Nextcloud/Music";
     };
+    ncspot.enable = true;
     rtorrent.enable = true;
     translate-shell.enable = true;
     yt-dlp.enable = true;
@@ -48,7 +49,6 @@
     speedtest-rs # Networking test
     clock-rs
     tgpt # chatgpt
-    spotify-player
     tuifeed # feed
   ];
 
