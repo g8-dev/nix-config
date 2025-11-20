@@ -44,8 +44,10 @@
   # SYSTEM CONFIGS --------------------------------------
 
   console.keyMap = "br-abnt2";
+  # Set the keyboard layout for Xorg (initial setting for GNOME)
   services.xserver.xkb.layout = "br";
   services.xserver.xkb.variant = "abnt2";
+
   networking.hostName = "uranus";
 
   # garante diretório e permissões

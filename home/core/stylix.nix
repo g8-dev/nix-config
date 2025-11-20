@@ -77,8 +77,8 @@ in {
   gtk = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     enable = true;
     iconTheme = {
-      name = lib.mkForce "Kora";
-      package = pkgs.kora-icon-theme;
+      name = lib.mkForce "Colloid-Dark";
+      package = pkgs.colloid-icon-theme;
 
     };
     cursorTheme = {

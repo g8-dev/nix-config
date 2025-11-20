@@ -19,7 +19,6 @@
       gnome-feeds
       marker
       pdfslicer
-      rhythmbox
       gnome-themes-extra
       gnome-tweaks
       gnome-boxes
