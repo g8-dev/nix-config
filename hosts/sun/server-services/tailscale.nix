@@ -5,7 +5,6 @@
     package = lib.mkDefault pkgs.tailscale;
     openFirewall = true;
     useRoutingFeatures = lib.mkDefault "server";
-    permitCertUid = "caddy";
   };
 
 }

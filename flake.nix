@@ -24,7 +24,7 @@
   outputs = { self, nixpkgs, nix-darwin, home-manager, nixgl, ... }@inputs:
     let
       inherit (self) outputs;
-
+      domain = "g8-space.com.br";
       forEachSystem = nixpkgs.lib.genAttrs [
         "x86_64-linux"
         "x86_64-darwin"
@@ -41,7 +41,7 @@
       devShells = forEachPkgs (pkgs: import ./shell.nix { inherit pkgs; });
 
       nixosConfigurations.sun = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
+        specialArgs = { inherit inputs outputs domain; };
         modules = [
           inputs.home-manager.nixosModules.home-manager
           {

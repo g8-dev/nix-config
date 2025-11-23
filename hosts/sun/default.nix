@@ -6,29 +6,29 @@
     ../common/boot/systemd-boot.nix
     ../common/users/g8.nix
 
-    ./selfhost-services/homepage-dashboard.nix
-
-    # External services selfhosted
+    #    ./selfhost-services/homepage-dashboard.nix
+    #
     ./selfhost-services/docker-services.nix
+    #    # External services selfhosted
+    ./selfhost-services/nextcloud.nix
     ./selfhost-services/immich.nix
-    ./selfhost-services/karakeep.nix
     ./selfhost-services/navidrome.nix
-
-    ./selfhost-services/audiobookshelf.nix
-    ./selfhost-services/gitea.nix
     ./selfhost-services/radicale.nix
-    ./selfhost-services/opencloud.nix
-    ./selfhost-services/vikunja.nix
+    ./selfhost-services/audiobookshelf.nix
+    #    ./selfhost-services/karakeep.nix
+    #
+    #    ./selfhost-services/gitea.nix
+    #    ./selfhost-services/vikunja.nix
     ./selfhost-services/vaultwarden.nix
-    #   ./selfhost-services/postiz.nix
-
-    #/server    ./jackett.nix
-    #/server    ./sonarr.nix
-    #/server    ./radarr.nix
-    #/server    ./lidarr.nix
-    ./selfhost-services/vscode-server.nix
-
-    # Server 
+    #    #   ./selfhost-services/postiz.nix
+    #
+    #    #/server    ./jackett.nix
+    #    #/server    ./sonarr.nix
+    #    #/server    ./radarr.nix
+    #    #/server    ./lidarr.nix
+    #    ./selfhost-services/vscode-server.nix
+    #
+    #    # Server 
     ./server-services/console.nix
     ./server-services/nginx.nix
     ./server-services/cloudflare.nix
@@ -40,15 +40,16 @@
   services.openssh.enable = true;
 
   fileSystems."/var/lib/storage_backup" = {
-    device = "/dev/disk/by-uuid/433cc6cc-561e-4783-b33c-d523378eefd9";
+    device = "UUID=433cc6cc-561e-4783-b33c-d523378eefd9";
     fsType = "ext4";
     depends = [ "/var/lib/storage" ];
-    options = [ "nofail" "users" "rw" ];
+    options = [ "defaults" ];
   };
+
   fileSystems."/var/lib/storage" = {
-    device = "/dev/disk/by-uuid/b22affd9-1505-4214-8acf-57468a600899";
+    device = "UUID=b22affd9-1505-4214-8acf-57468a600899";
     fsType = "ext4";
-    options = [ "users" "nofail" "rw" ];
+    options = [ "defaults" ];
   };
 
 }

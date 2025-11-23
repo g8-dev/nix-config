@@ -1,6 +1,4 @@
-{ pkgs, config, lib, ... }:
-let domain = "g8-space.com.br";
-in {
+{ pkgs, config, domain, ... }: {
   services.nextcloud = {
     enable = true;
     cli.memoryLimit = "2G";
@@ -22,7 +20,7 @@ in {
     settings = {
       overwriteProtocol = "https";
       trusted_proxies = [ "localhost" "127.0.0.1" ];
-      trusted_domains = [ "opencloud.${domain}" ];
+      trusted_domains = [ "nextcloud.${domain}" ];
       defaultPhoneRegion = "BR";
       enabledPreviewProviders = [
         "OC\\Preview\\BMP"

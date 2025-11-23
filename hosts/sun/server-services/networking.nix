@@ -12,8 +12,8 @@
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
     firewall = {
       trustedInterfaces = [ "tailscale0" ];
-      allowedUDPPorts = [ 80 443 config.services.tailscale.port ];
-      allowedTCPPorts = [ 80 443 config.services.tailscale.port ];
+      allowedUDPPorts = [ 80 443 8082 config.services.tailscale.port ];
+      allowedTCPPorts = [ 80 443 8082 config.services.tailscale.port ];
     };
   };
 
