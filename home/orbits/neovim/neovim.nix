@@ -187,7 +187,6 @@ in {
       pylint
 
       # Others
-      nodePackages.live-server
 
     ];
 

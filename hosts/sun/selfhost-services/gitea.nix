@@ -1,6 +1,4 @@
-{ ... }:
-let domain = "g8-space.com.br";
-in {
+{ domain, ... }: {
   services.gitea = {
     enable = true;
 

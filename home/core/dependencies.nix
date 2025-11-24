@@ -7,7 +7,7 @@
       pciutils
       mesa-demos
       pulseaudio
-      unrar
+      #unrar
       unzip
       chafa
       lshw

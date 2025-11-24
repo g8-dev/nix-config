@@ -6,7 +6,7 @@
     ../common/boot/systemd-boot.nix
     ../common/users/g8.nix
 
-    #    ./selfhost-services/homepage-dashboard.nix
+    ./selfhost-services/homepage-dashboard.nix
     #
     ./selfhost-services/docker-services.nix
     #    # External services selfhosted
@@ -15,18 +15,17 @@
     ./selfhost-services/navidrome.nix
     ./selfhost-services/radicale.nix
     ./selfhost-services/audiobookshelf.nix
-    #    ./selfhost-services/karakeep.nix
-    #
-    #    ./selfhost-services/gitea.nix
-    #    ./selfhost-services/vikunja.nix
+    ./selfhost-services/karakeep.nix
     ./selfhost-services/vaultwarden.nix
-    #    #   ./selfhost-services/postiz.nix
+    ./selfhost-services/vscode-server.nix
+    ./selfhost-services/vikunja.nix
+    ./selfhost-services/gitea.nix
+    #
     #
     #    #/server    ./jackett.nix
     #    #/server    ./sonarr.nix
     #    #/server    ./radarr.nix
     #    #/server    ./lidarr.nix
-    #    ./selfhost-services/vscode-server.nix
     #
     #    # Server 
     ./server-services/console.nix

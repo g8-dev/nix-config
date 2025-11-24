@@ -22,6 +22,7 @@
       };
       cmakeFlags = [ ];
     });
+
   };
 
   neorg = inputs.neorg-overlay.overlays.default;

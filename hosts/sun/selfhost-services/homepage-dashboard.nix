@@ -30,12 +30,12 @@ in {
           }
 
           {
-            "Seafile" = {
+            "Nextcloud" = {
               icon =
-                "https://play-lh.googleusercontent.com/W50RgmkH3FIDswFcujAp9wWkvZL0Vqjx2cItHWcyBClAXB1Sy3m1mQHAyeoW3HGeKBBE";
+                "https://getumbrel.github.io/umbrel-apps-gallery/nextcloud/icon.svg";
               description = "Files service";
-              href = "https://seafile.${domain}";
-              siteMonitor = "https://seafile.${domain}";
+              href = "https://nextcloud.${domain}";
+              siteMonitor = "https://nextcloud.${domain}";
             };
           }
 

@@ -69,7 +69,6 @@ in {
       stylua
 
       # Others
-      nodePackages.live-server
     ];
 
     opts = {

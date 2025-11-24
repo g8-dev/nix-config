@@ -40,6 +40,7 @@ in {
 
     };
   };
+
   environment.systemPackages = [ pkgs.cloudflared ];
 
 }

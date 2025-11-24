@@ -1,7 +1,8 @@
 { pkgs, lib, ... }: {
   services.karakeep = {
     enable = true;
-    browser = { enable = true; };
+    meilisearch.enable = false;
+    browser = { enable = false; };
     extraEnvironment = {
       PORT = "9109";
       DISABLE_SIGNUPS = "true";

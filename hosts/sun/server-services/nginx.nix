@@ -17,7 +17,7 @@ in {
           #  forceSSL = true;
           #  default = true;
           #  enableACME = true;
-          # locations."/" = { proxyPass = "http://${localDomain}:80"; };
+          locations."/" = { proxyPass = "http://${localDomain}:80"; };
           # locations."/.well-known/acme-challenge" = {
           # root = "/var/lib/acme/acme-challenge";
           #};
@@ -29,8 +29,6 @@ in {
           }];
         };
         "nextcloud.${domain}" = {
-          #forceSSL = true; # Forçar HTTPS
-          # useACMEHost = "${domain}";
           locations."/" = {
             proxyPass = "http://${localDomain}:9101";
             proxyWebsockets = true;

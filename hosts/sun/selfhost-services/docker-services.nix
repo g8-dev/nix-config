@@ -23,7 +23,9 @@
     hostname = "metube";
     image = "alexta69/metube";
     ports = [ "127.0.0.1:9108:8081" ];
-    #volumes = [ "/var/lib/storage/nextcloud/data/g8/files/Youtube:/downloads" ];
+    volumes = [
+      "/var/lib/storage/nextcloud/data/guifuentes8@gmail.com/files/Youtube:/downloads"
+    ];
   };
 
 }
