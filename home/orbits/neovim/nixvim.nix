@@ -45,7 +45,7 @@ in {
     plugins = {
       dashboard.enable = true;
       gitsigns.enable = true;
-      lualine.enable = true;
+      #lualine.enable = true;
       transparent.enable = true;
       web-devicons.enable = true; # required
     };
