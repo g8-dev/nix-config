@@ -33,21 +33,22 @@
       upgrade = true;
     };
     casks = [
-      "alfred"
-      "bitwarden"
+      # "alfred"
+      #"bitwarden"
       "caffeine"
-      "discord"
-      "docker-desktop"
-      "dbeaver-community"
-      "gimp"
-      "microsoft-teams"
-      "nextcloud"
-      "onlyoffice"
+      # "discord"
+      #  "docker-desktop"
+      #"dbeaver-community"
+      #"gimp"
+      # "microsoft-teams"
+      #"nextcloud"
+      # "onlyoffice"
       "pika"
-      "spotify"
+      "figma"
+      # "spotify"
       # "tailscale"
       "obs"
-      "zoom"
+      # "zoom"
 
     ];
   };
