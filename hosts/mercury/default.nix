@@ -38,5 +38,5 @@
   # services.xserver.xkb.variant = "abnt2";
   console.keyMap = "us";
   services.xserver.xkb.layout = "us";
-  networking.hostName = "mars";
+  networking.hostName = "mercury";
 }

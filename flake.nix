@@ -59,7 +59,7 @@
         ];
       };
 
-      homeConfigurations."g8@mars" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."g8@mercury" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = { inherit inputs outputs nixgl; };
         modules = [
@@ -67,17 +67,17 @@
           inputs.sops-nix.homeModules.sops
           inputs.nixvim.homeModules.nixvim
 
-          ./home/mars.nix
+          ./home/astros/mercury.nix
 
         ];
       };
 
-      nixosConfigurations.mars = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.mercury = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
           inputs.sops-nix.nixosModules.sops
           inputs.stylix.nixosModules.stylix
-          ./hosts/mars
+          ./hosts/mercury
         ];
       };
 

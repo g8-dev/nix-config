@@ -1,5 +1,6 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   imports = [ ];
+  home.packages = [ pkgs.sops ];
   sops = {
     age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
     defaultSopsFile = ../../secrets/g8.yaml;
