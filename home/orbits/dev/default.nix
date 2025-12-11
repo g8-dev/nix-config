@@ -6,6 +6,7 @@
     go.enable = true;
     java.enable = true;
     pyenv.enable = true;
+    poetry.enable = true;
     rbenv.enable = true;
   };
 

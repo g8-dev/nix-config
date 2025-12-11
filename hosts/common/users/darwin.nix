@@ -44,7 +44,6 @@
       #"nextcloud"
       # "onlyoffice"
       "pika"
-      "figma"
       # "spotify"
       # "tailscale"
       "obs"

@@ -20,6 +20,14 @@ let
     };
   };
 
+  pokemon = buildVscodeMarketplaceExtension {
+    mktplcRef = {
+      name = "vscode-pokemon";
+      publisher = "jakobhoeg";
+      version = "3.2.2";
+      sha256 = "sha256-1y70n3y6ye1powXoZ7ulYV9Sv1NBW84StzAhHSoj+P4=";
+    };
+  };
 in {
   programs.vscode = {
     enable = true;
@@ -40,11 +48,15 @@ in {
         # lint
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
+        davidanson.vscode-markdownlint
 
         # extra language plugins
         bradlc.vscode-tailwindcss
         naumovs.color-highlight
         jnoortheen.nix-ide
+
+        # 4fun
+        pokemon
 
       ];
       keybindings = [ ];
