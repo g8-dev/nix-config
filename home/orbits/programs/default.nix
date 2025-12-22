@@ -22,7 +22,6 @@
     gimp
     onlyoffice-desktopeditors
     pavucontrol
-    spotify
 
   ];
 

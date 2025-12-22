@@ -35,7 +35,6 @@
       force-quit
       gnome-40-ui-improvements
       mpris-label
-      order-gnome-shell-extensions
       overview-background
       tactile
       wayland-or-x11
