@@ -39,15 +39,6 @@ in {
             };
           }
 
-          {
-            "Vaultwarden" = {
-              icon =
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQise_TS6EZCtz4EmSyIMEH5ZPAuQLrVEZgmQ&s";
-              description = "Secrets service";
-              href = "https://vaultwarden.${domain}";
-              siteMonitor = "https://vaultwarden.${domain}";
-            };
-          }
         ];
       }
       {
@@ -136,6 +127,16 @@ in {
               siteMonitor = "https://metube.${domain}";
             };
           }
+          {
+            "Vaultwarden" = {
+              icon =
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQise_TS6EZCtz4EmSyIMEH5ZPAuQLrVEZgmQ&s";
+              description = "Secrets service";
+              href = "https://vaultwarden.${domain}";
+              siteMonitor = "https://vaultwarden.${domain}";
+            };
+          }
+
         ];
       }
       {
@@ -182,9 +183,11 @@ in {
     settings = {
       title = "[G8] Space";
       description = "G8 Space dashboard";
-      background.image = "https://i.imgur.com/iejoeop.png";
+      background.blur = "md";
+      background.image =
+        "https://images8.alphacoders.com/545/thumb-1920-545583.jpg";
       cardBlur = "xl";
-      favicon = "https://cdn-icons-png.flaticon.com/512/2388/2388180.png";
+      favicon = "https://cdn-icons-png.flaticon.com/512/2687/2687003.png";
       statusStyle = "dot";
       theme = "dark";
       headerStyle = "underlined";
@@ -192,26 +195,26 @@ in {
       layout = [
         {
           "Development Tools and Services" = {
-            style = "row";
-            columns = 4;
+            style = "column";
+            columns = 1;
           };
         }
         {
           "Files and Data Management" = {
-            style = "row";
-            columns = 4;
+            style = "column";
+            columns = 1;
           };
         }
         {
           "Media, Audio and RSS feeds" = {
-            style = "row";
-            columns = 4;
+            style = "column";
+            columns = 1;
           };
         }
         {
           "Notes, Drawing and Tasks" = {
-            style = "row";
-            columns = 4;
+            style = "column";
+            columns = 1;
           };
         }
         {
