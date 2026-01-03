@@ -3,11 +3,11 @@ let waylandArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
 
 in {
   imports = [
-    ./users/g8.nix
-    ./modules/features/cli
-    ./modules/features/neovim
-    ./modules/features/dev
-    ./modules/features/programs/vscode.nix
+    ../astrounauts/g8.nix
+    ../orbits/cli
+    ../orbits/neovim
+    ../orbits/dev
+    ../orbits/vscode.nix
   ];
 
   nixpkgs.config = { chromium.commandLineArgs = waylandArgs; };
@@ -18,16 +18,16 @@ in {
       source = ./server-env-setup;
     };
   };
-  programs.zsh.shellAliases = {
-    adb = "/mnt/c/Users/gui8/Local\\ Settings/Android/Sdk/platform-tools/adb";
-  };
+  #  programs.zsh.shellAliases = {
+  # adb = "/mnt/c/Users/gui8/Local\\ Settings/Android/Sdk/platform-tools/adb";
+  #};
 
-  programs.zsh.localVariables = {
-    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-    NIXOS_OZONE_WL = "1";
-    MOZ_ENABLE_WAYLAND = "1";
-    WGPU_BACKEND = "gl";
-    BROWSER = "";
-  };
+  # programs.zsh.localVariables = {
+  #  ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  #  NIXOS_OZONE_WL = "1";
+  #  MOZ_ENABLE_WAYLAND = "1";
+  #  WGPU_BACKEND = "gl";
+  #  BROWSER = "";
+  #};
 
 }
