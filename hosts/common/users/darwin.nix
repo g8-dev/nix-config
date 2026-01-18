@@ -1,4 +1,4 @@
-{ config, inputs, outputs, pkgs, ... }: {
+{ ... }: {
 
   imports = [ ../../common ];
 
@@ -34,13 +34,13 @@
     };
     casks = [
       # "alfred"
-      #"bitwarden"
+      "bitwarden"
       "caffeine"
-      # "discord"
+      "discord"
       #  "docker-desktop"
       #"dbeaver-community"
       #"gimp"
-      # "microsoft-teams"
+      "microsoft-teams"
       #"nextcloud"
       # "onlyoffice"
       "pika"
