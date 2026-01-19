@@ -3,14 +3,21 @@
 {
   services = {
     xserver.enable = true;
-    desktopManager.gnome = { enable = true; };
+    desktopManager.gnome = {
+      enable = true;
+    };
   };
+  xdg.portal.enable = true;
+  xdg.portal.config.common.default = "*";
 
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
   services.gnome.gnome-browser-connector.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
-  environment.systemPackages = with pkgs;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  environment.systemPackages =
+    with pkgs;
     [
       contrast
       gnome-tweaks
@@ -25,7 +32,8 @@
       gnome-music
       totem
       geary
-    ] ++ (with pkgs.gnomeExtensions; [
+    ]
+    ++ (with pkgs.gnomeExtensions; [
       appindicator
       burn-my-windows
       color-picker
@@ -42,7 +50,14 @@
     ]);
 
   # Remove default gnome packages
-  environment.gnome.excludePackages =
-    (with pkgs; [ atomix hitori iagno tali gnome-music ]);
+  environment.gnome.excludePackages = (
+    with pkgs;
+    [
+      atomix
+      hitori
+      iagno
+      tali
+      gnome-music
+    ]
+  );
 }
-

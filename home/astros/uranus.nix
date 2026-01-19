@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
 
   imports = [
 
@@ -13,6 +14,7 @@
     ../orbits/neovim
     ../orbits/programs
     ../orbits/services
+    ../orbits/dev
 
     ../orbits/browsers/chromium.nix
     ../orbits/browsers/firefox.nix

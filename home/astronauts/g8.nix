@@ -15,7 +15,7 @@
   home = {
     username = "g8";
     homeDirectory = "/home/${config.home.username}";
-    stateVersion = "25.11";
+    stateVersion = "26.05";
   };
 
   nix = {
@@ -28,10 +28,7 @@
 
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
-    config = {
-      allowUnfree = true;
-      permittedInsecurePackages = [ "ventoy-1.1.07" ];
-    };
+    config = { allowUnfree = true; };
   };
 
   fonts.fontconfig.enable = true;

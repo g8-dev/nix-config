@@ -11,7 +11,7 @@
   home = {
     username = "administrador";
     homeDirectory = "/Users/administrador";
-    stateVersion = "25.11";
+    stateVersion = "26.05";
   };
 
   nix = {

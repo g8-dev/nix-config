@@ -6,7 +6,7 @@
     go.enable = true;
     java.enable = true;
     pyenv.enable = true;
-    poetry.enable = true;
+    #poetry.enable = true;
     rbenv.enable = true;
   };
 
@@ -17,6 +17,6 @@
     pnpm_10
     #nest-cli
     maven
-    nixfmt-rfc-style
+    nixfmt
   ];
 }

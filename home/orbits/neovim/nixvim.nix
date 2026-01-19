@@ -62,7 +62,7 @@ in {
       # Conform
       ruff # python
       # Linters
-      nixfmt-classic
+      nixfmt
       prettierd
       pylint
       eslint_d

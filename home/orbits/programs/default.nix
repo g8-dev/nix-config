@@ -1,6 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
-  imports = [ ./vscode.nix ];
+  imports = [
+    ./vscode.nix
+    ./xdg.nix
+  ];
   programs = {
     obs-studio = {
       enable = true;
@@ -18,6 +22,8 @@
     discord
     evolution
     flameshot
+    figma-linux
+    figma-agent
     fontpreview
     gimp
     onlyoffice-desktopeditors

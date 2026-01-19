@@ -182,7 +182,7 @@ in {
 
       # Linters
       eslint_d
-      nixfmt-classic
+      nixfmt
       prettierd
       pylint
 

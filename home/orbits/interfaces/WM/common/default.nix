@@ -1,8 +1,14 @@
 { ... }:
 
 {
-  imports = [ ./dunst.nix ./mpv.nix ./rofi ./xdg.nix ];
+  imports = [
+    ./dunst.nix
+    ./mpv.nix
+    ./rofi
+  ];
 
   # Common programs Windows Managers
-  programs = { zathura.enable = true; };
+  programs = {
+    zathura.enable = true;
+  };
 }
