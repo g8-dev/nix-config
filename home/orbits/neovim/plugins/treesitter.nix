@@ -1,8 +1,9 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, lib, ... }:
+{
   programs.nixvim.plugins.treesitter = {
     enable = true;
     package = pkgs.vimPlugins.nvim-treesitter;
-    grammarPackages = pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
+    grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
     settings = {
       auto_install = false;
       autotag = true;
@@ -23,9 +24,8 @@
           scope_incremental = "grc";
         };
       };
-      indent = { enable = true; };
-      parser_install_dir = {
-        __raw = "vim.fs.joinpath(vim.fn.stdpath('data'), 'treesitter')";
+      indent = {
+        enable = true;
       };
       sync_install = false;
     };

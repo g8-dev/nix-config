@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 let
-  fromGithub = rev: ref: repo:
+  fromGithub =
+    rev: ref: repo:
     pkgs.vimUtils.buildVimPlugin {
       pname = "${lib.strings.sanitizeDerivationName repo}";
       version = ref;
@@ -10,7 +11,8 @@ let
         rev = rev;
       };
     };
-in {
+in
+{
   imports = [
 
     ./keymaps.nix
@@ -32,11 +34,13 @@ in {
     colorschemes = {
       kanagawa = {
         enable = true;
-        settings = { dark_variant = "moon"; };
+        settings = {
+          dark_variant = "moon";
+        };
       };
     };
-    extraLuaPackages = luaPkgs:
-      with luaPkgs; [
+    extraLuaPackages =
+      luaPkgs: with luaPkgs; [
         lua-utils-nvim
         nvim-nio
         pathlib-nvim
@@ -50,7 +54,10 @@ in {
       web-devicons.enable = true; # required
     };
 
-    extraPlugins = with pkgs.vimPlugins; [ zen-mode-nvim material-nvim ];
+    extraPlugins = with pkgs.vimPlugins; [
+      zen-mode-nvim
+      material-nvim
+    ];
     extraPackages = with pkgs; [
       # Language servers
       nodePackages.typescript-language-server # typescript

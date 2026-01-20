@@ -11,53 +11,72 @@ let
         })
       end
     end  '';
-in {
+in
+{
   programs.nixvim = {
     keymaps = [
       {
         action = "<cmd>Lspsaga code_action<CR>";
         key = "<leader>ga";
-        options = { silent = true; };
+        options = {
+          silent = true;
+        };
       }
       {
         action = "<cmd>Lspsaga peek_definition<CR>";
         key = "<leader>gp";
-        options = { silent = true; };
+        options = {
+          silent = true;
+        };
       }
       {
         action = "<cmd>Lspsaga goto_definition<CR>";
         key = "<leader>gt";
-        options = { silent = true; };
+        options = {
+          silent = true;
+        };
       }
       {
         action = "<cmd>Lspsaga diagnostic_jump_next<CR>";
         key = "<leader>gk";
-        options = { silent = true; };
+        options = {
+          silent = true;
+        };
       }
       {
         action = "<cmd>Lspsaga diagnostic_jump_prev<CR>";
         key = "<leader>gj";
-        options = { silent = true; };
+        options = {
+          silent = true;
+        };
       }
       {
         action = "<cmd>Lspsaga finder<CR>";
         key = "<leader>gf";
-        options = { silent = true; };
+        options = {
+          silent = true;
+        };
       }
       {
         action = "<cmd>Lspsaga hover_doc<CR>";
         key = "<leader>gh";
-        options = { silent = true; };
+        options = {
+          silent = true;
+        };
       }
       {
         action = "<cmd>Lspsaga outline<CR>";
         key = "<leader>go";
-        options = { silent = true; };
+        options = {
+          silent = true;
+        };
       }
       {
         action = "<cmd>Lspsaga rename<CR>";
         key = "<leader>gr";
-        options = { silent = true; };
+        options = {
+          silent = true;
+        };
       }
     ];
     plugins = {
@@ -132,12 +151,20 @@ in {
           };
 
         };
-        definition = { keys = { }; };
-        finder = { keys = { }; };
+        definition = {
+          keys = { };
+        };
+        finder = {
+          keys = { };
+        };
         hover = { };
         lightbulb = { };
-        outline = { keys = { }; };
-        rename = { keys = { }; };
+        outline = {
+          keys = { };
+        };
+        rename = {
+          keys = { };
+        };
 
       };
     };

@@ -1,7 +1,7 @@
 { pkgs, config, ... }: {
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox;
+    package = pkgs.firefox-bin;
     policies = {
       DefaultDownloadDirectory = "${config.home.homeDirectory}/Downloads";
     };
