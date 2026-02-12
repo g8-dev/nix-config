@@ -1,11 +1,11 @@
 { config, ... }: {
   networking = {
     hostName = "sun";
-    defaultGateway = "10.10.10.1";
+    defaultGateway = "192.168.0.1";
     interfaces.enp4s0 = {
       useDHCP = false;
       ipv4.addresses = [{
-        address = "10.10.10.10";
+        address = "192.168.0.10";
         prefixLength = 24;
       }];
     };
