@@ -178,7 +178,7 @@
             inputs.sops-nix.homeModules.sops
             inputs.nixvim.homeModules.nixvim
             inputs.stylix.homeModules.stylix
-            ./home/neptune.nix
+            ./home/astros/neptune.nix
           ];
         };
       nixosConfigurations.neptune = nixpkgs.lib.nixosSystem {
