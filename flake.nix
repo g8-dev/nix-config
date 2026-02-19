@@ -20,9 +20,24 @@
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
 
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Third party programs, packaged with nix
+
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, nixgl, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nix-darwin,
+      home-manager,
+      nixgl,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       domain = "g8-space.com.br";
@@ -34,7 +49,8 @@
 
       forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
 
-    in {
+    in
+    {
       nixosModules = import ./modules/nixos;
       homeModules = import ./modules/home-manager;
       overlays = import ./overlays { inherit inputs outputs; };
@@ -67,19 +83,18 @@
 
       # MERCURY
 
-      homeConfigurations."g8@mercury" =
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = { inherit inputs outputs nixgl; };
-          modules = [
-            inputs.stylix.homeModules.stylix
-            inputs.sops-nix.homeModules.sops
-            inputs.nixvim.homeModules.nixvim
+      homeConfigurations."g8@mercury" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = { inherit inputs outputs nixgl; };
+        modules = [
+          inputs.stylix.homeModules.stylix
+          inputs.sops-nix.homeModules.sops
+          inputs.nixvim.homeModules.nixvim
 
-            ./home/astros/mercury.nix
+          ./home/astros/mercury.nix
 
-          ];
-        };
+        ];
+      };
 
       nixosConfigurations.mercury = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
@@ -90,21 +105,41 @@
         ];
       };
 
+      # EARTH
+
+      homeConfigurations."g8@earth" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [
+          inputs.sops-nix.homeModules.sops
+          inputs.stylix.homeModules.stylix
+          inputs.nixvim.homeModules.nixvim
+          ./home/astros/earth.nix
+        ];
+      };
+      nixosConfigurations.earth = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          inputs.sops-nix.nixosModules.sops
+          inputs.stylix.nixosModules.stylix
+          ./hosts/earth
+        ];
+      };
+
       # JUPITER
 
-      homeConfigurations."g8@jupiter" =
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = { inherit inputs outputs nixgl; };
-          modules = [
-            inputs.stylix.homeModules.stylix
-            inputs.sops-nix.homeModules.sops
-            inputs.nixvim.homeModules.nixvim
+      homeConfigurations."g8@jupiter" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = { inherit inputs outputs nixgl; };
+        modules = [
+          inputs.stylix.homeModules.stylix
+          inputs.sops-nix.homeModules.sops
+          inputs.nixvim.homeModules.nixvim
 
-            ./home/astros/mercury.nix
+          ./home/astros/mercury.nix
 
-          ];
-        };
+        ];
+      };
 
       nixosConfigurations.jupiter = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
@@ -148,17 +183,16 @@
 
       # URANUS
 
-      homeConfigurations."g8@uranus" =
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            inputs.sops-nix.homeModules.sops
-            inputs.stylix.homeModules.stylix
-            inputs.nixvim.homeModules.nixvim
-            ./home/astros/uranus.nix
-          ];
-        };
+      homeConfigurations."g8@uranus" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [
+          inputs.sops-nix.homeModules.sops
+          inputs.stylix.homeModules.stylix
+          inputs.nixvim.homeModules.nixvim
+          ./home/astros/uranus.nix
+        ];
+      };
       nixosConfigurations.uranus = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
@@ -170,17 +204,16 @@
 
       # NEPTUNE
 
-      homeConfigurations."g8@neptune" =
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            inputs.sops-nix.homeModules.sops
-            inputs.nixvim.homeModules.nixvim
-            inputs.stylix.homeModules.stylix
-            ./home/astros/neptune.nix
-          ];
-        };
+      homeConfigurations."g8@neptune" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [
+          inputs.sops-nix.homeModules.sops
+          inputs.nixvim.homeModules.nixvim
+          inputs.stylix.homeModules.stylix
+          ./home/astros/neptune.nix
+        ];
+      };
       nixosConfigurations.neptune = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
