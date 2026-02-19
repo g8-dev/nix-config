@@ -1,11 +1,17 @@
 # HOME STYLIX
 
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
-  cursorName = "Simp1e-Dark";
-  cursorPkg = pkgs.simp1e-cursors;
-  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
-in {
+  cursorName = "BreezeX-RosePine-Linux";
+  cursorPkg = pkgs.rose-pine-cursor;
+  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
+in
+{
   stylix = {
     enable = true;
     autoEnable = false;

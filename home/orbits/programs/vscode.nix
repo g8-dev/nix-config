@@ -11,12 +11,12 @@ let
     };
   };
 
-  kanagawa = buildVscodeMarketplaceExtension {
+  tokyo-moon = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "kanagawa";
-      publisher = "qufiwefefwoyn";
-      version = "1.5.1";
-      sha256 = "sha256-AGGioXcK/fjPaFaWk2jqLxovUNR59gwpotcSpGNbj1c=";
+      name = "tokyo-night-moon";
+      publisher = "PatrickNasralla";
+      version = "1.1.4";
+      sha256 = "sha256-8rUbsDCk7JHSN4vn+TNTmIrx8ma53hH/1x0trqDwU7Y=";
     };
   };
 
@@ -28,7 +28,8 @@ let
       sha256 = "sha256-1y70n3y6ye1powXoZ7ulYV9Sv1NBW84StzAhHSoj+P4=";
     };
   };
-in {
+in
+{
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
@@ -38,7 +39,8 @@ in {
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        kanagawa
+        enkia.tokyo-night
+        tokyo-moon
         symbols # icon
         # git
         donjayamanne.githistory
@@ -89,8 +91,12 @@ in {
         "explorer.confirmDragAndDrop" = false;
         "explorer.confirmPasteNative" = false;
 
-        "eslint.validate" =
-          [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
+        "eslint.validate" = [
+          "javascript"
+          "javascriptreact"
+          "typescript"
+          "typescriptreact"
+        ];
 
         "git.confirmSync" = false;
         "github.copilot.nextEditSuggestions.enabled" = true;
@@ -104,8 +110,7 @@ in {
 
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
-
-        "workbench.colorTheme" = "Kanagawa";
+        "workbench.colorTheme" = "Tokyo Night Moon";
         "workbench.iconTheme" = "symbols";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
@@ -119,8 +124,12 @@ in {
         "[javascript]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
-        "[jsonc]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
-        "[json]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
+        "[jsonc]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+        "[json]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
         "[typescript]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };

@@ -32,10 +32,10 @@ in
     enable = true;
     package = pkgs.neovim-unwrapped;
     colorschemes = {
-      kanagawa = {
+      tokyonight = {
         enable = true;
         settings = {
-          dark_variant = "moon";
+          style = "moon";
         };
       };
     };
