@@ -45,8 +45,7 @@ in
         # git
         donjayamanne.githistory
         eamodio.gitlens
-        github.copilot
-        github.copilot-chat
+
         # lint
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
