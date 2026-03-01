@@ -1,9 +1,13 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
 
-  home.packages = [ pkgs.age ]
-    ++ lib.optional pkgs.stdenv.isLinux pkgs.nextcloud-client;
+  home.packages = [ pkgs.age ] ++ lib.optional pkgs.stdenv.isLinux pkgs.nextcloud-client;
 
   programs = {
 
@@ -83,6 +87,13 @@
         feed = "tuifeed";
         mail = "himalaya -a guifuentes8";
         mail2 = "himalaya -a gcf";
+
+        rotate = "echo 0 | sudo tee /sys/class/graphics/fbcon/rotate_all";
+        rotate1 = "echo 1 | sudo tee /sys/class/graphics/fbcon/rotate_all";
+        rotate2 = "echo 2 | sudo tee /sys/class/graphics/fbcon/rotate_all";
+        rotate3 = "echo 3 | sudo tee /sys/class/graphics/fbcon/rotate_all";
+        rotate4 = "echo 4 | sudo tee /sys/class/graphics/fbcon/rotate_all";
+
         testnet = "speedtest-rs";
         music = "ncmpcpp";
       };
