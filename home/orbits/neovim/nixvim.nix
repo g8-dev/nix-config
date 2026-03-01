@@ -32,11 +32,10 @@ in
     enable = true;
     package = pkgs.neovim-unwrapped;
     colorschemes = {
-      everforest = {
+      ayu = {
         enable = true;
         settings = {
-          everforest_background = "hard";
-          # style = "moon";
+          mirage = true;
         };
       };
     };

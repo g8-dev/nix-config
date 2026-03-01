@@ -11,12 +11,12 @@ let
     };
   };
 
-  tokyo-moon = buildVscodeMarketplaceExtension {
+  everforest = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "tokyo-night-moon";
-      publisher = "PatrickNasralla";
-      version = "1.1.4";
-      sha256 = "sha256-8rUbsDCk7JHSN4vn+TNTmIrx8ma53hH/1x0trqDwU7Y=";
+      name = "everforest";
+      publisher = "sainnhe";
+      version = "0.3.0";
+      sha256 = "sha256-nZirzVvM160ZTpBLTimL2X35sIGy5j2LQOok7a2Yc7U=";
     };
   };
 
@@ -39,8 +39,7 @@ in
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        enkia.tokyo-night
-        tokyo-moon
+        teabyii.ayu
         symbols # icon
         # git
         donjayamanne.githistory
@@ -109,7 +108,7 @@ in
 
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
-        "workbench.colorTheme" = "Tokyo Night Moon";
+        "workbench.colorTheme" = "Ayu Mirage Bordered";
         "workbench.iconTheme" = "symbols";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
