@@ -32,10 +32,11 @@ in
     enable = true;
     package = pkgs.neovim-unwrapped;
     colorschemes = {
-      tokyonight = {
+      everforest = {
         enable = true;
         settings = {
-          style = "moon";
+          everforest_background = "hard";
+          # style = "moon";
         };
       };
     };

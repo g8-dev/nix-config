@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
 
   imports = [
 
@@ -20,8 +21,8 @@
   ];
 
   wayland.windowManager.hyprland.settings.input = {
-    kb_layout = "br";
-    kb_variant = "abnt2";
+    kb_layout = "us";
+    # kb_variant = "abnt2";
   };
 
   stylix.image = lib.mkForce ../orbits/custom/wallpapers/neptune.jpeg;

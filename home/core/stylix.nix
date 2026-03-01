@@ -7,9 +7,9 @@
   ...
 }:
 let
-  cursorName = "BreezeX-RosePine-Linux";
-  cursorPkg = pkgs.rose-pine-cursor;
-  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
+  cursorName = "everforest-cursors";
+  cursorPkg = pkgs.everforest-cursors;
+  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
 in
 {
   stylix = {

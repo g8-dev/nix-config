@@ -1,4 +1,5 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
   imports = [
 
     # Hardware config (required)
@@ -31,7 +32,7 @@
 
     ../common/services/gaming.nix
 
-    # User 
+    # User
     ../common/users/g8.nix
     ../stylix.nix
 
@@ -40,9 +41,9 @@
   # SYSTEM CONFIGS --------------------------------------
 
   # Custom config
-  console.keyMap = "br-abnt2";
-  services.xserver.xkb.layout = "br";
-  services.xserver.xkb.variant = "abnt2";
+  console.keyMap = "us";
+  services.xserver.xkb.layout = "us";
+  # services.xserver.xkb.variant = "abnt2";
   networking.hostName = "neptune";
 
 }
