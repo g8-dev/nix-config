@@ -1,10 +1,12 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
     ../common/boot/systemd-boot.nix
     ../common/users/g8.nix
+    ../common/hardware/gpu/nvidia.nix
 
     ./selfhost-services/homepage-dashboard.nix
     #
@@ -27,8 +29,8 @@
     #    #/server    ./radarr.nix
     #    #/server    ./lidarr.nix
     #
-    #    # Server 
-    ./server-services/console.nix
+    #    # Server
+    #   ./server-services/console.nix
     ./server-services/nginx.nix
     ./server-services/cloudflare.nix
     ./server-services/networking.nix
