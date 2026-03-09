@@ -1,7 +1,11 @@
 { pkgs, config, ... }:
 {
 
-  imports = [ ./ncspot.nix ];
+  imports = [
+    ./himalaya.nix
+    ./khal.nix
+    ./ncspot.nix
+  ];
   programs = {
     bat = {
       enable = true;
@@ -17,7 +21,6 @@
         };
       };
     };
-    #cava.enable = true;
     feh.enable = true;
     jq.enable = true;
     lsd.enable = true;

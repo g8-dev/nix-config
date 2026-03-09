@@ -1,4 +1,9 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 let
   cw = ./scripts/cw.sh;
   term = "kitty";
@@ -6,8 +11,12 @@ let
     wl-clipboard-history -t &
     systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
   '';
-in {
-  imports = [ ../../browsers/qutebrowser.nix ./common/wayland.nix ];
+in
+{
+  imports = [
+    ../../browsers/qutebrowser.nix
+    ./common/wayland.nix
+  ];
   services.gnome-keyring.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
@@ -20,10 +29,8 @@ in {
         gaps_in = 6;
         gaps_out = 14;
         border_size = 3;
-        "col.active_border" =
-          lib.mkForce "rgba(${config.lib.stylix.colors.base05}ff)";
-        "col.inactive_border" =
-          lib.mkForce "rgba(${config.lib.stylix.colors.base0D}ff)";
+        "col.active_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base05}ff)";
+        "col.inactive_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base0D}ff)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
@@ -60,7 +67,9 @@ in {
       input = {
         follow_mouse = 1;
         sensitivity = 0;
-        touchpad = { natural_scroll = false; };
+        touchpad = {
+          natural_scroll = false;
+        };
       };
       device = {
         name = "epic-mouse-v1";
@@ -153,9 +162,10 @@ in {
         bind = ,XF86AudioPlay, exec, playerctl play-pause
         bind = ,XF86AudioNext, exec, playerctl next
 
-        # Printscreen
+
         bind = ,Print, exec, grim -g "$(slurp)" - | wl-copy 
-                
+        bind = SUPER SHIFT, S, exec, grim -g "$(slurp)" - | wl-copy 
+
         # Rofi scripts
         bind = $mainMod, F1, exec, 
         bind = $mainMod, F2, exec, 
@@ -164,7 +174,7 @@ in {
         bind = $mainMod, F5, exec,
         bind = $mainMod, F6, exec, 
         bind = $mainMod, F7, exec, 
-        bind = $mainMod, F8, exec,  
+        bind = $mainMod, F8, exec, grim -g "$(slurp)" - | wl-copy 
         bind = $mainMod, F9, exec, 
         bind = $mainMod, F10, exec, rofi-bluetooth 
         bind = $mainMod, F11, exec, rofi-rbw  --clipboarder wl-copy --keybindings 'Ctrl+1:copy:username,Ctrl+2:copy:password,Ctrl+3:copy:totp,Ctrl+4:copy:notes,Ctrl+5:sync'

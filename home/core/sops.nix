@@ -7,9 +7,10 @@
     defaultSopsFile = ../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
     secrets = {
-      github-token = {
-        path = "${config.sops.defaultSymlinkPath}/github-token";
-      };
+      github-login-token.path = "${config.sops.defaultSymlinkPath}/github-login-token";
+      caldav-password.path = "${config.sops.defaultSymlinkPath}/caldav-password";
+      gmail-g8-password.path = "${config.sops.defaultSymlinkPath}/gmail-g8-password";
+      gmail-gcf-password.path = "${config.sops.defaultSymlinkPath}/gmail-gcf-password";
     };
   };
   systemd.user.services.mbsync.Unit.After = [ "sops-nix.service" ];
