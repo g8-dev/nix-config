@@ -13,7 +13,7 @@
     };
     bottom = {
       enable = true;
-      package = pkgs.bottom-rs;
+      package = pkgs.bottom;
       settings = {
         flags = {
           temperature_type = "c";
@@ -31,7 +31,7 @@
     };
     rtorrent.enable = true;
     translate-shell.enable = true;
-    #yt-dlp.enable = true;
+    yt-dlp.enable = true;
     yazi = {
       enable = true;
       package = pkgs.yazi;

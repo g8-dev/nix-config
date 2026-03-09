@@ -33,8 +33,7 @@ in
     };
     override = { };
     targets = {
-      grub.enable = false;
-      chromium.enable = false;
+      console.enable = true;
     };
   };
 

@@ -14,7 +14,7 @@ in
 {
   stylix = {
     enable = true;
-    autoEnable = false;
+    autoEnable = true;
     polarity = "dark";
     base16Scheme = base16SchemeDefault;
     imageScalingMode = "fit";
