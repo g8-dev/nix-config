@@ -7,12 +7,12 @@
   hardware = {
     graphics.enable = true;
     nvidia = {
-      open = true;
+      open = false;
       nvidiaSettings = true;
       modesetting.enable = true;
       powerManagement.enable = false;
       powerManagement.finegrained = false;
-      package = config.boot.kernelPackages.nvidiaPackages.production;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
 

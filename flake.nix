@@ -71,11 +71,12 @@
             home-manager.sharedModules = [
               inputs.sops-nix.homeModules.sops
               inputs.nixvim.homeModules.nixvim
-              inputs.stylix.homeModules.stylix
+              #             inputs.stylix.homeModules.stylix
             ];
           }
 
           inputs.sops-nix.nixosModules.sops
+          inputs.stylix.nixosModules.stylix
           ./hosts/sun
         ];
 

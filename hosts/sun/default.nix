@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -6,7 +11,8 @@
 
     ../common/boot/systemd-boot.nix
     ../common/users/g8.nix
-    ../common/hardware/gpu/nvidia.nix
+
+    ../stylix.nix
 
     ./selfhost-services/homepage-dashboard.nix
     #
@@ -30,7 +36,7 @@
     #    #/server    ./lidarr.nix
     #
     #    # Server
-    #   ./server-services/console.nix
+    ./server-services/console.nix
     ./server-services/nginx.nix
     ./server-services/cloudflare.nix
     ./server-services/networking.nix
@@ -39,6 +45,31 @@
   ];
   services.getty.autologinUser = "g8";
   services.openssh.enable = true;
+
+  boot = {
+
+    #   initrd.kernelModules = [ "nvidia" ];
+    # kernelParams = [
+    #   "nvidia-drm.modeset=1"
+    #   "nomodeset"
+    #];
+    # extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+    blacklistedKernelModules = [ "nouveau" ];
+  };
+
+  hardware = {
+    graphics.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
+      nvidiaSettings = false;
+      open = false;
+    };
+  };
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.nvidia.acceptLicense = true;
 
   fileSystems."/var/lib/storage_backup" = {
     device = "UUID=433cc6cc-561e-4783-b33c-d523378eefd9";
