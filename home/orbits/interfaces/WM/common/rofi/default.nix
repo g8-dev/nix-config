@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   programs.rofi = {
@@ -28,7 +33,7 @@
     package = pkgs.rbw;
     settings = {
       pinentry = pkgs.pinentry-gnome3;
-      base_url = "https://vault.g8-space.com.br";
+      base_url = "https://vaultwarden.g8-space.com.br";
       email = "guifuentes8@gmail.com";
     };
   };
