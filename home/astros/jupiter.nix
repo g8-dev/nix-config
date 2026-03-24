@@ -1,23 +1,21 @@
 { config, ... }:
-let waylandArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+let
+  waylandArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
 
-in {
+in
+{
   imports = [
-    ../astrounauts/g8.nix
+    ../astronauts/g8.nix
     ../orbits/cli
     ../orbits/neovim
     ../orbits/dev
-    ../orbits/vscode.nix
+    ../orbits/programs/vscode.nix
   ];
 
-  nixpkgs.config = { chromium.commandLineArgs = waylandArgs; };
-  targets.genericLinux.enable = true;
-  home.file = {
-    ".vscode-server/server-env-setup" = {
-      enable = true;
-      source = ./server-env-setup;
-    };
+  nixpkgs.config = {
+    chromium.commandLineArgs = waylandArgs;
   };
+  targets.genericLinux.enable = true;
   #  programs.zsh.shellAliases = {
   # adb = "/mnt/c/Users/gui8/Local\\ Settings/Android/Sdk/platform-tools/adb";
   #};

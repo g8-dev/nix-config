@@ -1,6 +1,17 @@
-{ config, lib, inputs, outputs, pkgs, ... }: {
-  imports =
-    [ inputs.home-manager.nixosModules.home-manager ../../common ../sops.nix ];
+{
+  config,
+  lib,
+  inputs,
+  outputs,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+    ../../common
+    ../sops.nix
+  ];
   users.users.g8 = {
     isNormalUser = true;
     description = "g8";
@@ -68,7 +79,10 @@
       # PATH = [ "\${XDG_BIN_HOME}" ];
       TZ = "America/Sao_Paulo";
     };
-    pathsToLink = [ "/libexec" "/etc" ];
+    pathsToLink = [
+      "/libexec"
+      "/etc"
+    ];
   };
 
   home-manager.useUserPackages = true;
@@ -79,11 +93,16 @@
     networkmanager.enable = true;
     firewall = rec {
       enable = true;
-      allowedTCPPorts = [ 80 443 ];
-      allowedTCPPortRanges = [{
-        from = 1714;
-        to = 1764;
-      }];
+      allowedTCPPorts = [
+        80
+        443
+      ];
+      allowedTCPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+      ];
       allowedUDPPortRanges = allowedTCPPortRanges;
     };
 
@@ -110,15 +129,24 @@
       LC_TELEPHONE = lib.mkDefault "pt_BR.utf8";
       LC_TIME = lib.mkDefault "pt_BR.UTF-8";
     };
-    supportedLocales =
-      lib.mkDefault [ "en_US.UTF-8/UTF-8" "pt_BR.UTF-8/UTF-8" ];
+    supportedLocales = lib.mkDefault [
+      "en_US.UTF-8/UTF-8"
+      "pt_BR.UTF-8/UTF-8"
+    ];
   };
 
   nix = {
     settings = {
-      trusted-users = [ "root" "@wheel" "g8" ];
+      trusted-users = [
+        "root"
+        "@wheel"
+        "g8"
+      ];
       auto-optimise-store = lib.mkDefault true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
     };
   };

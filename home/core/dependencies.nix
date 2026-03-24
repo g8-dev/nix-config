@@ -1,5 +1,7 @@
-{ pkgs, lib, ... }: {
-  home.packages = with pkgs;
+{ pkgs, lib, ... }:
+{
+  home.packages =
+    with pkgs;
     lib.mkIf (pkgs.stdenv.hostPlatform.isLinux) [
       appimage-run
       ffmpeg
@@ -15,7 +17,7 @@
       poppler-utils
       xdotool
       playerctl
-      xorg.xprop
+      xprop
       cacert
       wget
 

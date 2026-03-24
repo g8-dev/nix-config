@@ -11,12 +11,12 @@ let
     };
   };
 
-  everforest = buildVscodeMarketplaceExtension {
+  kanagawa = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "everforest";
-      publisher = "sainnhe";
-      version = "0.3.0";
-      sha256 = "sha256-nZirzVvM160ZTpBLTimL2X35sIGy5j2LQOok7a2Yc7U=";
+      name = "kanagawa-vscode-color-theme";
+      publisher = "metaphore";
+      version = "0.5.0";
+      sha256 = "sha256-Os4v1zXnr+WLXyvjS8qgf3UOJHGd4lmCczjVaCArXtA=";
     };
   };
 
@@ -39,7 +39,7 @@ in
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        teabyii.ayu
+        kanagawa
         symbols # icon
         # git
         donjayamanne.githistory

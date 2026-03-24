@@ -1,17 +1,15 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 
 {
   imports = [
 
     ../common/users/g8.nix
-    #   ../common/hardware/gpu/amdgpu.nix
+    ../common/hardware/gpu/amdgpu.nix
     #   ../stylix.nix
 
   ];
   wsl = {
     enable = true;
-    #wslConf.interop.appendWindowsPath = false;
-    wslConf.network.generateHosts = false;
     wslConf.network.hostname = "jupiter";
     useWindowsDriver = true;
 
@@ -22,6 +20,8 @@
     docker-desktop.enable = false;
   };
 
+  networking.wireless.enable = lib.mkDefault false;
+  systemd.services.wpa_supplicant.enable = false;
   # environment = {
   #  systemPackages = [ ];
   #  sessionVariables = {

@@ -4,7 +4,7 @@
 let
   cursorName = "everforest-cursors";
   cursorPkg = pkgs.everforest-cursors;
-  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
+  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
 
 in
 {

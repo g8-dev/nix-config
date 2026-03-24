@@ -137,7 +137,7 @@
           inputs.sops-nix.homeModules.sops
           inputs.nixvim.homeModules.nixvim
 
-          ./home/astros/mercury.nix
+          ./home/astros/jupiter.nix
 
         ];
       };

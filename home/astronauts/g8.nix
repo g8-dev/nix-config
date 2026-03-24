@@ -2,7 +2,14 @@
 # DEFAULT CONFIG USER (Home-Manager)
 #####
 
-{ lib, pkgs, config, outputs, ... }: {
+{
+  lib,
+  pkgs,
+  config,
+  outputs,
+  ...
+}:
+{
 
   imports = [
     ../core/dependencies.nix
@@ -21,14 +28,19 @@
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
     };
   };
 
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
-    config = { allowUnfree = true; };
+    config = {
+      allowUnfree = true;
+    };
   };
 
   fonts.fontconfig.enable = true;
@@ -53,4 +65,3 @@
   };
 
 }
-
