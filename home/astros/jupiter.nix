@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, ... }:
 let
   waylandArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
 
@@ -9,7 +9,6 @@ in
     ../orbits/cli
     ../orbits/neovim
     ../orbits/dev
-    ../orbits/programs/vscode.nix
   ];
 
   nixpkgs.config = {
@@ -20,6 +19,7 @@ in
   # adb = "/mnt/c/Users/gui8/Local\\ Settings/Android/Sdk/platform-tools/adb";
   #};
 
+  # vscode requireds
   # programs.zsh.localVariables = {
   #  ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   #  NIXOS_OZONE_WL = "1";

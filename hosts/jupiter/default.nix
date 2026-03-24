@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -22,6 +22,13 @@
 
   networking.wireless.enable = lib.mkDefault false;
   systemd.services.wpa_supplicant.enable = false;
+
+  environment.systemPackages = [
+    pkgs.wget
+  ];
+
+  programs.nix-ld.enable = true;
+
   # environment = {
   #  systemPackages = [ ];
   #  sessionVariables = {

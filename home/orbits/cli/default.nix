@@ -43,15 +43,16 @@
   };
 
   home.packages = with pkgs; [
-    nix-search-cli # search cli nix
+    clock-rs
     cmatrix # matrix
     dipc # palette wallpaper converter
     devour # hide terminal
     epr # E-pub reader
     girouette # Weather
     pastel # color cli
+    nitch # fetch system settings
+    nix-search-cli # search cli nix
     speedtest-rs # Networking test
-    clock-rs
     tgpt # chatgpt
     tuifeed # feed
   ];
