@@ -50,7 +50,7 @@
     epr # E-pub reader
     girouette # Weather
     pastel # color cli
-    nitch # fetch system settings
+    pfetch-rs # fetch system settings
     nix-search-cli # search cli nix
     speedtest-rs # Networking test
     tgpt # chatgpt
