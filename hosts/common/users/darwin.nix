@@ -48,6 +48,7 @@
       #  "docker-desktop"
       #"dbeaver-community"
       #"gimp"
+      "microsoft-teams"
       #"nextcloud"
       # "onlyoffice"
       "pika"
