@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
 
   imports = [ ../../common ];
 
@@ -14,8 +15,16 @@
   nix = {
     linux-builder.enable = false;
     settings = {
-      trusted-users = [ "@admin" "administrador" "root" "@wheel" ];
-      experimental-features = [ "nix-command" "flakes" ];
+      trusted-users = [
+        "@admin"
+        "administrador"
+        "root"
+        "@wheel"
+      ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
     };
     gc.automatic = true;
@@ -36,11 +45,9 @@
       # "alfred"
       "bitwarden"
       "caffeine"
-      "discord"
       #  "docker-desktop"
       #"dbeaver-community"
       #"gimp"
-      "microsoft-teams"
       #"nextcloud"
       # "onlyoffice"
       "pika"
