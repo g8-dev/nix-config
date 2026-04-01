@@ -1,4 +1,10 @@
-{ pkgs, config, domain, ... }: {
+{
+  pkgs,
+  config,
+  domain,
+  ...
+}:
+{
   services.nextcloud = {
     enable = true;
     cli.memoryLimit = "2G";
@@ -19,7 +25,10 @@
     };
     settings = {
       overwriteProtocol = "https";
-      trusted_proxies = [ "localhost" "127.0.0.1" ];
+      trusted_proxies = [
+        "localhost"
+        "127.0.0.1"
+      ];
       trusted_domains = [ "nextcloud.${domain}" ];
       defaultPhoneRegion = "BR";
       enabledPreviewProviders = [
@@ -62,7 +71,11 @@
     };
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
-        bookmarks calendar contacts tasks;
+        bookmarks
+        calendar
+        contacts
+        tasks
+        ;
     };
   };
 
@@ -76,30 +89,31 @@
   #   postgresHost = "/run/postgresql";
   # };
 
-  # systemd.services.nextcloud-scan = {
-  #   description = "Nextcloud files scan";
-  #   wantedBy = [ "timers.target" ]; # Para ser ativado por um timer
-  #   serviceConfig = {
-  #     User = "nextcloud"; # Usuário do Nextcloud
-  #     ExecStart =
-  #       "${config.services.nextcloud.occ}/bin/nextcloud-occ files:scan --all"; # Comando a ser executado
-  #   };
-  # };
-  # systemd.timers."nextcloud-scan-timer" = {
-  #   wantedBy = [ "timers.target" ];
-  #   timerConfig = {
-  #     OnBootSec = "60m";
-  #     OnUnitActiveSec = "60m";
-  #     Unit = "nextcloud-scan.service";
-  #   };
-  # };
+  systemd.services.nextcloud-scan = {
+    description = "Nextcloud files scan";
+    wantedBy = [ "timers.target" ]; # Para ser ativado por um timer
+    serviceConfig = {
+      User = "nextcloud"; # Usuário do Nextcloud
+      ExecStart = "${config.services.nextcloud.occ}/bin/nextcloud-occ files:scan --all"; # Comando a ser executado
+    };
+  };
+  systemd.timers."nextcloud-scan-timer" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "60m";
+      OnUnitActiveSec = "60m";
+      Unit = "nextcloud-scan.service";
+    };
+  };
   services.postgresql = {
     enable = true;
     ensureDatabases = [ "nextcloud" ];
-    ensureUsers = [{
-      name = "nextcloud";
-      ensureDBOwnership = true;
-    }];
+    ensureUsers = [
+      {
+        name = "nextcloud";
+        ensureDBOwnership = true;
+      }
+    ];
   };
   systemd.services."nextcloud-setup" = {
     requires = [ "postgresql.service" ];
@@ -119,6 +133,10 @@
     opcache.max_accelerated_files = 10000
     opcache.revalidate_freq = 1
   '';
+  system.activationScripts.metubePerms.text = ''
+    mkdir -p  /var/lib/storage/nextcloud/data/guifuentes8@gmail.com/files/Youtube
+    chown -R nextcloud:nextcloud  /var/lib/storage/nextcloud/data/guifuentes8@gmail.com/files/Youtube
+    chmod 750 /var/lib/storage/nextcloud/data/guifuentes8@gmail.com/files/Youtube
 
+  '';
 }
-
