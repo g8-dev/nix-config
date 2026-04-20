@@ -19,7 +19,6 @@ let
 in
 {
   imports = [
-
     ./keymaps.nix
     ./settings.nix
     ./plugins/bufferline.nix
@@ -37,11 +36,9 @@ in
     enable = true;
     nixpkgs.useGlobalPackages = true;
     package = pkgs.neovim-unwrapped;
-    colorschemes = {
-      kanagawa = {
-        enable = true;
-      };
-    };
+
+    colorschemes.kanagawa.enable = true;
+
     extraLuaPackages =
       luaPkgs: with luaPkgs; [
         lua-utils-nvim
@@ -50,76 +47,80 @@ in
       ];
 
     plugins = {
-      codecompanion.enable = true;
-      codecompanion.settings = {
-        strategies = {
-          chat = {
-            adapter = "ollama";
+      codecompanion = {
+        enable = true;
+        settings = {
+          strategies = {
+            chat.adapter = "ollama";
+            inline.adapter = "ollama";
+            cmd.adapter = "ollama";
           };
-          inline = {
-            adapter = "ollama";
-          };
-          cmd = {
-            adapter = "ollama";
-          };
-        };
-
-        adapters = {
-          ollama.__raw = ''
-            function()
-              return require('codecompanion.adapters').extend('ollama', {
-                env = {
-                  url = "http://100.66.110.85:11434",
-                },
-                schema = {
-                  model = {
-                    default = "qwen2.5-coder:32b-instruct-q4_K_M",
-                  },
-                  num_ctx = {
-                    default = 16384,  -- contexto maior para arquivos grandes
-                  },
-                },
-              })
-            end
-          '';
-        };
-
-        display = {
-          chat = {
+          display.chat = {
             render_headers = false;
-            show_settings = true;
+            show_settings = false;
+          };
+          adapters.http.ollama = {
+            __raw = ''
+                  function()
+                    return require('codecompanion.adapters').extend('ollama', {
+                      env = {
+                        url = "http://100.66.110.85:11434",
+                      },
+                      schema = {
+                        model = {
+                          default = "deepseek-coder-v2:16b",
+                        },
+                        num_ctx = {
+                default = 4096,      -- não aumenta, maior contexto = mais lento
+              },
+              num_predict = {
+                default = 1024,      -- limita tamanho da resposta
+              },
+              temperature = {
+                default = 0.1,       -- mais determinístico = mais rápido
+              },
+              top_p = {
+                default = 0.9,
+              },
+              repeat_penalty = {
+                default = 1.05,
+              },
+                      },
+                    })
+                  end
+            '';
           };
         };
       };
+
       dashboard.enable = true;
       gitsigns.enable = true;
       lualine.enable = true;
       transparent.enable = true;
-      web-devicons.enable = true; # required
+      web-devicons.enable = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; [
       zen-mode-nvim
       material-nvim
     ];
+
     extraPackages = with pkgs; [
       # Language servers
-      nodePackages.typescript-language-server # typescript
-      nodePackages.vscode-langservers-extracted # html, css, javascript
-      marksman # markdown
-      tailwindcss-language-server # tailwindcss
-      lua-language-server # lua
-      nixd # nix
-      # Conform
-      ruff # python
-      # Linters
+      nodePackages.typescript-language-server
+      nodePackages.vscode-langservers-extracted
+      marksman
+      tailwindcss-language-server
+      lua-language-server
+      nixd
+      # Formatters
+      ruff
       nixfmt
       prettierd
+      stylua
+      # Linters
       pylint
       eslint_d
-      stylua
-
-      # Others
     ];
 
     opts = {
@@ -134,14 +135,12 @@ in
       expandtab = true;
       foldmethod = "indent";
       foldlevel = 99;
-      # formatoptions.append = [ "r" ];
       fileencoding = "utf-8";
       hlsearch = true;
       inccommand = "split";
       ignorecase = true;
       laststatus = 2;
       number = true;
-      # path.append = [ "**" ];
       scrolloff = 999;
       shell = "zsh";
       shiftwidth = 2;
@@ -152,14 +151,9 @@ in
       splitright = true;
       tabstop = 4;
       title = true;
-      #wildignore.append = [
-      #   " */node_modules"
-      # ];
       wrap = true;
     };
-
   };
 
   home.sessionVariables.EDITOR = "nvim";
-
 }
