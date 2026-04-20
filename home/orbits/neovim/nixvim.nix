@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   fromGithub =
     rev: ref: repo:
@@ -30,13 +35,11 @@ in
 
   programs.nixvim = {
     enable = true;
+    nixpkgs.useGlobalPackages = true;
     package = pkgs.neovim-unwrapped;
     colorschemes = {
       kanagawa = {
         enable = true;
-        settings = {
-          #   mirage = true;
-        };
       };
     };
     extraLuaPackages =
@@ -47,6 +50,47 @@ in
       ];
 
     plugins = {
+      codecompanion.enable = true;
+      codecompanion.settings = {
+        adapters = {
+          openai = {
+            __raw = ''
+              function()
+                return require("codecompanion.adapters").extend("openai", {
+                  env = {
+                    url = "http://100.120.97.78:1234/v1",
+                    api_key = "lm-studio"
+                  },
+                  schema = {
+                    model = {
+                      default = "qwen2.5-coder-3b-instruct"
+                    }
+                  }
+                })
+              end
+            '';
+          };
+        };
+
+        strategies = {
+          chat = {
+            adapter = "openai";
+          };
+          inline = {
+            adapter = "openai";
+          };
+          agent = {
+            adapter = "openai";
+          };
+        };
+
+        display = {
+          chat = {
+            render_headers = false;
+            show_settings = true;
+          };
+        };
+      };
       dashboard.enable = true;
       gitsigns.enable = true;
       lualine.enable = true;

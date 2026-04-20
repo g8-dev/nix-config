@@ -1,1 +1,1 @@
-{ imports = [ ./androidStudio.nix ./docker.nix ]; }
+{ imports = [ ./docker.nix ]; }

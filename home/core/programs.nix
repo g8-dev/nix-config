@@ -74,6 +74,7 @@
       initContent = ''
         unset -v SSH_ASKPASS
         export GITHUB_TOKEN=$(cat ${config.sops.secrets.github-login-token.path}) 
+        export OPENAI_API_KEY=$(cat ${config.sops.secrets.gpt-api-key.path})
         pfetch
       '';
       shellAliases = {
@@ -84,7 +85,6 @@
         climabauru = "girouette -q -c '1h' -L 'pt_BR' -l 'Bauru' -u metric";
         climasp = "girouette -q -c '1h' -L 'pt_BR' -l 'São Paulo' -u metric";
         torrent = "rtorrent";
-        gpt = "tgpt";
         feed = "tuifeed";
         mail = "himalaya -a guifuentes8";
         mail2 = "himalaya -a gcf";

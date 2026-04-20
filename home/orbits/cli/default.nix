@@ -9,7 +9,12 @@
   programs = {
     bat = {
       enable = true;
-      #extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batman
+        batgrep
+        batwatch
+      ];
     };
     bottom = {
       enable = true;
@@ -53,7 +58,6 @@
     pfetch-rs # fetch system settings
     nix-search-cli # search cli nix
     speedtest-rs # Networking test
-    tgpt # chatgpt
     tuifeed # feed
   ];
 

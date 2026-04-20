@@ -5,6 +5,8 @@
 
     ../common/users/g8.nix
     ../common/hardware/gpu/amdgpu.nix
+
+    ../common/services/dev
     #   ../stylix.nix
 
   ];
@@ -17,14 +19,14 @@
     startMenuLaunchers = true;
 
     # Enable integration with Docker Desktop (needs to be installed)
-    docker-desktop.enable = false;
+    docker-desktop.enable = true;
   };
 
   networking.wireless.enable = lib.mkDefault false;
   systemd.services.wpa_supplicant.enable = false;
 
-  environment.systemPackages = [
-    pkgs.wget
+  environment.systemPackages = with pkgs; [
+    wget
   ];
 
   programs.nix-ld.enable = true;
@@ -43,4 +45,8 @@
 
   #};
 
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-vulkan;
+  };
 }

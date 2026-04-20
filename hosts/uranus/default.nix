@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
 
     # HARDWARE ----------------------------------------
@@ -12,7 +13,7 @@
 
     # NIXOS CONFIG ------------------------------------
 
-    # global NixOs Config 
+    # global NixOs Config
     ../common
 
     # Boot initial (grub or systemd)
@@ -35,7 +36,7 @@
 
     ../common/services/gaming.nix
 
-    # User 
+    # User
     ../common/users/g8.nix
     ../stylix.nix
 

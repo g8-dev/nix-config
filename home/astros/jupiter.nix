@@ -13,6 +13,7 @@ in
 
   nixpkgs.config = {
     chromium.commandLineArgs = waylandArgs;
+    allowUnfree = true;
   };
   targets.genericLinux.enable = true;
   #  programs.zsh.shellAliases = {
