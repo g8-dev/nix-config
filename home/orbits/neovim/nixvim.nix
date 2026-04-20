@@ -52,36 +52,36 @@ in
     plugins = {
       codecompanion.enable = true;
       codecompanion.settings = {
-        adapters = {
-          openai = {
-            __raw = ''
-              function()
-                return require("codecompanion.adapters").extend("openai", {
-                  env = {
-                    url = "http://100.120.97.78:1234/v1",
-                    api_key = "lm-studio"
-                  },
-                  schema = {
-                    model = {
-                      default = "qwen2.5-coder-3b-instruct"
-                    }
-                  }
-                })
-              end
-            '';
+        strategies = {
+          chat = {
+            adapter = "ollama";
+          };
+          inline = {
+            adapter = "ollama";
+          };
+          cmd = {
+            adapter = "ollama";
           };
         };
 
-        strategies = {
-          chat = {
-            adapter = "openai";
-          };
-          inline = {
-            adapter = "openai";
-          };
-          agent = {
-            adapter = "openai";
-          };
+        adapters = {
+          ollama.__raw = ''
+            function()
+              return require('codecompanion.adapters').extend('ollama', {
+                env = {
+                  url = "http://100.66.110.85:11434",
+                },
+                schema = {
+                  model = {
+                    default = "qwen2.5-coder:32b-instruct-q4_K_M",
+                  },
+                  num_ctx = {
+                    default = 16384,  -- contexto maior para arquivos grandes
+                  },
+                },
+              })
+            end
+          '';
         };
 
         display = {

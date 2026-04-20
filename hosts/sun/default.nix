@@ -18,9 +18,11 @@
     #
     ./selfhost-services/docker-services.nix
     #    # External services selfhosted
+    ./selfhost-services/ollama.nix
     ./selfhost-services/nextcloud.nix
     ./selfhost-services/immich.nix
     ./selfhost-services/navidrome.nix
+
     ./selfhost-services/radicale.nix
     ./selfhost-services/audiobookshelf.nix
     ./selfhost-services/karakeep.nix
