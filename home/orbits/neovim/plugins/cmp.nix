@@ -1,12 +1,12 @@
-{ ... }: {
+{ ... }:
+{
   programs.nixvim.plugins = {
     cmp = {
       enable = true;
       autoEnableSources = false;
       settings = {
         snippet = {
-          expand =
-            "function(args) require('luasnip').lsp_expand(args.body) end";
+          expand = "function(args) require('luasnip').lsp_expand(args.body) end";
         };
         mapping = {
           __raw = ''
@@ -29,8 +29,12 @@
             })
           '';
         };
-        completion = { completeopt = "menuone,noinsert,noselect"; };
-        formatting = { expandable_indicator = true; };
+        completion = {
+          completeopt = "menuone,noinsert,noselect";
+        };
+        formatting = {
+          expandable_indicator = true;
+        };
       };
     };
 
@@ -50,8 +54,14 @@
     luasnip = {
       enable = true;
       filetypeExtend = {
-        javascriptreact = [ "javascript" "html" ];
-        typescriptreact = [ "javascript" "html" ];
+        javascriptreact = [
+          "javascript"
+          "html"
+        ];
+        typescriptreact = [
+          "javascript"
+          "html"
+        ];
       };
       fromVscode = [ { } ];
     };
