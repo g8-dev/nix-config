@@ -47,6 +47,7 @@ in
       ];
 
     plugins = {
+
       codecompanion = {
         enable = true;
         settings = {
@@ -61,20 +62,26 @@ in
           };
           adapters.http.ollama = {
             __raw = ''
-                  function()
+                function()
                     return require('codecompanion.adapters').extend('ollama', {
                       env = {
                         url = "http://100.66.110.85:11434",
                       },
+                       opts = {
+                      --  stream = false,
+                      },
                       schema = {
                         model = {
-                          default = "deepseek-coder-v2:16b",
-                        },
+                          default = "qwen2.5-coder:0.5b",
+                          choices = {
+                            "qwen2.5-coder:0.5b",
+                            "deepseek-coder-v2:16b",
+                          },                                                  },
                         num_ctx = {
-                default = 4096,      -- não aumenta, maior contexto = mais lento
+                default = 1024,      -- não aumenta, maior contexto = mais lento
               },
               num_predict = {
-                default = 1024,      -- limita tamanho da resposta
+                default = 512,      -- limita tamanho da resposta
               },
               temperature = {
                 default = 0.1,       -- mais determinístico = mais rápido
