@@ -7,9 +7,9 @@
   ...
 }:
 let
-  cursorName = "everforest-cursors";
-  cursorPkg = pkgs.everforest-cursors;
-  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
+  cursorName = "Bibata-Modern-Ice";
+  cursorPkg = pkgs.bibata-cursors;
+  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 in
 {
   stylix = {
@@ -21,7 +21,7 @@ in
     cursor = {
       name = cursorName;
       package = cursorPkg;
-      size = 32;
+      size = 24;
     };
     fonts = {
       monospace = {

@@ -26,17 +26,17 @@ in
       exec-once = "${startupScript}/bin/start";
       monitor = ",preferred,auto,1";
       general = {
-        gaps_in = 6;
-        gaps_out = 14;
+        gaps_in = 8;
+        gaps_out = 16;
         border_size = 3;
-        "col.active_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base05}ff)";
-        "col.inactive_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base0D}ff)";
+        "col.active_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base0D}ff)";
+        "col.inactive_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base01}ff)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
       };
       decoration = {
-        rounding = 12;
+        rounding = 8;
         active_opacity = 1.0;
         inactive_opacity = 1.0;
         blur = {

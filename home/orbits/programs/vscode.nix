@@ -39,9 +39,9 @@ in
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        tokyonight-moon
+        catppuccin.catppuccin-vsc
         ritwickdey.liveserver
-        symbols # icon
+        catppuccin.catppuccin-vsc-icons
         # git
         donjayamanne.githistory
         eamodio.gitlens
@@ -109,8 +109,8 @@ in
 
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
-        "workbench.colorTheme" = "Kanagawa Wave";
-        "workbench.iconTheme" = "symbols";
+        "workbench.colorTheme" = "Catppuccin Mocha";
+        "workbench.iconTheme" = "catppuccin-mocha";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
         "workbench.statusBar.visible" = true;
