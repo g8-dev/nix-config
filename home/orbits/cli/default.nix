@@ -48,8 +48,6 @@
   };
 
   home.packages = with pkgs; [
-    aider-chat
-    claude-code
     clock-rs
     cmatrix # matrix
     dipc # palette wallpaper converter
