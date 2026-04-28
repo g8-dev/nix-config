@@ -73,9 +73,8 @@
       syntaxHighlighting.enable = true;
       initContent = ''
         unset -v SSH_ASKPASS
-        export GITHUB_TOKEN=$(cat ${config.sops.secrets.github-login-token.path}) 
-        export OPENAI_API_KEY=$(cat ${config.sops.secrets.gpt-api-key.path})
-        pfetch
+        export GITHUB_TOKEN=$(cat ${config.sops.secrets.github-login-token.path})
+               pfetch
       '';
       shellAliases = {
         cjpg = "mogrify -format jpg *.png && rm *.png";

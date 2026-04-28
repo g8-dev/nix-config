@@ -25,6 +25,6 @@
     # kb_variant = "abnt2";
   };
 
-  stylix.image = lib.mkForce ../orbits/custom/wallpapers/neptune.jpeg;
+  stylix.image = lib.mkForce ../../wallpapers/neptune.png;
 
 }
