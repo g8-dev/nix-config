@@ -1,25 +1,36 @@
 { pkgs, ... }:
 
 {
-  # configuration.nix
   services.ollama = {
     enable = true;
-    host = "0.0.0.0"; # expõe na rede local (para acessar de outros PCs)
+    host = "0.0.0.0";
     port = 11434;
     package = pkgs.ollama-cpu;
 
-    # pré-baixa o modelo na ativação do sistema
     loadModels = [
       "deepseek-coder-v2:16b"
-      "qwen2.5-coder:0.5b"
+      "qwen2.5-coder:3b"
     ];
+  };
 
-    environmentVariables = {
-      OLLAMA_NUM_THREADS = "32"; # 48 threads - 4 pro sistema
-      OLLAMA_MAX_LOADED_MODELS = "2";
-      OLLAMA_KEEP_ALIVE = "10m";
-      OLLAMA_FLASH_ATTENTION = "1"; # reduz uso de memória
+  systemd.services.ollama = {
+    serviceConfig = {
+      Environment = [
+        "OMP_NUM_THREADS=24"
+        "OLLAMA_MAX_LOADED_MODELS=1"
+        "OLLAMA_KEEP_ALIVE=-1"
+        "OLLAMA_CONTEXT_LENGTH=4096"
+        "OLLAMA_BATCH_SIZE=128"
+      ];
+
+      ExecStart = [
+        ""
+        "${pkgs.numactl}/bin/numactl --interleave=all ${pkgs.ollama}/bin/ollama serve"
+      ];
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    numactl
+  ];
 }
