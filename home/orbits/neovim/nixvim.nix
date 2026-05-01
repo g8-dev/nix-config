@@ -72,9 +72,9 @@ in
                       },
                       schema = {
                         model = {
-                          default = "qwen2.5-coder:0.5b",
+                          default = "llama3.2:3b",
                           choices = {
-                            "qwen2.5-coder:0.5b",
+                            "llama3.2:3b",
                             "deepseek-coder-v2:16b",
                           },                                                  },
                         num_ctx = {
