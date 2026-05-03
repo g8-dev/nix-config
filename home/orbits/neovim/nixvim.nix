@@ -48,6 +48,60 @@ in
 
     plugins = {
 
+      minuet = {
+        enable = true;
+
+        settings = {
+          # Use FIM provider — best choice for qwen2.5-coder via Ollama
+          provider = "openai_fim_compatible";
+
+          # n_completions = 1 is recommended for local models to save resources
+          n_completions = 1;
+
+          # Start with 512 and increase based on your machine's capability
+          context_window = 1024;
+
+          # Throttle/debounce to avoid hammering a local model
+          throttle = 1000; # ms between requests while typing
+          debounce = 400; # ms of idle before triggering
+
+          provider_options = {
+            openai_fim_compatible = {
+              name = "Ollama";
+
+              # TERM is a harmless env var that's always set — used as a dummy key
+              # Ollama doesn't need a real API key
+              api_key = "TERM";
+
+              end_point = "http://100.66.110.85:11434/v1/completions";
+              model = "deepseek-coder-v2:16b";
+
+              # stream = true works with Ollama + qwen2.5-coder
+              stream = true;
+
+              optional = {
+                #max_tokens = 56; # keep low for speed on a 3B model
+                top_p = 0.9;
+              };
+            };
+          };
+        };
+
+        # Virtual text frontend — shows ghost text inline
+        # Remove / change if you prefer nvim-cmp or blink-cmp
+        virtualtext = {
+          auto_trigger_ft = [ "*" ];
+          keymap = {
+            accept = "<Tab>";
+            accept_line = "<A-a>";
+            dismiss = "<Esc>";
+            # Não existe "show" — use toggle
+            toggle_auto_trigger = "<A-m>";
+            prev = "<A-[>";
+            next = "<A-]>";
+          };
+        };
+      };
       codecompanion = {
         enable = true;
         settings = {
@@ -68,17 +122,21 @@ in
                         url = "http://100.66.110.85:11434",
                       },
                        opts = {
-                      --  stream = false,
+                        stream = true,
                       },
                       schema = {
                         model = {
+<<<<<<< Updated upstream
                           default = "llama3.2:3b",
                           choices = {
                             "llama3.2:3b",
                             "deepseek-coder-v2:16b",
                           },                                                  },
+=======
+                          default = "deepseek-coder-v2:16b"},
+>>>>>>> Stashed changes
                         num_ctx = {
-                default = 1024,      -- não aumenta, maior contexto = mais lento
+                default = 2048,      -- não aumenta, maior contexto = mais lento
               },
               num_predict = {
                 default = 512,      -- limita tamanho da resposta

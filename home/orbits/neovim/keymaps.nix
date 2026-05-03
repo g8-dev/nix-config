@@ -125,15 +125,65 @@
         silent = true;
       };
     }
+    # Minuet — aceita sugestão completa
     {
       mode = "i";
-      key = "<C-k>";
-      action = "<cmd>lua require('llm.completion').complete()<CR>";
+      key = "<Tab>";
+      action.__raw = "function() require('minuet.virtualtext').action.accept() end";
+      options = {
+        silent = true;
+        desc = "Minuet: aceitar sugestão completa";
+      };
     }
+    # Minuet — aceita linha por linha
     {
       mode = "i";
-      key = "<C-l>";
-      action = "<cmd>lua require('llm.completion').accept()<CR>";
+      key = "<A-l>";
+      action.__raw = "function() require('minuet.virtualtext').action.accept_line() end";
+      options = {
+        silent = true;
+        desc = "Minuet: aceitar uma linha";
+      };
+    }
+    # Minuet — próxima sugestão
+    {
+      mode = "i";
+      key = "<A-]>";
+      action.__raw = "function() require('minuet.virtualtext').action.next() end";
+      options = {
+        silent = true;
+        desc = "Minuet: próxima sugestão";
+      };
+    }
+    # Minuet — sugestão anterior
+    {
+      mode = "i";
+      key = "<A-[>";
+      action.__raw = "function() require('minuet.virtualtext').action.prev() end";
+      options = {
+        silent = true;
+        desc = "Minuet: sugestão anterior";
+      };
+    }
+    # Minuet — descarta sugestão
+    {
+      mode = "i";
+      key = "<A-e>";
+      action.__raw = "function() require('minuet.virtualtext').action.dismiss() end";
+      options = {
+        silent = true;
+        desc = "Minuet: descartar sugestão";
+      };
+    }
+    # Minuet — liga/desliga auto-trigger
+    {
+      mode = "i";
+      key = "<A-t>";
+      action.__raw = "function() require('minuet.virtualtext').action.toggle_auto_trigger() end";
+      options = {
+        silent = true;
+        desc = "Minuet: toggle auto-trigger";
+      };
     }
 
   ];
