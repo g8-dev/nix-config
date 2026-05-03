@@ -8,14 +8,13 @@
     package = pkgs.ollama-cpu;
     loadModels = [
       "deepseek-coder-v2:16b"
-      "llama3.2:3b"
     ];
     syncModels = true;
     environmentVariables = {
       OMP_NUM_THREADS = "24";
-      OLLAMA_MAX_LOADED_MODELS = "2";
+      OLLAMA_MAX_LOADED_MODELS = "1";
       OLLAMA_KEEP_ALIVE = "-1";
-      OLLAMA_CONTEXT_LENGTH = "4096";
+      OLLAMA_CONTEXT_LENGTH = "8192";
       OLLAMA_BATCH_SIZE = "512";
       OLLAMA_NUM_PARALLEL = "1";
       OLLAMA_FLASH_ATTENTION = "1";
