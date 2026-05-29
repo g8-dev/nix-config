@@ -2,12 +2,17 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }:
 
 {
 
-  home.packages = [ pkgs.age ] ++ lib.optional pkgs.stdenv.isLinux pkgs.nextcloud-client;
+  home.packages = [
+    pkgs.age
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ]
+  ++ lib.optional pkgs.stdenv.isLinux pkgs.nextcloud-client;
 
   programs = {
 
@@ -74,7 +79,7 @@
       initContent = ''
         unset -v SSH_ASKPASS
         export GITHUB_TOKEN=$(cat ${config.sops.secrets.github-login-token.path})
-               pfetch
+        ${pkgs.krabby}/bin/krabby random 1-4 --no-title
       '';
       shellAliases = {
         cjpg = "mogrify -format jpg *.png && rm *.png";

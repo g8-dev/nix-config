@@ -15,6 +15,4 @@
 
   ];
 
-  stylix.image = lib.mkForce ../orbits/custom/wallpapers/default.png;
-
 }

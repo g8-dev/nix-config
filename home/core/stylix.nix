@@ -9,7 +9,7 @@
 let
   cursorName = "Bibata-Modern-Ice";
   cursorPkg = pkgs.bibata-cursors;
-  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
 in
 {
   stylix = {
@@ -17,7 +17,8 @@ in
     autoEnable = true;
     polarity = "dark";
     base16Scheme = base16SchemeDefault;
-    imageScalingMode = "fit";
+    image = ../../wallpapers/wallpaper.png;
+    imageScalingMode = "fill";
     cursor = {
       name = cursorName;
       package = cursorPkg;

@@ -21,8 +21,6 @@
     ../orbits/terminals/kitty.nix
   ];
 
-  stylix.image = lib.mkForce ../orbits/custom/wallpapers/uranus.jpeg;
-
   wayland.windowManager.hyprland.settings.input = {
     kb_layout = "br";
     kb_variant = "abnt2";
