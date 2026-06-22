@@ -10,7 +10,6 @@
 
   home.packages = [
     pkgs.age
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ]
   ++ lib.optional pkgs.stdenv.isLinux pkgs.nextcloud-client;
 

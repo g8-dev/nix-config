@@ -11,12 +11,12 @@ let
     };
   };
 
-  tokyonight-moon = buildVscodeMarketplaceExtension {
+  kanagawa = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "tokyo-night-moon-nvim-theme";
-      publisher = "matyaszednicek";
-      version = "0.0.4";
-      sha256 = "sha256-A5VIU8HB+9/PFE7+TybiSUqYd6iVmOuejkOHZAIeZmU=";
+      name = "kanagawa-vscode-color-theme";
+      publisher = "metaphore";
+      version = "1.1.0";
+      sha256 = "sha256-HjKlDzXc6HkDyNZJGK0wAdC2F6VAk3utywu0R+dI3RA=";
     };
   };
 
@@ -39,12 +39,12 @@ in
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        catppuccin.catppuccin-vsc
-        ritwickdey.liveserver
-        catppuccin.catppuccin-vsc-icons
+        kanagawa
+        symbols
         # git
         donjayamanne.githistory
         eamodio.gitlens
+        ms-vsliveshare.vsliveshare
 
         # lint
         dbaeumer.vscode-eslint
@@ -109,8 +109,8 @@ in
 
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
-        "workbench.colorTheme" = "Catppuccin Mocha";
-        "workbench.iconTheme" = "catppuccin-mocha";
+        "workbench.colorTheme" = "Kanagawa Wave";
+        "workbench.iconTheme" = "symbols";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
         "workbench.statusBar.visible" = true;
