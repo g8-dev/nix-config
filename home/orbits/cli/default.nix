@@ -36,7 +36,7 @@
     };
     rtorrent.enable = true;
     translate-shell.enable = true;
-    yt-dlp.enable = true;
+    yt-dlp.enable = false;
     yazi = {
       enable = true;
       package = pkgs.yazi;

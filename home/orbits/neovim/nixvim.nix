@@ -23,7 +23,7 @@ in
     ./settings.nix
     ./plugins/bufferline.nix
     ./plugins/cmp.nix
-    ./plugins/lint.nix
+    #   ./plugins/lint.nix
     ./plugins/lsp.nix
     ./plugins/neorg.nix
     ./plugins/noice.nix
@@ -66,8 +66,8 @@ in
 
     extraPackages = with pkgs; [
       # Language servers
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
+      typescript-language-server
+      vscode-langservers-extracted
       marksman
       tailwindcss-language-server
       lua-language-server

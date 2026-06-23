@@ -1,19 +1,30 @@
-{ pkgs, lib, ... }:
+{ pkgs, config, ... }:
 {
   programs.nixvim.plugins.treesitter = {
     enable = true;
     package = pkgs.vimPlugins.nvim-treesitter;
-    grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
+    grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+      bash
+      json
+      lua
+      make
+      markdown
+      nix
+      regex
+      toml
+      vim
+      vimdoc
+      xml
+      yaml
+    ];
+    highlight = {
+      enable = true;
+    };
+
     settings = {
       auto_install = false;
       autotag = true;
       ensure_installed = null;
-      highlight = {
-        additional_vim_regex_highlighting = true;
-        custom_captures = { };
-        disable = [ ];
-        enable = true;
-      };
       ignore_install = [ ];
       incremental_selection = {
         enable = true;

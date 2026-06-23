@@ -32,8 +32,8 @@
   accounts.calendar.accounts.g8 = {
     primary = true;
 
-    khal.enable = true;
-    vdirsyncer.enable = true;
+    khal.enable = false;
+    vdirsyncer.enable = false;
 
     remote = {
       type = "caldav";
