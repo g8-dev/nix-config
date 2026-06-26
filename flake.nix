@@ -145,10 +145,10 @@
       };
 
       # 5. SYLVEON (Antigo: saturn - macOS / nix-darwin)
-      darwinConfigurations."sylveon" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."kronos" = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-          ./hosts/sylveon
+          ./hosts/kronos
           home-manager.darwinModules.home-manager
           {
             home-manager = {
@@ -160,7 +160,7 @@
               ];
               useUserPackages = true;
               users.administrador.imports = [
-                ./home/pokes/sylveon.nix
+                ./home/planets/kronos.nix
               ];
               backupFileExtension = "backup";
             };
@@ -168,7 +168,7 @@
         ];
       };
 
-      darwinPackages = self.darwinConfigurations."sylveon".pkgs;
+      darwinPackages = self.darwinConfigurations."kronos".pkgs;
 
       # 6. ESPEON (Antigo: uranus)
       homeConfigurations."g8@espeon" = home-manager.lib.homeManagerConfiguration {

@@ -15,7 +15,4 @@
     ../orbits/browsers/firefox.nix
 
   ];
-  programs.zsh.initContent = ''
-    ${pkgs.krabby}/bin/krabby sylveon --no-title
-  '';
 }
