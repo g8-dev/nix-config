@@ -109,7 +109,7 @@ in
 
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
-        "workbench.colorTheme" = "Kanagawa Wave";
+        "workbench.colorTheme" = "Tokyo Night Moon";
         "workbench.iconTheme" = "symbols";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
