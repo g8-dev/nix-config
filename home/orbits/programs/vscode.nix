@@ -11,12 +11,12 @@ let
     };
   };
 
-  kanagawa = buildVscodeMarketplaceExtension {
+  tokyonight-moon = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "kanagawa-vscode-color-theme";
-      publisher = "metaphore";
-      version = "1.1.0";
-      sha256 = "sha256-HjKlDzXc6HkDyNZJGK0wAdC2F6VAk3utywu0R+dI3RA=";
+      name = "tokyo-night-moon";
+      publisher = "PatrickNasralla";
+      version = "1.1.4";
+      sha256 = "sha256-8rUbsDCk7JHSN4vn+TNTmIrx8ma53hH/1x0trqDwU7Y=";
     };
   };
 
@@ -39,7 +39,7 @@ in
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        kanagawa
+        tokyonight-moon
         symbols
         # git
         donjayamanne.githistory
