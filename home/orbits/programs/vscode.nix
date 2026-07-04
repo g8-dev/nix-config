@@ -100,9 +100,7 @@ in
         "git.confirmSync" = false;
         "github.copilot.nextEditSuggestions.enabled" = true;
 
-        "javascript.updateImportsOnFileMove.enabled" = "always";
-        "typescript.updateImportsOnFileMove.enabled" = "always";
-
+        "js/ts.updateImportsOnFileMove.enabled" = "always";
         "terminal.integrated.fontFamily" = "JetBrainsMonoNL Nerd Font";
         "terminal.integrated.fontSize" = 13;
         "terminal.integrated.fontLigatures.enabled" = true;
