@@ -1,5 +1,5 @@
 {
-  description = "My Awesome | g8 | Nixos Configuration - Eeveelutions Edition";
+  description = "g8-space";
 
   inputs = {
     # Main Flakes
@@ -57,18 +57,13 @@
       overlays = import ./overlays { inherit inputs outputs; };
       packages = forEachPkgs (pkgs: import ./pkgs { inherit pkgs; });
       devShells = forEachPkgs (pkgs: import ./shell.nix { inherit pkgs; });
-
-      # ------------------------------------------------------------- #
-      # EEVEELUTIONS HOSTS
-      # ------------------------------------------------------------- #
-
-      # 1. EEVEE (Antigo: sun)
+ 
       nixosConfigurations.eevee = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs domain; };
         modules = [
           inputs.home-manager.nixosModules.home-manager
           {
-            home-manager.users.g8 = ./home/astros/eevee.nix;
+            home-manager.users.g8 = ./souls/eevee.nix;
             home-manager.extraSpecialArgs = { inherit inputs outputs; };
             home-manager.sharedModules = [
               inputs.sops-nix.homeModules.sops
@@ -77,7 +72,7 @@
           }
           inputs.sops-nix.nixosModules.sops
           inputs.stylix.nixosModules.stylix
-          ./hosts/eevee
+          ./minds/eevee
         ];
       };
 
@@ -89,7 +84,7 @@
           inputs.stylix.homeModules.stylix
           inputs.sops-nix.homeModules.sops
           inputs.nixvim.homeModules.nixvim
-          ./home/astros/flareon.nix
+          ./souls/flareon.nix
         ];
       };
 
@@ -98,7 +93,7 @@
         modules = [
           inputs.sops-nix.nixosModules.sops
           inputs.stylix.nixosModules.stylix
-          ./hosts/flareon
+          ./minds/flareon
         ];
       };
 
@@ -119,7 +114,7 @@
         modules = [
           inputs.sops-nix.nixosModules.sops
           inputs.stylix.nixosModules.stylix
-          ./hosts/jolteon
+          ./minds/jolteon
         ];
       };
 
@@ -131,7 +126,7 @@
           inputs.stylix.homeModules.stylix
           inputs.sops-nix.homeModules.sops
           inputs.nixvim.homeModules.nixvim
-          ./home/astros/vaporeon.nix
+          ./souls/vaporeon.nix
         ];
       };
 
@@ -140,15 +135,14 @@
         modules = [
           inputs.sops-nix.nixosModules.sops
           inputs.nixos-wsl.nixosModules.wsl
-          ./hosts/vaporeon
+          ./minds/vaporeon
         ];
       };
 
-      # 5. SYLVEON (Antigo: saturn - macOS / nix-darwin)
-      darwinConfigurations."kronos" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."cassini" = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-          ./hosts/kronos
+          ./hosts/missions/cassini
           home-manager.darwinModules.home-manager
           {
             home-manager = {
@@ -160,7 +154,7 @@
               ];
               useUserPackages = true;
               users.administrador.imports = [
-                ./home/planets/kronos.nix
+                ./home/planets/06-saturn
               ];
               backupFileExtension = "backup";
             };
@@ -168,9 +162,8 @@
         ];
       };
 
-      darwinPackages = self.darwinConfigurations."kronos".pkgs;
+      darwinPackages = self.darwinConfigurations."minds".pkgs;
 
-      # 6. ESPEON (Antigo: uranus)
       homeConfigurations."g8@espeon" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = { inherit inputs outputs; };
@@ -178,7 +171,7 @@
           inputs.sops-nix.homeModules.sops
           inputs.stylix.homeModules.stylix
           inputs.nixvim.homeModules.nixvim
-          ./home/astros/espeon.nix
+          ./souls/espeon.nix
         ];
       };
 
@@ -187,11 +180,10 @@
         modules = [
           inputs.sops-nix.nixosModules.sops
           inputs.stylix.nixosModules.stylix
-          ./hosts/espeon
+          ./minds/espeon
         ];
       };
 
-      # 7. GLACEON (Antigo: neptune)
       homeConfigurations."g8@glaceon" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = { inherit inputs outputs; };
@@ -199,7 +191,7 @@
           inputs.sops-nix.homeModules.sops
           inputs.nixvim.homeModules.nixvim
           inputs.stylix.homeModules.stylix
-          ./home/astros/glaceon.nix
+          ./souls/glaceon.nix
         ];
       };
 
@@ -208,27 +200,25 @@
         modules = [
           inputs.stylix.nixosModules.stylix
           inputs.sops-nix.nixosModules.sops
-          ./hosts/glaceon
+          ./minds/glaceon
         ];
       };
 
-      # 8. LEAFEON (Pronto para uso futuro)
       nixosConfigurations.leafeon = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
           inputs.stylix.nixosModules.stylix
           inputs.sops-nix.nixosModules.sops
-          ./hosts/leafeon
+          ./minds/leafeon
         ];
       };
 
-      # 9. UMBREON (Pronto para uso futuro)
       nixosConfigurations.umbreon = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
           inputs.stylix.nixosModules.stylix
           inputs.sops-nix.nixosModules.sops
-          ./hosts/umbreon
+          ./minds/umbreon
         ];
       };
 

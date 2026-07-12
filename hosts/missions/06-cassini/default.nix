@@ -3,6 +3,6 @@
 {
 
   imports = [ ../common/users/darwin.nix ];
-  networking.hostName = "kronos";
+  networking.hostName = "newton";
 
 }
