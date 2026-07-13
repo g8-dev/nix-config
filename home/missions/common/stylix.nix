@@ -17,7 +17,6 @@ in
     autoEnable = true;
     polarity = "dark";
     base16Scheme = base16SchemeDefault;
-    image = ../../wallpapers/wallpaper.png;
     imageScalingMode = "fill";
     cursor = {
       name = cursorName;

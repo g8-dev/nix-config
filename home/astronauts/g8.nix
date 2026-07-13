@@ -12,11 +12,11 @@
 {
 
   imports = [
-    ../core/dependencies.nix
-    ../core/programs.nix
-    ../core/services.nix
-    ../core/stylix.nix
-    ../core/sops.nix
+    ../missions/common/dependencies.nix
+    ../missions/common/programs.nix
+    ../missions/common/services.nix
+    ../missions/common/stylix.nix
+    ../missions/common/sops.nix
   ];
 
   home = {

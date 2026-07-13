@@ -5,10 +5,10 @@ let
 in
 {
   imports = [
-    ../astronauts/g8.nix
-    ../orbits/cli
-    ../orbits/neovim
-    ../orbits/dev
+    ../../astronauts/g8.nix
+    ../../orbits/cli
+    ../../orbits/neovim
+    ../../orbits/dev
   ];
 
   nixpkgs.config = {
@@ -28,5 +28,7 @@ in
   #  WGPU_BACKEND = "gl";
   #  BROWSER = "";
   #};
+
+  stylix.image = ./wallpaper.png;
 
 }

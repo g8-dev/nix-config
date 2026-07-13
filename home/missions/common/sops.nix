@@ -4,7 +4,7 @@
   home.packages = [ pkgs.sops ];
   sops = {
     age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
-    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFile = ../../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
     secrets = {
       github-login-token.path = "${config.sops.defaultSymlinkPath}/github-login-token";
