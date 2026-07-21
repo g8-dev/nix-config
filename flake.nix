@@ -87,26 +87,6 @@
 
       # Earth ---------------------------------------------------------------
 
-      nixosConfigurations.earth = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [
-          ./hosts/planets/earth
-          inputs.sops-nix.nixosModules.sops
-          inputs.stylix.nixosModules.stylix
-        ];
-      };
-
-      homeConfigurations."g8@apollo" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        extraSpecialArgs = { inherit inputs outputs; };
-        modules = [
-          inputs.sops-nix.homeModules.sops
-          inputs.stylix.homeModules.stylix
-          inputs.nixvim.homeModules.nixvim
-          ./home/missions/03-apollo
-        ];
-      };
-
       # Mars ----------------------------------------------------------------
 
       # Jupiter -------------------------------------------------------------

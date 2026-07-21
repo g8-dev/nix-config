@@ -37,10 +37,10 @@ in
     nixpkgs.useGlobalPackages = true;
     package = pkgs.neovim-unwrapped;
 
-    colorschemes.tokyonight = {
+    colorschemes.everforest = {
       enable = true;
       settings = {
-        style = "moon";
+        background = "hard";
       };
     };
 
