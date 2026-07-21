@@ -1,11 +1,11 @@
 { lib, pkgs, outputs, ... }: {
 
   imports = [
-    ../core/programs.nix
-    ../core/services.nix
-    ../core/sops.nix
-    ../core/sops-darwin.nix
-    ../core/stylix.nix
+    ../missions/common/programs.nix
+    ../missions/common/services.nix
+    ../missions/common/sops.nix
+    ../missions/common/sops-darwin.nix
+    ../missions/common/stylix.nix
   ];
 
   home = {
