@@ -127,13 +127,13 @@
                 ./home/missions/06-cassini
               ];
               backupFileExtension = "backup";
-            };
             extraSpecialArgs = { inherit inputs outputs; };
             sharedModules = [
               inputs.stylix.homeModules.stylix
               inputs.nixvim.homeModules.nixvim
               inputs.sops-nix.homeModules.sops
             ];
+          };
           }
         ];
       };

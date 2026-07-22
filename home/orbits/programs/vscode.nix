@@ -11,24 +11,16 @@ let
     };
   };
 
-  tokyonight-moon = buildVscodeMarketplaceExtension {
+  everforest-theme = buildVscodeMarketplaceExtension {
     mktplcRef = {
-      name = "tokyo-night-moon";
-      publisher = "PatrickNasralla";
-      version = "1.1.4";
-      sha256 = "sha256-8rUbsDCk7JHSN4vn+TNTmIrx8ma53hH/1x0trqDwU7Y=";
+      name = "everforest-pro";
+      publisher = "andreilucaci";
+      version = "2.0.0";
+      sha256 = "sha256-6AwQzOe9FAsXAQQiPTn/g0PrNc+1v50Ritdy53Py22g=";
     };
   };
 
-  pokemon = buildVscodeMarketplaceExtension {
-    mktplcRef = {
-      name = "vscode-pokemon";
-      publisher = "jakobhoeg";
-      version = "3.2.2";
-      sha256 = "sha256-1y70n3y6ye1powXoZ7ulYV9Sv1NBW84StzAhHSoj+P4=";
-    };
-  };
-in
+ in
 {
   programs.vscode = {
     enable = true;
@@ -39,7 +31,7 @@ in
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         # theme
-        tokyonight-moon
+        everforest-theme
         symbols
         # git
         donjayamanne.githistory
@@ -56,8 +48,6 @@ in
         naumovs.color-highlight
         jnoortheen.nix-ide
 
-        # 4fun
-        pokemon
 
       ];
       keybindings = [ ];
@@ -84,8 +74,7 @@ in
         };
 
         "explorer.compactFolders" = false;
-        "explorer.fileNesting.enabled" = true;
-        "explorer.sortOrder" = "foldersNestsFiles";
+        "explorer.fileNesting.enabled" = false;
         "explorer.confirmDelete" = false;
         "explorer.confirmDragAndDrop" = false;
         "explorer.confirmPasteNative" = false;
@@ -107,7 +96,7 @@ in
 
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
-        "workbench.colorTheme" = "Tokyo Night Moon";
+        "workbench.colorTheme" = "Everforest Pro Dark Vibrant";
         "workbench.iconTheme" = "symbols";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
