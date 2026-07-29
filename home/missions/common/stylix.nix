@@ -9,7 +9,7 @@
 let
   cursorName = "Bibata-Modern-Ice";
   cursorPkg = pkgs.bibata-cursors;
-  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
+  base16SchemeDefault = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
 in
 {
   stylix = {

@@ -37,11 +37,8 @@ in
     nixpkgs.useGlobalPackages = true;
     package = pkgs.neovim-unwrapped;
 
-    colorschemes.everforest = {
+    colorschemes.kanagawa = {
       enable = true;
-      settings = {
-        background = "hard";
-      };
     };
 
     extraLuaPackages =
