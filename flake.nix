@@ -70,7 +70,7 @@
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {
-              home-manager.users.g8 = ./home/missions/00-sun;
+              home-manager.users.g8 = ./home/planets/00-sun;
               home-manager.extraSpecialArgs = { inherit inputs outputs; };
               home-manager.sharedModules = [
                 inputs.sops-nix.homeModules.sops
@@ -100,7 +100,7 @@
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {
-              users.g8 = ./home/missions/05-jupiter;
+              users.g8 = ./home/planets/05-jupiter;
               extraSpecialArgs = { inherit inputs outputs; };
               sharedModules = [
                 inputs.sops-nix.homeModules.sops
@@ -124,7 +124,7 @@
             home-manager = {
               useUserPackages = true;
               users.administrador.imports = [
-                ./home/missions/06-saturn
+                ./home/planets/06-saturn
               ];
               backupFileExtension = "backup";
             extraSpecialArgs = { inherit inputs outputs; };

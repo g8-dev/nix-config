@@ -12,11 +12,11 @@
 {
 
   imports = [
-    ../missions/common/dependencies.nix
-    ../missions/common/programs.nix
-    ../missions/common/services.nix
-    ../missions/common/stylix.nix
-    ../missions/common/sops.nix
+    ../planets/common/dependencies.nix
+    ../planets/common/programs.nix
+    ../planets/common/services.nix
+    ../planets/common/stylix.nix
+    ../planets/common/sops.nix
   ];
 
   home = {

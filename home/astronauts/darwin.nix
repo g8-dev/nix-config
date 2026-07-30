@@ -1,11 +1,11 @@
 { lib, pkgs, outputs, ... }: {
 
   imports = [
-    ../missions/common/programs.nix
-    ../missions/common/services.nix
-    ../missions/common/sops.nix
-    ../missions/common/sops-darwin.nix
-    ../missions/common/stylix.nix
+    ../planets/common/programs.nix
+    ../planets/common/services.nix
+    ../planets/common/sops.nix
+    ../planets/common/sops-darwin.nix
+    ../planets/common/stylix.nix
   ];
 
   home = {
