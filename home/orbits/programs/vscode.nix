@@ -16,7 +16,7 @@ let
       name = "kanagawa";
       publisher = "qufiwefefwoyn";
       version = "1.5.1";
-      sha256 = "sha256-6AwQzOeaFAsXAQQiPTn/g0PrNc+1v50Ritdy53Py22g=";
+      sha256 = "sha256-AGGioXcK/fjPaFaWk2jqLxovUNR59gwpotcSpGNbj1c=";
     };
   };
 
@@ -96,7 +96,7 @@ let
 
         "window.titleBarStyle" = "native";
         "window.commandCenter" = false;
-        "workbench.colorTheme" = "Everforest Pro Dark Vibrant";
+        "workbench.colorTheme" = "Kanagawa";
         "workbench.iconTheme" = "symbols";
         "workbench.startupEditor" = "newUntitledFile";
         "workbench.editor.labelFormat" = "short";
