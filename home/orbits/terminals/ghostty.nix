@@ -1,12 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+
 {
   programs.ghostty = {
     enable = true;
-    package = pkgs.ghostty-bin;
+    package = lib.mkDefault pkgs.ghostty;
     enableZshIntegration = true;
-    #   installVimSyntax = true;
+
     settings = {
       font-family = "MonoLisa Nerd Font";
-   };
+    };
+  }
+  // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
+    package = pkgs.ghostty-bin;
   };
 }

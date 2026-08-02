@@ -77,7 +77,7 @@
       initContent = ''
         unset -v SSH_ASKPASS
         export GITHUB_TOKEN=$(cat ${config.sops.secrets.github-token.path})
-        ${pkgs.krabby}/bin/krabby random 1-3 --no-variant --no-title
+        ${pkgs.microfetch}/bin/microfetch
       '';
       shellAliases = {
         cjpg = "mogrify -format jpg *.png && rm *.png";

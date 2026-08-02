@@ -20,7 +20,6 @@
     ../common/login/greet
 
     # Choice Interface (WM and/or DE)
-    #    ../common/interfaces/DE/gnome.nix
     ../common/interfaces/WM/hyprland.nix
 
     # Active services
