@@ -76,7 +76,7 @@
       syntaxHighlighting.enable = true;
       initContent = ''
         unset -v SSH_ASKPASS
-        export GITHUB_TOKEN=$(cat ${config.sops.secrets.github-login-token.path})
+        export GITHUB_TOKEN=$(cat ${config.sops.secrets.github-token.path})
         ${pkgs.krabby}/bin/krabby random 1-3 --no-variant --no-title
       '';
       shellAliases = {

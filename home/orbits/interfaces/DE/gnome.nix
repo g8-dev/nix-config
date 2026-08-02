@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
     ../../browsers/firefox.nix
     ../../browsers/chromium.nix
@@ -8,4 +8,5 @@
     ../../terminals/kitty.nix
     ../../neovim
   ];
+
 }

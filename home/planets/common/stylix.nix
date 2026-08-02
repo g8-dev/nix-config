@@ -18,11 +18,11 @@ in
     polarity = "dark";
     base16Scheme = base16SchemeDefault;
     imageScalingMode = "fill";
-    cursor = {
-      name = cursorName;
-      package = cursorPkg;
-      size = 24;
-    };
+    # cursor = {
+    #   name = cursorName;
+    #   package = cursorPkg;
+    #   size = 24;
+    # };
     fonts = {
       monospace = {
         name = "JetBrainsMonoNL Nerd Font";
@@ -81,21 +81,21 @@ in
   };
 
   gtk = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
-    enable = true;
-    iconTheme = {
-      name = lib.mkForce "Colloid-Dark";
-      package = pkgs.colloid-icon-theme;
+    # enable = true;
+    # iconTheme = {
+    #   name = lib.mkForce "Colloid-Dark";
+    #   package = pkgs.colloid-icon-theme;
 
-    };
-    cursorTheme = {
-      name = cursorName;
-      size = 32;
-    };
+    # };
+    # cursorTheme = {
+    #   name = cursorName;
+    #   size = 32;
+    # };
   };
 
-  home.sessionVariables = {
-    XCURSOR_THEME = cursorName;
-    XCURSOR_SIZE = "32";
-  };
+  # home.sessionVariables = {
+  #   XCURSOR_THEME = cursorName;
+  #   XCURSOR_SIZE = "32";
+  # };
 
 }

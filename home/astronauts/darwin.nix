@@ -4,7 +4,6 @@
     ../planets/common/programs.nix
     ../planets/common/services.nix
     ../planets/common/sops.nix
-    ../planets/common/sops-darwin.nix
     ../planets/common/stylix.nix
   ];
 
@@ -40,4 +39,5 @@
   targets.darwin.copyApps.enable = true;
   systemd.user.startServices = "sd-switch";
 
+  sops.age.keyFile = lib.mkForce "/Users/administrador/.config/sops/age/keys.txt";
 }

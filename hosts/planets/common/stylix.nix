@@ -11,15 +11,14 @@ in
 
   stylix = {
     enable = true;
-    image = ../wallpapers/wallpaper.png;
     autoEnable = true;
     polarity = "dark";
     base16Scheme = base16SchemeDefault;
-    cursor = {
-      name = cursorName;
-      package = cursorPkg;
-      size = 24;
-    };
+    # cursor = {
+    #   name = cursorName;
+    #   package = cursorPkg;
+    #   size = 24;
+    # };
     fonts = {
       monospace = {
         name = "JetBrainsMonoNL Nerd Font";

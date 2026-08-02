@@ -10,6 +10,7 @@
     ../common/hardware/logitech.nix
 
     # Hardware Gpu (if exist)
+    ../common/hardware/gpu/nvidia-prime.nix
 
     # NIXOS CONFIG ------------------------------------
 
@@ -17,43 +18,35 @@
     ../common
 
     # Boot initial (grub or systemd)
-    ../common/boot/grub.nix
+    ../common/boot/systemd-boot.nix
 
     # Login Manager
     ../common/login/gdm.nix
 
     # Choice Interface (WM and/or DE)
 
-    ../common/interfaces/WM/hyprland.nix
     ../common/interfaces/DE/gnome.nix
 
     # Active services
     ../common/services/backlight.nix
-    ../common/services/flatpak.nix
 
     ../common/services/temperature.nix
     ../common/services/dev
 
-    ../common/services/gaming.nix
-
     # User
     ../common/users/g8.nix
-    ../stylix.nix
+    ../common/stylix.nix
 
   ];
 
   # SYSTEM CONFIGS --------------------------------------
 
-  console.keyMap = "br-abnt2";
+  
   # Set the keyboard layout for Xorg (initial setting for GNOME)
+  console.keyMap = "br-abnt2";
   services.xserver.xkb.layout = "br";
   services.xserver.xkb.variant = "abnt2";
 
   networking.hostName = "uranus";
 
-  # garante diretório e permissões
-  systemd.tmpfiles.rules = [
-    "d /var/lib/opencloud 0755 opencloud opencloud -"
-    "d /var/lib/opencloud/config 0755 opencloud opencloud -"
-  ];
 }

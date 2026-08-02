@@ -127,21 +127,40 @@
                 ./home/planets/06-saturn
               ];
               backupFileExtension = "backup";
-            extraSpecialArgs = { inherit inputs outputs; };
-            sharedModules = [
-              inputs.stylix.homeModules.stylix
-              inputs.nixvim.homeModules.nixvim
-              inputs.sops-nix.homeModules.sops
-            ];
-          };
+              extraSpecialArgs = { inherit inputs outputs; };
+              sharedModules = [
+                inputs.stylix.homeModules.stylix
+                inputs.nixvim.homeModules.nixvim
+                inputs.sops-nix.homeModules.sops
+              ];
+            };
           }
         ];
       };
 
       darwinPackages = self.darwinConfigurations."saturn".pkgs;
+
+      # Uranus --------------------------------------------------------------
+
+      homeConfigurations."g8@uranus" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [
+          inputs.sops-nix.homeModules.sops
+          inputs.stylix.homeModules.stylix
+          inputs.nixvim.homeModules.nixvim
+          ./home/planets/07-uranus
+        ];
+      };
+      nixosConfigurations.uranus = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          inputs.sops-nix.nixosModules.sops
+          inputs.stylix.nixosModules.stylix
+          ./hosts/planets/07-uranus
+        ];
+      };
     };
 
-    # Uranus --------------------------------------------------------------
-
-    # Neptune -------------------------------------------------------------
+  # Neptune -------------------------------------------------------------
 }

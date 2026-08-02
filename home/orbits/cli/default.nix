@@ -2,7 +2,7 @@
 {
 
   imports = [
-    ./himalaya.nix
+    #./himalaya.nix
     ./khal.nix
     ./ncspot.nix
   ];

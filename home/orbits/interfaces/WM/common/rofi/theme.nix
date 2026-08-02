@@ -1,11 +1,15 @@
 { config, ... }:
-let inherit (config.lib.formats.rasi) mkLiteral;
-in {
-  "*" = { border-radius = mkLiteral "2px"; };
+let
+  inherit (config.lib.formats.rasi) mkLiteral;
+in
+{
+  "*" = {
+    border-radius = mkLiteral "2px";
+  };
 
   "configuration" = {
     modi = "run,drun,window";
-    icon-theme = config.gtk.iconTheme.name;
+    # icon-theme = config.gtk.iconTheme.name;
     show-icons = true;
     drun-display-format = "{icon} {name}";
     location = 0;
@@ -30,7 +34,10 @@ in {
 
   };
   "inputbar" = {
-    children = map mkLiteral [ "prompt" "entry" ];
+    children = map mkLiteral [
+      "prompt"
+      "entry"
+    ];
     padding = mkLiteral "2px";
   };
 
@@ -54,9 +61,15 @@ in {
     lines = 5;
 
   };
-  "element" = { padding = mkLiteral "5px"; };
-  "element-icon" = { size = mkLiteral "25px"; };
-  "mode-switcher" = { spacing = 0; };
+  "element" = {
+    padding = mkLiteral "5px";
+  };
+  "element-icon" = {
+    size = mkLiteral "25px";
+  };
+  "mode-switcher" = {
+    spacing = 0;
+  };
   "button" = {
     padding = mkLiteral "10px";
     vertical-align = mkLiteral "0.5";
@@ -73,4 +86,3 @@ in {
 
   };
 }
-

@@ -10,7 +10,6 @@
     swayidle
     swayimg
     wdisplays
-    wl-clipboard-rs
     wf-recorder
     wtype
     rofi-rbw-wayland

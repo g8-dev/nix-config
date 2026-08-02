@@ -1,9 +1,9 @@
-{ config, ... }: {
+{ ... }: {
   services = {
     playerctld.enable = true;
     mpd = {
       enable = true;
-      musicDirectory = "${config.home.homeDirectory}/Nextcloud/Music";
+      # musicDirectory = "${config.home.homeDirectory}/Nextcloud/Music";
       extraConfig = ''
         audio_output {
           type "pipewire"
@@ -11,7 +11,6 @@
         }
       '';
     };
-    caffeine.enable = true;
     kdeconnect = {
       enable = true;
       indicator = true;

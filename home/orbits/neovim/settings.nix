@@ -4,5 +4,8 @@
     globals = {
       mapleader = ";";
     };
+    clipboard = {
+    register = "unnamedplus";
+    };
   };
 }
