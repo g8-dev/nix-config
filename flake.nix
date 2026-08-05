@@ -78,6 +78,17 @@
 
       # Mercury -------------------------------------------------------------
 
+      homeConfigurations."g8@zfold5" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."aarch64-linux";
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [
+          inputs.sops-nix.homeModules.sops
+          inputs.stylix.homeModules.stylix
+          inputs.nixvim.homeModules.nixvim
+          ./home/planets/05-jupiter
+        ];
+      };
+
       # Venus ---------------------------------------------------------------
 
       # Earth ---------------------------------------------------------------
