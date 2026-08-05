@@ -79,7 +79,7 @@
       # Mercury -------------------------------------------------------------
 
       homeConfigurations."g8@mercury" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."aarch_64-linux";
+        pkgs = nixpkgs.legacyPackages."aarch64-linux";
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [
           inputs.sops-nix.homeModules.sops
