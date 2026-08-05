@@ -1,10 +1,10 @@
-{ lib, inputs, ... }:
+{ inputs, ... }:
 
 {
   imports = [
-    #../../astronauts/g8.nix
-    #   ../../orbits/cli
-    #../../orbits/neovim
+    ../../astronauts/g8.nix
+    ../../orbits/cli
+    ../../orbits/neovim
 
     inputs.sops-nix.homeModules.sops
     inputs.stylix.homeModules.stylix
@@ -12,7 +12,6 @@
 
   ];
 
-  home.stateVersion = lib.mkDefault "24.05";
   nixpkgs.config = {
     allowUnfree = true;
   };
