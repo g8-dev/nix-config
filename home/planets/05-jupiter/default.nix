@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 let
   waylandArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
 
@@ -29,6 +29,6 @@ in
   #  BROWSER = "";
   #};
 
-  stylix.image = ./wallpaper.png;
+  stylix.image = ./jupiter.png;
 
 }

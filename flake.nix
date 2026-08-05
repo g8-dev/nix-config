@@ -25,11 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Third party programs, packaged with nix
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -38,7 +33,6 @@
       nixpkgs,
       nix-darwin,
       home-manager,
-      nixgl,
       ...
     }@inputs:
     let
@@ -46,6 +40,7 @@
       domain = "g8-space.com.br";
       forEachSystem = nixpkgs.lib.genAttrs [
         "x86_64-linux"
+        "aarch64-linux"
         "x86_64-darwin"
         "aarch64-darwin"
       ];
