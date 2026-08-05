@@ -92,7 +92,7 @@
           inputs.sops-nix.homeModules.sops
           inputs.stylix.homeModules.stylix
           inputs.nixvim.homeModules.nixvim
-          ./home/planets/01-mercury
+          ./hosts/planets/01-mercury
         ];
       };
 
