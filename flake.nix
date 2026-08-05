@@ -89,9 +89,11 @@
         pkgs = import nixpkgs-24 { system = "aarch64-linux"; };
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [
-          ./hosts/planets/01-mercury
+          inputs.sops-nix.homeModules.sops
+          inputs.stylix.homeModules.stylix
+          inputs.nixvim.homeModules.nixvim
+          ./home/planets/01-mercury
         ];
-
       };
 
       # Venus ---------------------------------------------------------------
