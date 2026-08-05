@@ -5,6 +5,7 @@
 
     # Main Flakes
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-24.url = "github:NixOS/nixpkgs/nixos-24.05";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -20,6 +21,10 @@
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
 
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,6 +38,8 @@
       nixpkgs,
       nix-darwin,
       home-manager,
+      nix-on-droid,
+      nixpkgs-24,
       ...
     }@inputs:
     let
@@ -78,8 +85,8 @@
 
       # Mercury -------------------------------------------------------------
 
-      homeConfigurations."g8@mercury" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."aarch64-linux";
+      nixOnDroidConfigurations.mercury = nix-on-droid.lib.nixOnDroidConfiguration {
+        pkgs = import nixpkgs-24 { system = "aarch64-linux"; };
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [
           inputs.sops-nix.homeModules.sops
@@ -87,6 +94,7 @@
           inputs.nixvim.homeModules.nixvim
           ./home/planets/01-mercury
         ];
+
       };
 
       # Venus ---------------------------------------------------------------
