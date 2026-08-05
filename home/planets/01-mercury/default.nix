@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../astronauts/g8.nix
+    #../../astronauts/g8.nix
     ../../orbits/cli
     ../../orbits/neovim
 
