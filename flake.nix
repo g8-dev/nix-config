@@ -89,10 +89,7 @@
         pkgs = import nixpkgs-24 { system = "aarch64-linux"; };
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [
-          inputs.sops-nix.homeModules.sops
-          inputs.stylix.homeModules.stylix
-          inputs.nixvim.homeModules.nixvim
-          ./home/planets/01-mercury
+          ./hosts/planets/01-mercury
         ];
 
       };
