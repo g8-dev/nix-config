@@ -20,6 +20,7 @@
       xprop
       cacert
       wget
+      usbutils
 
     ];
 }

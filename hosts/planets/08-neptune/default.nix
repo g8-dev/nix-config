@@ -21,11 +21,11 @@
     ../common/boot/grub.nix
 
     # Login Manager
-    ../common/login/sddm.nix
+    ../common/login/gdm.nix
 
     # Choice Interface (WM and/or DE)
 
-    ../common/interfaces/DE/kde.nix
+    ../common/interfaces/DE/gnome.nix
 
     # Active services
     ../common/services/backlight.nix

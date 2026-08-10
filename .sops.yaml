@@ -1,8 +1,10 @@
 keys:
   - &uranus age1jqyjprxdn3swn9afx5v3ckz04tun8t0f7kh36qeu69uqjlvg6ypq99lrux
+  - &neptune age124a9emu6u3ajzfa590se7t279wvs09et5pqg58t9u3qm8qztm3ms800338
 
 creation_rules:
   - path_regex: ^secrets/common\.yaml$
     key_groups:
       - age:
           - *uranus
+          - *neptune
