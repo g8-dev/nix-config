@@ -20,7 +20,7 @@
   ];
 
   home = {
-    username = "g8";
+    username = "g8-fuentes";
     homeDirectory = "/home/${config.home.username}";
     stateVersion = "26.05";
   };

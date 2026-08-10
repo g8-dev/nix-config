@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   imports = [
+
+    # HARDWARE ----------------------------------------
 
     # Hardware config (required)
     ./hardware-configuration.nix
@@ -8,41 +10,42 @@
     ../common/hardware/logitech.nix
 
     # Hardware Gpu (if exist)
-
-    ../common/hardware/gpu/amdgpu.nix
+    ../common/hardware/gpu/amd.nix
 
     # NIXOS CONFIG ------------------------------------
+
+    # global NixOs Config
+    ../common
 
     # Boot initial (grub or systemd)
     ../common/boot/grub.nix
 
     # Login Manager
-    ../common/login/greet
+    ../common/login/sddm.nix
 
     # Choice Interface (WM and/or DE)
-    ../common/interfaces/WM/hyprland.nix
+
+    ../common/interfaces/DE/kde.nix
 
     # Active services
     ../common/services/backlight.nix
-    ../common/services/flatpak.nix
 
     ../common/services/temperature.nix
     ../common/services/dev
 
-    ../common/services/gaming.nix
-
     # User
     ../common/users/g8.nix
-    ../stylix.nix
+    ../common/stylix.nix
 
   ];
 
   # SYSTEM CONFIGS --------------------------------------
 
-  # Custom config
+  # Set the keyboard layout for Xorg (initial setting for GNOME)
   console.keyMap = "us";
   services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.variant = "abnt2";
+  hardware.aic8800.enable = true;
+
   networking.hostName = "neptune";
 
 }

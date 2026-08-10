@@ -25,6 +25,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    aic8800.url = "github:kurumeii/aic8800-nix";
+
   };
 
   outputs =
@@ -166,7 +168,27 @@
           ./hosts/planets/07-uranus
         ];
       };
-    };
 
-  # Neptune -------------------------------------------------------------
+      # Neptune -------------------------------------------------------------
+
+      homeConfigurations."g8-fuentes@neptune" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [
+          inputs.sops-nix.homeModules.sops
+          inputs.stylix.homeModules.stylix
+          inputs.nixvim.homeModules.nixvim
+          ./home/planets/08-neptune
+        ];
+      };
+      nixosConfigurations.neptune = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          inputs.aic8800.nixosModules.default
+          inputs.sops-nix.nixosModules.sops
+          inputs.stylix.nixosModules.stylix
+          ./hosts/planets/08-neptune
+        ];
+      };
+    };
 }

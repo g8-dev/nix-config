@@ -12,9 +12,9 @@
     ../../common
     ../sops.nix
   ];
-  users.users.g8 = {
+  users.users.g8-fuentes = {
     isNormalUser = true;
-    description = "g8";
+    description = "g8-fuentes";
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -46,7 +46,7 @@
     nh = {
       enable = true;
       clean.enable = true;
-      flake = "${config.users.users.g8.home}/nix-config";
+      flake = "${config.users.users.g8-fuentes.home}/nix-config";
     };
   };
 
@@ -71,7 +71,7 @@
   environment = {
     systemPackages = with pkgs; [ sops ];
     sessionVariables = {
-      NH_FLAKE = "${config.users.users.g8.home}/nix-config";
+      
       XDG_CACHE_HOME = "\${HOME}/.cache";
       XDG_CONFIG_HOME = "\${HOME}/.config";
       XDG_BIN_HOME = "\${HOME}/.local/bin";
