@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
 
   imports = [ ../../common ];
@@ -29,9 +29,16 @@
     };
     gc.automatic = true;
     extraOptions = ''
-      ssl-cert-file = /etc/nix/ca_cert.pem
       extra-platforms = x86_64-linux x86_64-darwin aarch64-darwin
+      ssl-cert-file = /etc/nix/ca_cert.pem
     '';
+  };
+  security.pki.installCACerts = true;
+
+  launchd.daemons.nix-daemon.environment = {
+    NIX_SSL_CERT_FILE = "/etc/nix/ca_cert.pem";
+    SSL_CERT_FILE = "/etc/nix/ca_cert.pem";
+    REQUEST_CA_BUNDLE = "/etc/nix/ca_cert.pem";
   };
 
   homebrew = {
